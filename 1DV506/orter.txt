@@ -1,0 +1,10 @@
+75242;Uppsala;
+72211;Västerås;
+23642;Höllviken;
+96133;Boden;
+28792;Ljungby;
+35243;Växjö;
+51000;Jönköping;
+90325;Umeå;
+28391;Älmhult;
+98010;Kiruna;
