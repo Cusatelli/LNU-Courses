@@ -29,6 +29,8 @@ This plan is for students starting the programme the fall semester 2015 and late
 
 ### Disclaimer:
 ```
-These assignments are not meant to be copy-pasted and handed in. 
-They are here to be used as inspiration when making your own solution to the problem.
+This is a student repository and all assignments are kept in this repository only as a resource which 
+other students can take part of. Please do not copy - paste any of these assignments as this is violating 
+the LNU rules which can lead to the termination of your reserved position at the university. Feel free 
+however to look and take inspiration from these assignments!
 ```
