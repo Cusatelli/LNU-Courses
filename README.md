@@ -2,6 +2,10 @@
 # NGDPV - Software Technology - 180hp - Växjö
 
 #### Study Plan for the Programme:
+```
+This plan is for students starting the programme the fall semester 2015 and later.
+```
+
 | Year | Period | Course - 50% | Course - 50% |
 |---|---|---|---|
 | 1 | SP 1 | 1MA441 Basic Mathematics for Computer Science | 1DV005 Problem solving and Modelling (Swedish students) |
@@ -16,3 +20,13 @@
 |  | SP 2 | 1DV523 Server-based Web Programming | 2DV513 Database Theory |
 |  | SP 3 | 2DV50E Degree Project at Bachelor Level | 2DV604 Software Architectures |
 |  | SP 4 |  | elective course |
+
+#### Included Completed Courses:
+* 1DV506
+* 1DV507
+
+### Disclaimer:
+```
+These assignments are not meant to be copy-pasted and handed in. 
+They are here to be used as inspiration when making your own solution to the problem.
+```
