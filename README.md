@@ -22,9 +22,10 @@ This plan is for students starting the programme the fall semester 2015 and late
 |  | SP 4 |  | elective course |
 
 #### Completed Courses:
+* 1DV510
 * 1DV506
 * 1DV507
-* 1DV510
+* 1DT301
 
 ### Disclaimer:
 ```
