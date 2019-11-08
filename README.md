@@ -21,9 +21,10 @@ This plan is for students starting the programme the fall semester 2015 and late
 |  | SP 3 | 2DV50E Degree Project at Bachelor Level | 2DV604 Software Architectures |
 |  | SP 4 |  | elective course |
 
-#### Included Completed Courses:
+#### Completed Courses:
 * 1DV506
 * 1DV507
+* 1DV510
 
 ### Disclaimer:
 ```
