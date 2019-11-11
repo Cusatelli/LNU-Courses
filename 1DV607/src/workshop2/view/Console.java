@@ -2,6 +2,10 @@ package workshop2.view;
 
 public class Console {
 	
+	public Console() {
+		
+	}
+	
 	public void start() {
 		System.out.print("\nWhat would you like to do?"
 				+ "\n------------- MEMBER ---------------"
@@ -52,7 +56,11 @@ public class Console {
 	}
 	
 	public void exit() {
-		
+		System.out.println("Exit");
+	}
+	
+	public void invalid() {
+		System.out.println("Invalid input");
 	}
 	
 }

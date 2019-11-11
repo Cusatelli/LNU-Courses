@@ -7,10 +7,9 @@ public class InputHandler {
 	Console console = new Console();
 	
 	public enum INPUT { 
-		Register_Member, List, Delete_Member, Edit_Member, View,
-		Register_Boat, Delete_Boat, Edit_Boat, Exit_Application
+		Member, Register_Member, List, Delete_Member, Edit_Member, View,
+		Boat, Register_Boat, Delete_Boat, Edit_Boat, Exit_Application
 	}
-	private INPUT input;
 	
 	public void start(int input) {
 		switch(input) {
@@ -18,31 +17,62 @@ public class InputHandler {
 			Program.quit();
 			break;
 		case 1:
-			console.m_register();
+			register(INPUT.Member);
 			break;
 		case 2:
 			console.list();
 			break;
 		case 3:
-			console.m_delete();
+			delete(INPUT.Member);
 			break;
 		case 4:
-			console.m_edit();
+			edit(INPUT.Member);
 			break;
 		case 5:
 			console.view();
 			break;
 		case 6:
-			console.b_register();
+			register(INPUT.Boat);
 			break;
 		case 7:
-			console.b_delete();
+			delete(INPUT.Boat);
 			break;
 		case 8:
-			console.b_edit();
+			edit(INPUT.Boat);
 			break;
 		default:
+			console.invalid();
 			break;
 		}
+	}
+	
+	private void register(INPUT input) {
+		if(input == INPUT.Member) {
+			console.m_register();
+			
+		} else if(input == INPUT.Boat) {
+			console.b_register();
+			
+		} else { console.invalid(); }
+	}
+	
+	private void delete(INPUT input) {
+		if(input == INPUT.Member) {
+			console.m_delete();
+			
+		} else if(input == INPUT.Boat) {
+			console.b_delete();
+			
+		} else { console.invalid(); }		
+	}
+	
+	private void edit(INPUT input) {
+		if(input == INPUT.Member) {
+			console.m_edit();
+			
+		} else if(input == INPUT.Boat) {
+			console.b_edit();
+			
+		} else { console.invalid(); }
 	}
 }

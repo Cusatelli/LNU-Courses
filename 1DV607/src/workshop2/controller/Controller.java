@@ -13,14 +13,13 @@ public class Controller {
 	
 	private Scanner scan;
 	
-	public void start(Debug debug) {
-		debug.message("Controller.start()", "start() Initiated!", true);
-		
+	public void start() {
 		// Debug Tool:
+		debug = new Debug();
+		debug.setLaunchMode();
 		debug.message("Controller.start()", "Setting Debug...", "in Field variable.", true);
-		this.debug = debug;
 		debug.message("Controller.start()", "Debug in Field Initialized!", true);
-		
+
 		// Scanner:
 		debug.message("Controller.start()", "Setting Scanner...", "in Field variable.", true);
 		scan = new Scanner(System.in);
@@ -28,20 +27,19 @@ public class Controller {
 		
 		// Input Handler:
 		debug.message("Controller.start()", "Setting InputHandler...", "in Field variable.", true);
-		InputHandler inputHandler = new InputHandler();
+		inputHandler = new InputHandler();
 		debug.message("Controller.start()", "InputHandler in Field Initialized!", true);
 
+		debug.message("Controller.start()", "start() Initiated!", true);
 		// Infinite Loop:
 		debug.message("Controller.start()", "Initiating update()...", true);
 		while(Program.PROGRAM_IS_RUNNING) { update(); } 
 	}
 	
 	public void update() {
-		debug.message("Controller.update()", "update() Initiated!", true);
 		console.start();
 		if(scan.hasNextInt()) {
-			int input = scan.nextInt();
-			if(input > 0 && input < 9) { inputHandler.start(input); }
+			inputHandler.start(scan.nextInt());
 		}
 	}
 	
