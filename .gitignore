@@ -5,3 +5,6 @@ Plain Text Files/
 
 #Ignore 'Libraries' Folder:
 Libraries/
+
+#Ignore Incomplete Course Assignments:
+1DV607/
