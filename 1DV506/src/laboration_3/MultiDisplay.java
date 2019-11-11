@@ -1,6 +1,7 @@
 package laboration_3;
 
 public class MultiDisplay {
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 		MultiDisplay md = new MultiDisplay();
 		
