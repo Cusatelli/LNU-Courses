@@ -1,25 +1,25 @@
 package workshop2.view;
 
-public class View {
+public class Console {
 	
 	public void start() {
 		System.out.println("");
 	}
 	
 	public void Member() {
-		View view = new View() {
+		Console view = new Console() {
 			public void Add() {
-				
+				System.out.println("Adding Member");
 			};
 			
 			public void Remove() {
-				
+				System.out.println("Removing Member");
 			};
 		};
 	}
 	
 	public void Boat() {
-		View view = new View() {
+		Console view = new Console() {
 			public void Add() {
 				
 			};
