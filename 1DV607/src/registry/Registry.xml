@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<registry>
+	<member>
+		<id>A342</id>
+		<name>John Doe</name>
+		<socialSecurityNumber>196702274289</socialSecurityNumber>
+		<boat>
+			<id>BC41</id>
+			<length>2.5</length>
+			<type>Sailboat</type>
+		</boat>
+	</member>
+</registry>
