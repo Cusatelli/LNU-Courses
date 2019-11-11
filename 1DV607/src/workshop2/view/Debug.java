@@ -7,25 +7,41 @@ import java.util.Scanner;
 import workshop2.Program;
 
 public class Debug {
-	private static boolean DEBUG_MODE;
-	private static Scanner scan;
+	private boolean DEBUG_MODE;
+	private Scanner scan;
 	
-	public static void message(String message, boolean showTime) {
+	public void message(String method, String message, String additionalInformation, boolean showTime) {
 		if(DEBUG_MODE) {
 			StringBuilder stringBuilder = new StringBuilder();
 			if(showTime) { 
 				stringBuilder.append("[" + getCurrentTime() + "]"); 
 			}
-			stringBuilder.append("[Debug Mode] " + message);
+			stringBuilder.append("[Debug Mode] " + method
+					+ "\n|_\t   " + message
+					+ "\n|__\t      " + additionalInformation
+					+ "\n");
 			System.out.println(stringBuilder.toString());
 		}
 	}
 	
-	public static boolean getMode() {
+	public void message(String method, String message, boolean showTime) {
+		if(DEBUG_MODE) {
+			StringBuilder stringBuilder = new StringBuilder();
+			if(showTime) { 
+				stringBuilder.append("[" + getCurrentTime() + "]"); 
+			}
+			stringBuilder.append("[Debug Mode] " + method
+					+ "\n|_\t   " + message
+					+ "\n");
+			System.out.println(stringBuilder.toString());
+		}
+	}
+	
+	public boolean getMode() {
 		return DEBUG_MODE;
 	}
 	
-	public static boolean setLaunchMode() {
+	public boolean setLaunchMode() {
 		System.out.print("Do you wish to launch in [Debug Mode]?"
 			+ "\n[1] Yes"
 			+ "\n[2] No"
@@ -44,7 +60,7 @@ public class Debug {
 		return DEBUG_MODE;
 	}
 	
-	private static String getCurrentTime() {
+	private String getCurrentTime() {
 		SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
 		Date date = new Date(System.currentTimeMillis());
 		return formatter.format(date);
