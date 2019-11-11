@@ -5,7 +5,7 @@ import java.io.File;
 public class PrintJavaMain {
 	public static void main(String[] args) {
 		PrintJavaMain test = new PrintJavaMain();
-		File directory = new File("src/ev222hh_assign1/");
+		File directory = new File("src/assignment_1/");
 		System.out.println("┐");
 		test. printAllJavaFiles(directory);
 		System.out.println("┘");
