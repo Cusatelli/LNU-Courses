@@ -1,6 +1,6 @@
 package workshop2.view;
 
-public class Console {
+public class Console extends ConsoleHandler {
 	
 	public Console() {
 		
