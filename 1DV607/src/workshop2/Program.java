@@ -8,7 +8,7 @@ public class Program {
 	public static boolean PROGRAM_IS_RUNNING = true;
 	
 	public static void main(String[] args) {
-		Registry registry = new Registry();
+		Registry registry = new Registry("./registry/database");
 		Console console = new Console();
 		Controller controller = new Controller(registry, console);
 		controller.start(); // Run program. 

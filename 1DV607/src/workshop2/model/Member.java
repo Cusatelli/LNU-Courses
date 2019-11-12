@@ -3,6 +3,8 @@ package workshop2.model;
 import java.io.Serializable;
 
 public class Member implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
 	private int ID;
 	private String name;
 	private int socialSecurityNumber;
@@ -14,7 +16,7 @@ public class Member implements Serializable {
 	}
 
 	public int getID() { return ID; }
-	public void setID(int iD) { ID = iD; }
+	public void setID(int ID) { this.ID = ID; }
 
 	public String getName() { return name; }
 	public void setName(String name) { this.name = name; }

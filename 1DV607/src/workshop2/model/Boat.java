@@ -3,6 +3,8 @@ package workshop2.model;
 import java.io.Serializable;
 
 public class Boat implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
 	private int ID;
 	private double length;
 	public enum TYPE { Sailboat, Motorsailer, Canoe, Kayak, Other }
