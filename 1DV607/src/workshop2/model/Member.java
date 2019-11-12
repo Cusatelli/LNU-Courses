@@ -1,12 +1,16 @@
 package workshop2.model;
 
-public class Member {
+import java.io.Serializable;
+
+public class Member implements Serializable {
 	private int ID;
 	private String name;
 	private int socialSecurityNumber;
 	
-	public Member() {
-		//TODO: Add boats to member...
+	public Member(int ID, String name, int socialSecurityNumber) {
+		this.ID = ID;
+		this.name = name;
+		this.socialSecurityNumber = socialSecurityNumber;
 	}
 
 	public int getID() { return ID; }

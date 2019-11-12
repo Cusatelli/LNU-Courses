@@ -1,6 +1,8 @@
 package workshop2.model;
 
-public class Boat {
+import java.io.Serializable;
+
+public class Boat implements Serializable {
 	private int ID;
 	private double length;
 	public enum TYPE { Sailboat, Motorsailer, Canoe, Kayak, Other }
