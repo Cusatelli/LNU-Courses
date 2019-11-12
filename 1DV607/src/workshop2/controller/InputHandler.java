@@ -49,7 +49,6 @@ public class InputHandler {
 	private void register(INPUT input) {
 		if(input == INPUT.Member) {
 			console.m_register();
-			
 		} else if(input == INPUT.Boat) {
 			console.b_register();
 			

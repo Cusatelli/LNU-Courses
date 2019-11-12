@@ -10,6 +10,7 @@ public class Controller {
 	Console console = new Console();
 	Debug debug;
 	InputHandler inputHandler;
+	RegistryHandler registryHandler;
 	
 	private Scanner scan;
 	
@@ -29,7 +30,12 @@ public class Controller {
 		debug.message("Controller.start()", "Setting InputHandler...", "in Field variable.", true);
 		inputHandler = new InputHandler();
 		debug.message("Controller.start()", "InputHandler in Field Initialized!", true);
-
+		
+		// Registry Handler:
+		debug.message("Controller.start()", "Setting RegistryHandler...", "in Field variable.", true);
+		registryHandler = new RegistryHandler();
+		debug.message("Controller.start()", "RegistryHandler in Field Initialized!", true);
+		
 		debug.message("Controller.start()", "start() Initiated!", true);
 		// Infinite Loop:
 		debug.message("Controller.start()", "Initiating update()...", true);
