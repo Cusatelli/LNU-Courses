@@ -9,15 +9,7 @@ public class ErrorHandler extends Controller {
 		super(registry, console);
 	}
 
-	public boolean tryAction(UserAction action) {
-		try {
-			return Action(action);
-		} catch (MemberNotFoundException e) {
-			console.memberNotFoundException();
-		} catch (BoatNotFoundException e) {
-			console.boatNotFoundException();
-		}
-		
+	public boolean tryAction() {
 		return false;
 	}
 }
