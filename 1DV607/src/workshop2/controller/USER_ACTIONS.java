@@ -1,14 +1,13 @@
 package workshop2.controller;
 
 public enum USER_ACTIONS {
-		Register_Member, 
-		List, 
+		Register_Member,
+		List,
 		Delete_Member, 
 		Edit_Member, 
 		View,
-		Boat, 
 		Register_Boat, 
 		Delete_Boat, 
-		Edit_Boat, 
-		Exit_Application
+		Edit_Boat,
+		Exit_Application;
 }

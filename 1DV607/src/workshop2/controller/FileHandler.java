@@ -8,7 +8,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class FileHandler {
-	
 	private String path;
 	private File file;
 	

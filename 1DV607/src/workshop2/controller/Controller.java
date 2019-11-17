@@ -15,14 +15,13 @@ public class Controller {
 	// Resources:
 	private Scanner scan;
 	
-	
 	public Controller(Registry registry, Console console) {
 		this.registry = registry;
 		this.console = console;
 	}
 	
-	public void start() {
-		// Initialize news:
+	public void start() {		
+		// Initialize new:
 		scan = new Scanner(System.in);
 		inputHandler = new InputHandler();
 		

@@ -8,8 +8,8 @@ public class Registry {
 	private ArrayList<Member> members;
 	private FileHandler fileHandler;
 	
-	public Registry(String path) {
-		fileHandler = new FileHandler(path);
+	public Registry() {
+		fileHandler = new FileHandler("./registry/database.dat");
 		initialize();
 	}
 	
@@ -28,8 +28,8 @@ public class Registry {
 		fileHandler.writeToFile(members);
 	}
 	
-	public void m_register(String name, int socialSecurityNumber) {
-		Member member = new Member(1, name, socialSecurityNumber);
+	public void m_register(int id, String name, String socialSecurityNumber) {
+		Member member = new Member(id, name, socialSecurityNumber);
 		members.add(member);
 	}
 	

@@ -1,19 +1,12 @@
 package workshop2.view;
 
-import java.util.Scanner;
-
-public class Console {
-	Scanner scan;
+public class Console extends ConsoleHandler {
 
 	// Pattern to check input:
 	String idPattern = "^([a-zA-Z]{1}\\d{3})$"; // One Character & 3 digits.
 	String namePattern = "^\\D[ _a-zA-Z]{2,40}$"; // 2-40 characters.
 	String ssnPattern = "^(\\d{12})$"; // 12 digits. (YYYYMMDDXXXX).
 	String integerPattern = "^(\\d?[0-9]|[1-9]0|[1-9]00|[1-9]000)$"; // 1-4 digit input
-	
-	public Console() {
-		scan = new Scanner(System.in);
-	}
 	
 	public void start() {
 		System.out.print("\nWhat would you like to do?"
@@ -33,30 +26,21 @@ public class Console {
 				+ "\nEnter: ");
 	}
 	
-	public void m_register() {
-		m_getName();
-		String name;
-		if(scan.hasNext(namePattern)) { name = scan.nextLine(); }
-		
-		m_getSSN();
-		int ssn;
-		if(scan.hasNext(ssnPattern)) { ssn = scan.nextInt(); }
-		
-		m_getID();
-		int ID;
-		if(scan.hasNext(idPattern)) { ID = scan.nextInt(); }
-	}
-	
-	private void m_getName() {
+	public void m_setFullName() {
 		System.out.print("Enter Full Name: ");
 	}
 	
-	private void m_getSSN() {
+	public void m_setSocialSecurityNumber() {
 		System.out.print("Enter Social Security Number(YYYYMMDDXXXX): ");
 	}
 	
-	private void m_getID() {
-		System.out.print("Enter ID: ");
+	public void m_setId() {
+		System.out.print("Generating ID...");
+	}
+	
+	public void m_display() {
+		Member member = getMember();
+		
 	}
 
 	public void m_delete() {
@@ -82,6 +66,14 @@ public class Console {
 		System.out.println("List");
 	}
 	
+	public void listType() {
+		System.out.print("\nHow would you like to view the data?"
+				+ "\n[1] Compact List"
+				+ "\n[2] Verbose List"
+				+ "\n[0] Back"
+				+ "\nEnter: ");
+	}
+	
 	public void view() {
 		System.out.println("View");
 	}
@@ -91,7 +83,7 @@ public class Console {
 	}
 	
 	public void invalid() {
-		System.out.println("Invalid input");
+		System.out.println("\nInvalid input");
 	}
 	
 }
