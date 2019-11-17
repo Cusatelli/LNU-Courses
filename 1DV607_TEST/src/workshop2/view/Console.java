@@ -15,7 +15,7 @@ public class Console extends ConsoleHandler {
     private Pattern ssnPattern = Pattern.compile("[0-9]{8}[0-9]{4}");
     private String beforeMessage = "▕▎ ";
 
-    public Console () {
+    public Console() {
     	initialize();
     }
 
@@ -26,13 +26,13 @@ public class Console extends ConsoleHandler {
     public void getListHeader() {
     	printLine(" ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ ");
     	printLine("▕▛▔▔▔▔▔▔▔▜▛▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▜▛▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▜▛▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▜▎");
-        printFormat(listFormat, "ID", "Full Name", "Social Security Number", "Number of boats");
+        printFormat(listFormat, "ID", "First Name", "Social Security Number", "Number of boats");
 		printLine("▕▙▁▁▁▁▁▁▁▟▙▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▟▙▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▟▙▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▟▎");
     	printLine("▕▛▔▔▔▔▔▔▔▜▛▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▜▛▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▜▛▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▜▎");
     }
 
     public void getList(int id, String name, String socialSecurityNumber, int numberOfBoats) {
-    	// Split the SSN by birthdate & 4 last digits:    	
+    	// Split the SSN by birthdate & 4 last digits:
         printFormat(listFormat, id, name, addDashAtSplit(socialSecurityNumber, 0, 8, 12), numberOfBoats);
     }
     
@@ -50,10 +50,10 @@ public class Console extends ConsoleHandler {
     public void m_printData(String name, String socialSecurityNumber, int id) {
     	printLine(" ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ ");
     	printLine("▕▛▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▜▎");
-    	if(name.length() >= 8) {
-			printLine("▕▎ Full Name: " + name + "\t\t\t▕▎");
+    	if(name.length() >= 7) {
+			printLine("▕▎ First Name: " + name + "\t\t\t▕▎");
     	} else {
-            printLine("▕▎ Full Name: " + name + "\t\t\t\t▕▎");
+            printLine("▕▎ First Name: " + name + "\t\t\t\t▕▎");
     	}
         printLine("▕▎ Social Security Number: " + addDashAtSplit(socialSecurityNumber, 0, 8, 12) + "\t▕▎");
         printLine("▕▎ ID: " + id + "\t\t\t\t\t▕▎");
@@ -63,7 +63,7 @@ public class Console extends ConsoleHandler {
     public String m_editName(String name) {
         if (printPolar("Edit name: " + name + "?")) {
         	print(beforeMessage + "Update to");
-            return scanNext();
+        	return scanNext();
         }
         return name;
     }
@@ -118,8 +118,8 @@ public class Console extends ConsoleHandler {
 
     public TYPE b_printEditType(TYPE currentType) {
     	printHeader();
-        if (printPolar("Edit type: " + boat_Map.get(currentType) + ")?")) {
-            return getInputBoatType();
+        if (printPolar("Edit type: [" + boat_Map.get(currentType) + "]?")) {
+            return b_getInputType();
         }
         printFooter();
         return currentType;
@@ -127,8 +127,8 @@ public class Console extends ConsoleHandler {
 
     public double b_printEditLength(double currentLength) {
     	printHeader();
-        if (printPolar("Change length (" + currentLength + ")?")) {
-            return printTryAgainDouble("Change to:");
+        if (printPolar("Edit length [" + currentLength + "]?")) {
+            return printTryAgainDouble("Update to");
         }
         printFooter();
         return currentLength;
@@ -163,12 +163,12 @@ public class Console extends ConsoleHandler {
         return getInput(actions);
     }
 
-    public int m_getInputID () {
+    public int m_getInputID() {
         return printTryAgainInteger("Members ID");
     }
 
-    public String m_getInputFullName() {
-        print(beforeMessage + "Full Name");
+    public String m_getInputFirstName() {
+        print(beforeMessage + "First Name");
         return scanNext();
     }
 
@@ -176,11 +176,11 @@ public class Console extends ConsoleHandler {
         return getUserPatternInput(beforeMessage + "Social Security Number [YYYYMMDDXXXX]", ssnPattern);
     }
 
-    public int getInputBoatIndex () {
-        return printTryAgainInteger(beforeMessage + "Boats index");
+    public int b_getInputIndex() {
+        return printTryAgainInteger("Boat Index");
     }
 
-    public TYPE getInputBoatType () {
+    public TYPE b_getInputType() {
         TYPE[] types = TYPE.values();
 
         printMenu(types, boat_Map);
@@ -188,8 +188,12 @@ public class Console extends ConsoleHandler {
         return getInput(types);
     }
 
-    public double getInputBoatLength() {
+    public double b_getInputLength() {
         return printTryAgainDouble(beforeMessage + "New boats length");
+    }
+    
+    public boolean getConfirmation() {
+    	return printPolar("Are you sure you wish to EXIT the Application?");
     }
     
     private String addDashAtSplit(String input, int first, int middle, int last) {

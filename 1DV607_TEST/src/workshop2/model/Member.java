@@ -28,7 +28,7 @@ public class Member implements Serializable {
 
     public int getId () { return id; }
 
-    public int b_getSize() { return b_arrayList.size(); }
+    public int b_getListSize() { return b_arrayList.size(); }
 
     public Boat b_get(int position) throws BoatNotFound {
         b_hasBoat(position);

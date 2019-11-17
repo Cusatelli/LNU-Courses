@@ -6,12 +6,11 @@ import java.util.regex.Pattern;
 
 abstract class ConsoleHandler {
 
-    private Scanner scan = new Scanner(System.in);
+    protected Scanner scan = new Scanner(System.in);
     
     private String format_FirstCharacter_Print = "▕▎";
     private String format_BeforeText_Print = "        ";
     private String format_AfterText_Print = ": ";
-//	private String format_Debug_Print = "[Debug] ";
     private String format_Error_Print = "[Error] ";
     private String format_Enter_Print = "Enter";
     
@@ -33,17 +32,11 @@ abstract class ConsoleHandler {
         		+ format_BeforeText_Print);
     }
     
-    public void printLineError(String message) {
+    void printLineError(String message) {
     	System.out.println(format_FirstCharacter_Print 
     			+ format_Error_Print 
     			+ message);
     }
-    
-//    void printLineDebug(String message) {
-//    	System.out.println(format_FirstCharacter_Print 
-//    			+ format_Debug_Print 
-//    			+ message);
-//    }
 
     void printFormat(String format, Object ...args) {
         System.out.format(format_FirstCharacter_Print 
@@ -98,12 +91,17 @@ abstract class ConsoleHandler {
         printLineError(format_FirstCharacter_Print + " Wrong format!");
         print(format_FirstCharacter_Print + " Please try again");
     }
-
+    
     String scanNext() {
-        return scan.next();
+    	return scan.next();
     }
     
-    <Element> Element getInput(Element[] elements) {
+    /*
+     * Using <T> is a new way of doing methods for me so I
+     * have included a link in case I need to look this up while coding...
+     * Reference: https://docs.oracle.com/javase/tutorial/extra/generics/methods.html
+     */
+    protected <Element> Element getInput(Element[] elements) {
         int input = 0;
         // Ask for users choice until they respond with an index that exists in available options
         while (!isInputValid(input, elements.length)) {
@@ -133,13 +131,15 @@ abstract class ConsoleHandler {
     private boolean isInputValid(int input, int number) {
         return input > 0 && input <= number;
     }
-
-    <Element> void printMenu(Element[] elements, HashMap<Element, String> map) {
+    
+    /*
+     * Using <T> is a new way of doing methods for me so I
+     * have included a link in case I need to look this up while coding...
+     * Reference: https://docs.oracle.com/javase/tutorial/extra/generics/methods.html
+     */
+    protected <Element> void printMenu(Element[] elements, HashMap<Element, String> map) {
     	StringBuilder stringBuilder = new StringBuilder();
-    	stringBuilder.append(" ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ "
-    			+ "\n" + format_FirstCharacter_Print + format_BeforeText_Print
-    			+ "▕▛▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▜▎"
-    			+ "\n" + format_FirstCharacter_Print + format_BeforeText_Print);
+    	stringBuilder.append(buildStringBuilder(0));
         
     	for (int i = 0 ; i < elements.length; i++) {
         	Element element = elements[i];
@@ -147,15 +147,10 @@ abstract class ConsoleHandler {
             	
             	// If First Element:
             	if(i == 0) {
-            		stringBuilder.append("▕▎\t\t\tMENU\t\t\t▕▎\n" 
-            				+ format_FirstCharacter_Print + format_BeforeText_Print 
-            				+ "▕▙▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▟▎\n" 
-            				+ format_FirstCharacter_Print + format_BeforeText_Print
-            				+ "▕▛▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▜▎\n" 
-            				+ format_FirstCharacter_Print + format_BeforeText_Print);
+            		stringBuilder.append(buildStringBuilder(1));
             	
             	} else {
-            		stringBuilder.append("\n" + format_FirstCharacter_Print + format_BeforeText_Print);
+            		stringBuilder.append(buildStringBuilder(2));
             	}
             	// Get Last Element & Re-map it:
             	if(elements.length == i + 1) {
@@ -177,13 +172,37 @@ abstract class ConsoleHandler {
             	}
             }
         }
-        stringBuilder.append("\n" + format_FirstCharacter_Print + format_BeforeText_Print 
-        		+ "▕▙▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▟▎"
-        		+ "\n" + format_FirstCharacter_Print + format_BeforeText_Print
-        		+ " ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔"
-        		+ "\n" + format_FirstCharacter_Print + format_BeforeText_Print);
+        stringBuilder.append(buildStringBuilder(3));
         
     	printLine(stringBuilder.toString());
+    }
+    
+    private String buildStringBuilder(int stage) {
+    	switch(stage) {
+    	case 0:
+    		return " ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ "
+        			+ "\n" + format_FirstCharacter_Print + format_BeforeText_Print
+        			+ "▕▛▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▜▎"
+        			+ "\n" + format_FirstCharacter_Print + format_BeforeText_Print;
+    	case 1:
+    		return "▕▎\t\t\tMENU\t\t\t▕▎\n" 
+					+ format_FirstCharacter_Print + format_BeforeText_Print 
+					+ "▕▙▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▟▎\n" 
+					+ format_FirstCharacter_Print + format_BeforeText_Print
+					+ "▕▛▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▜▎\n" 
+					+ format_FirstCharacter_Print + format_BeforeText_Print;
+    	case 2:
+    		return "\n" + format_FirstCharacter_Print + format_BeforeText_Print;
+    	case 3:
+    		return "\n" + format_FirstCharacter_Print + format_BeforeText_Print 
+            		+ "▕▙▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▟▎"
+            		+ "\n" + format_FirstCharacter_Print + format_BeforeText_Print
+            		+ " ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔"
+            		+ "\n" + format_FirstCharacter_Print + format_BeforeText_Print;
+    	default:
+    		return null;
+    	}
+		
     }
     
     // Polar Questions or General Questions 
@@ -191,22 +210,20 @@ abstract class ConsoleHandler {
     // Source: https://en.wikipedia.org/wiki/Yes%E2%80%93no_question
     boolean printPolar(String message) {
         boolean isValidInput = false;
-        boolean result = false;
 
         while (!isValidInput) {
             printLine(format_FirstCharacter_Print + " " + message);
-            printLine(format_FirstCharacter_Print + " [Y] Yes");
-            printLine(format_FirstCharacter_Print + " [N] No");
+            printLine(format_FirstCharacter_Print + " [1] Yes");
+            printLine(format_FirstCharacter_Print + " [2] No");
             printLine(format_FirstCharacter_Print);
             print(format_FirstCharacter_Print + " " + format_Enter_Print);
-            String input = scan.next().toUpperCase();
+            int input = scan.nextInt();
 
-            if (input.equals("Y") || input.equals("N")) {
-                result = input.equals("Y");
-                isValidInput = true;
-            }
+            if (input == 1) { return true; }
+            else if(input == 2) { return false; }
         }
-        return result;
+        
+        return false;
     }
     
 }
