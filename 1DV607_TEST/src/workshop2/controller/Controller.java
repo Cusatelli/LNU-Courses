@@ -68,8 +68,8 @@ public class Controller {
 	 */
     private void tryInput(ACTIONS action) throws InvalidInputParameter {
         try { inputHandler(action); }
-        catch (MemberNotFound e) { console.m_printNotFound(); }
-        catch (BoatNotFound e) { console.b_printNotFound(); }
+        catch (MemberNotFound error) { error.getMessage(); }//console.m_printNotFound(); }
+        catch (BoatNotFound error) { error.getMessage(); }//console.b_printNotFound(); }
     }
     
     /**
@@ -115,7 +115,7 @@ public class Controller {
             	console.printFooter();
                 break;
             default:
-            	throw new InvalidInputParameter();
+            	throw new InvalidInputParameter("Invalid Input Parameter!");
         }
 	}
 	

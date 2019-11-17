@@ -36,7 +36,7 @@ public class Registry {
 		for (Member member : members) {
 			if (member.getId() == id) { return member; }
 		}
-		throw new MemberNotFound();
+		throw new MemberNotFound("Member Not Found!");
 	}
 
 	public Member[] m_getAll() {

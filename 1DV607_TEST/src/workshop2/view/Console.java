@@ -112,7 +112,7 @@ public class Console extends ConsoleHandler {
     		m_printFooter();
     		break;
     	default:
-    		throw new InvalidInputParameter();
+    		throw new InvalidInputParameter("Invalid Input Parameter!");
     	}
     }
 
@@ -144,18 +144,6 @@ public class Console extends ConsoleHandler {
     	printHeader();
         printLineError(beforeMessage + message);
         printLine(beforeMessage + error);
-        printFooter();
-    }
-
-    public void m_printNotFound() {
-    	printHeader();
-        printLineError(beforeMessage + "Member not found");
-        printFooter();
-    }
-
-    public void b_printNotFound() {
-    	printHeader();
-        printLineError(beforeMessage + "Boat not found");
         printFooter();
     }
 

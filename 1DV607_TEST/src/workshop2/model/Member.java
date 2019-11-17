@@ -52,7 +52,7 @@ public class Member implements Serializable {
 
     private void b_hasBoat(int position) throws BoatNotFound {
         if (b_arrayList.size() <= position) {
-            throw new BoatNotFound();
+            throw new BoatNotFound("Boat Not Found!");
         }
     }
 }
