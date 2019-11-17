@@ -137,7 +137,7 @@ public class Controller {
         for (Member member : registry.m_getAll()) {
             console.getList(member.getId(), member.getName(), member.getSocialSecurityNumber(), member.b_getListSize());
         }
-        console.getListFooter();
+        console.printListFooter();
     }
     
 	/**
@@ -150,7 +150,7 @@ public class Controller {
 	 */
     void verboseList() throws InvalidInputParameter {
         for (Member member : registry.m_getAll()) {
-            console.m_printData(member.getName(), member.getSocialSecurityNumber(), member.getId());
+            console.m_getData(member.getName(), member.getSocialSecurityNumber(), member.getId());
             b_list(member.b_getAll());
         }
     }
@@ -219,7 +219,7 @@ public class Controller {
      */
     private void m_view() throws MemberNotFound {
         Member member = m_get();
-        console.m_printData(member.getName(), member.getSocialSecurityNumber(), member.getId());
+        console.m_getData(member.getName(), member.getSocialSecurityNumber(), member.getId());
         console.m_printFooter();
     }
     

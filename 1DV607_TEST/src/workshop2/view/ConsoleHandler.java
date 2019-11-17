@@ -56,8 +56,6 @@ abstract class ConsoleHandler {
     }
 
     double printTryAgainDouble(String message) {
-//		print(format_FirstCharacter_Print + " " + message);
-        
         print(message);
         while (!scan.hasNextDouble()) {
             scan.next();
@@ -118,11 +116,8 @@ abstract class ConsoleHandler {
             	// The input will be set out of bounds to force a new input:
             	else if(input == elements.length) { input = elements.length + 1; } // Set input to out of bounds
             	
-            } else {
-                scan.next();
-            }
+            } else { scan.next(); }
         }
-        
         printFooter();
 
         return elements[input - 1];
@@ -146,12 +141,9 @@ abstract class ConsoleHandler {
             if (map.containsKey(element)) {
             	
             	// If First Element:
-            	if(i == 0) {
-            		stringBuilder.append(buildStringBuilder(1));
+            	if(i == 0) { stringBuilder.append(buildStringBuilder(1)); }
+            	else { stringBuilder.append(buildStringBuilder(2)); }
             	
-            	} else {
-            		stringBuilder.append(buildStringBuilder(2));
-            	}
             	// Get Last Element & Re-map it:
             	if(elements.length == i + 1) {
             		// Print Exit Application to '0'

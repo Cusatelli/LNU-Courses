@@ -27,17 +27,17 @@ public class Console extends ConsoleHandler {
     	printLine(" ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ ");
     	printLine("▕▛▔▔▔▔▔▔▔▜▛▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▜▛▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▜▛▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▜▎");
         printFormat(listFormat, "ID", "First Name", "Social Security Number", "Number of boats");
-		printLine("▕▙▁▁▁▁▁▁▁▟▙▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▟▙▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▟▙▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▟▎");
+        printLine("▕▙▁▁▁▁▁▁▁▟▙▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▟▙▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▟▙▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▟▎");
     	printLine("▕▛▔▔▔▔▔▔▔▜▛▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▜▛▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▜▛▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▜▎");
-    }
+	}
 
     public void getList(int id, String name, String socialSecurityNumber, int numberOfBoats) {
     	// Split the SSN by birthdate & 4 last digits:
         printFormat(listFormat, id, name, addDashAtSplit(socialSecurityNumber, 0, 8, 12), numberOfBoats);
     }
     
-    public void getListFooter() {
-		printLine("▕▙▁▁▁▁▁▁▁▟▙▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▟▙▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▟▙▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▟▎");
+    public void printListFooter() {
+    	printLine("▕▙▁▁▁▁▁▁▁▟▙▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▟▙▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▟▙▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▟▎");
 		printLine(" ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔ ");
     }
 
@@ -47,14 +47,13 @@ public class Console extends ConsoleHandler {
         printFooter();
     }
 
-    public void m_printData(String name, String socialSecurityNumber, int id) {
+    public void m_getData(String name, String socialSecurityNumber, int id) {
     	printLine(" ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ ");
     	printLine("▕▛▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▜▎");
-    	if(name.length() >= 7) {
-			printLine("▕▎ First Name: " + name + "\t\t\t▕▎");
-    	} else {
-            printLine("▕▎ First Name: " + name + "\t\t\t\t▕▎");
-    	}
+    	
+    	if(name.length() >= 7) { printLine("▕▎ First Name: " + name + "\t\t\t▕▎"); }
+    	else { printLine("▕▎ First Name: " + name + "\t\t\t\t▕▎"); }
+    	
         printLine("▕▎ Social Security Number: " + addDashAtSplit(socialSecurityNumber, 0, 8, 12) + "\t▕▎");
         printLine("▕▎ ID: " + id + "\t\t\t\t\t▕▎");
 		printLine("▕▙▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▟▎");
