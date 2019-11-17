@@ -19,6 +19,7 @@ public class FileHandler {
      * FileOutputStream is meant for writing streams of raw bytes such as image data. 
      * In order to enable writing of objects into a file using ObjectOutputStream, 
      * it is required to implement the java.io.Serializable.
+     * 
      * @param
      * @throws Exception
      * @version 2.0
@@ -37,7 +38,8 @@ public class FileHandler {
      * the ObjectInputStream directly tries to map all the attributes into the class 
      * into which we try to cast the read object. If it is unable to map the respective 
      * object exactly then it throws a ClassNotFound exception.
-     * @return Object object
+     * 
+     * @return Object
      * @throws Exception
      * @version 2.0
      * @author cusatelli
@@ -55,6 +57,7 @@ public class FileHandler {
     /**
      * Instantiate a new File(String pathname) & check whether or 
      * not the file exists & if it is readable by the system.
+     * 
      * @return True if file exits & is readable
      * @version 2.0
      * @author cusatelli

@@ -63,6 +63,9 @@ public class Controller {
 	 * The <b>Try Input</b> tries desired user input action to see if.<br>
 	 * the user has made a valid input action.
 	 * 
+	 * @param
+	 * @throws InvalidInputParameter
+	 * @version 2.0
 	 * @author cusatelli
 	 * @category Input Handler
 	 */
@@ -77,6 +80,9 @@ public class Controller {
 	 * The <b>Input Handler</b> checks the available actions a user can make<br>
 	 * against their desired action from a list of <i>Enumerations</i>: <b>ACTIONS</b>.<br>
 	 * 
+	 * @param
+	 * @throws InvalidInputParameter
+	 * @version 2.0
 	 * @author cusatelli
 	 * @category Input Handler
 	 */
@@ -122,6 +128,7 @@ public class Controller {
 	/**
 	 * Print a <b>Compact List</b> of all Members & Number of Boats.
 	 * 
+	 * @version 2.0
 	 * @author cusatelli
 	 * @category Compact List
 	 */
@@ -136,6 +143,8 @@ public class Controller {
 	/**
 	 * Print a <b>Verbose List</b> of all Members & Boats.
 	 * 
+	 * @throws InvalidInputParameter
+	 * @version 2.0
 	 * @author cusatelli
 	 * @category Verbose List
 	 */
@@ -149,6 +158,8 @@ public class Controller {
 	/**
 	 * Print <b>Boats</b> in <b>Verbose List</b> underneath corresponding Members.
 	 * 
+	 * @throws InvalidInputParameter
+	 * @version 2.0
 	 * @author cusatelli
 	 * @category Verbose List
 	 */
@@ -166,6 +177,7 @@ public class Controller {
      * 
      * @return Member
      * @throws MemberNotFound
+     * @version 2.0
      * @author cusatelli
      * @category Member
      */
@@ -201,6 +213,7 @@ public class Controller {
      * | Name | Social Security Number | ID |.
      * 
      * @throws MemberNotFound
+	 * @version 2.0
      * @author cusatelli
      * @category Member
      */
@@ -216,6 +229,7 @@ public class Controller {
      * <code>update()</code> method.
      * 
      * @throws MemberNotFound
+	 * @version 2.0
      * @author cusatelli
      * @category Member
      */
@@ -240,6 +254,7 @@ public class Controller {
      * <code>update()</code> method.
      * 
      * @throws MemberNotFound
+	 * @version 2.0
      * @author cusatelli
      * @category Member
      */
@@ -261,6 +276,7 @@ public class Controller {
      * <code>update()</code> method.
      * 
      * @throws MemberNotFound
+	 * @version 2.0
      * @author cusatelli
      * @category Boat
      */
@@ -283,6 +299,7 @@ public class Controller {
      * <code>update()</code> method.
      * 
      * @throws MemberNotFound
+	 * @version 2.0
      * @author cusatelli
      * @category Boat
      */
@@ -303,6 +320,7 @@ public class Controller {
      * <code>update()</code> method.
      * 
      * @throws MemberNotFound
+	 * @version 2.0
      * @author cusatelli
      * @category Boat
      */
@@ -322,6 +340,7 @@ public class Controller {
      * 
      * @return Boat
      * @throws BoatNotFound
+	 * @version 2.0
      * @author cusatelli
      * @category Boat
      */
@@ -338,6 +357,7 @@ public class Controller {
      * about Terminating the Application.
      * 
      * @return boolean
+	 * @version 2.0
      * @author cusatelli
      * @category Terminate Application
      */

@@ -56,7 +56,7 @@ abstract class ConsoleHandler {
     }
 
     double printTryAgainDouble(String message) {
-        print(format_FirstCharacter_Print + " " + message);
+//		print(format_FirstCharacter_Print + " " + message);
         
         print(message);
         while (!scan.hasNextDouble()) {
