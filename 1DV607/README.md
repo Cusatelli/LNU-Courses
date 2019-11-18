@@ -14,7 +14,6 @@ The prerequisites of the course are that you must have passed at least 30hp in a
 | 29 October 2019 | Workshop 2 Recieved a Failing Grade 1 |
 | 13 November 2019 | Workshop 3 Recieved a Passing Grade 2 |
 | 17 November 2019 | Updated Workshop 2 |
-| 17 November 2019 | All Assignments uploaded to LNU-Courses Repository |
 | 18 November 2019 | Uploaded Diagrams to Workshop 2 |
 
 ### Disclaimer:
