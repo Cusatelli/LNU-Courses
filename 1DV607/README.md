@@ -1,31 +1,20 @@
 ##### ![](https://mymoodle.lnu.se/pluginfile.php/1/theme_essential/logo/1573077602/lnu-logo.png)
-# NGDPV - Software Technology - 180hp - Växjö
+# 19HT - 1DV607 - Object Oriented Analysis and Design using UML - 7,5 hp
 
-#### Study Plan for the Programme:
-```
-This plan is for students starting the programme the fall semester 2015 and later.
-```
+This course covers object orientation focusing on object oriented analysis/domain modeling and object oriented design using practical examples in object oriented programming.
 
-| Year | Period | Course - 50% | Course - 50% |
-|---|---|---|---|
-| 1 | SP 1 | 1MA441 Basic Mathematics for Computer Science | 1DV005 Problem solving and Modelling (Swedish students) |
-|  | SP 2 | 1DV510 Technical Information and Communication | 1DV506 Problem Solving and Programming |
-|  | SP 3 | 1DV600 Software Technology | 1DV507 Programming and Data Structures |
-|  | SP 4 | 1DV508 Project course in Computer Science | 1MA462 Discrete Mathematics |
-| 2 | SP 1 | 1DV607 Object Oriented Analysis and Design | 1DT301  Computer Technology 1 |
-|  | SP 2 | 2DV610 Software Testing | 1DV512 Operating Systems |
-|  | SP 3 | 2DV603 Software Engineering - Design | 1DV701 Computer Networks - an introduction |
-|  | SP 4 |  | 1DV517 Language and Logic |
-| 3 | SP 1 | 1DV525 Introduction to Web Programming | 1DV516 Algorithms and Advanced Data Structures |
-|  | SP 2 | 1DV523 Server-based Web Programming | 2DV513 Database Theory |
-|  | SP 3 | 2DV50E Degree Project at Bachelor Level | 2DV604 Software Architectures |
-|  | SP 4 |  | elective course |
+The course topics highlights the parts of the software development process that increase understanding of a problem domain and communication of more or less detailed UML (Unified Modeling Language) blue prints of a system. 
 
-#### Completed Courses:
-* 1DV510
-* 1DV506
-* 1DV507
-* 1DT301
+The prerequisites of the course are that you must have passed at least 30hp in any of the subjects: computer science, informatics, computer engineering or similar. You must also have knowledge in object oriented programming equaling 7.5hp.
+
+#### Updates:
+| Date |  |
+|---|---|
+| 1 October 2019 | Workshop 1 Recieved a Passing Grade 2 |
+| 29 October 2019 | Workshop 2 Recieved a Failing Grade 1 |
+| 13 November 2019 | Workshop 3 Recieved a Passing Grade 2 |
+| 18 November 2019 | Updated Workshop 2 |
+| 18 November 2019 | All Assignments uploaded to LNU-Courses Repository |
 
 ### Disclaimer:
 ```
