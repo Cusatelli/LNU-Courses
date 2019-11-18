@@ -11,6 +11,8 @@ public class Console extends ConsoleHandler {
 
     private HashMap<ACTIONS, String> menu_Map = new HashMap<>();
     private HashMap<TYPE, String> boat_Map = new HashMap<>();
+    
+    // %Xs refers to 'X' number of whitespaces:
     private String listFormat = "▕▎  %4s ▕▎  %20s ▕▎  %22s ▕▎  %15s ▕▎ \n";
     private Pattern ssnPattern = Pattern.compile("[0-9]{8}[0-9]{4}");
     private String beforeMessage = "▕▎ ";
