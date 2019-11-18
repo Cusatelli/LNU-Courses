@@ -1,45 +1,26 @@
 package workshop2.model;
 
-import java.util.Random;
+import java.util.ArrayList;
 
 public class Id {
-	private int uniqueID;
-	
-	public Id() {
-		this.uniqueID = generateUniqueID();
-	}
-	
+	private int id;
+
 	/**
-	 * Creates a new random number generator & sets the seed 
-	 * of the random number generator to a value very likely to 
-	 * be distinct from any other invocation.
-	 * 
-	 * @return a Character between A-Z & an Integer between 100-999.
+	 * Get next id in ArrayList.<br>
+	 * Example: if last id = 274 set new id to 275.
 	 * 
 	 * @author cusatelli
+	 * @category Member
 	 */
-	public int generateUniqueID() {
-		//TODO: Generate unique ID
-		// 001-999 (Example: 186)
-		Random random = new Random();
-		int output = random.nextInt(900) + 99; // 100 - 999 integers.
-		return output;
-		
-		// TODO: Check with MemberRegistry.txt if ID already taken.
-	}
-	
-//	private char generateRandomCharacter() {
-//		// A-Z (Example: R)
-//		Random random = new Random();
-//		char output = (char)(random.nextInt('Z' - 'A') + 'A'); // A - Z characters.
-//		return output;
-//	}
-	
-	public int getUniqueID() {
-		return uniqueID;
+	public Id(ArrayList<Member> members) {
+		this.id = members.stream().mapToInt(Member::getId).max().orElse(0) + 1;
 	}
 
-	public void setUniqueID(int uniqueID) {
-		this.uniqueID = uniqueID;
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

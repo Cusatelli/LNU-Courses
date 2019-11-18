@@ -2,56 +2,104 @@ package workshop2.model;
 
 import java.util.ArrayList;
 
-import workshop2.controller.FileHandler;
+import workshop2.debug.MemberNotFound;
+import workshop2.registry.FileHandler;
 
 public class Registry {
+	private Id id;
 	private ArrayList<Member> members;
-	private FileHandler fileHandler;
-	
-	public Registry() {
-		fileHandler = new FileHandler("./registry/database.dat");
+	private FileHandler file_Handler = new FileHandler("Database");
+
+	public Registry() throws Exception {
 		initialize();
 	}
 	
+	/**
+	 * If the File Handler has a readable & writable file attached to it:<br>
+	 * Initialize the ArrayList with all Member Data currently present in database!<br>
+	 * If no file present create a new writable file.
+	 * 
+	 * @throws Exception
+     * @version 2.0
+	 * @author cusatelli
+	 * @category Registry & Member
+	 */
 	@SuppressWarnings("unchecked")
-	private void initialize() {
-		if(fileHandler.containsFile()) {
-			members = (ArrayList<Member>) fileHandler.readFromFile();
-			
+	private void initialize() throws Exception {
+		if (file_Handler.containsReadableFile()) {
+			members = (ArrayList<Member>) file_Handler.readFromFile();
 		} else {
 			members = new ArrayList<>();
-			fileHandler.writeToFile(members);
+			file_Handler.writeToFile(members);
 		}
 	}
 	
-	public void sendToFileHandler() {
-		fileHandler.writeToFile(members);
+	/**
+	 * Send all Members in ArrayList to FileHandler to be written to File.
+	 * 
+	 * @throws Exception
+     * @version 2.0
+	 * @author cusatelli
+	 * @category Registry & Member
+	 */
+	public void saveDataToRegistry() throws Exception {
+		file_Handler.writeToFile(members);
 	}
 	
-	public void m_register(int id, String name, String socialSecurityNumber) {
-		Member member = new Member(id, name, socialSecurityNumber);
+	/**
+	 * Add Member to ArrayList.
+	 * 
+	 * @param
+     * @version 2.0
+	 * @author cusatelli
+	 * @category Member
+	 */
+	public void m_register(String name, String socialSecurityNumber) {
+		id = new Id(members);
+		Member member = new Member(name, socialSecurityNumber, id.getId());
 		members.add(member);
 	}
-	
-	public Member m_get(int ID) {
-		for(Member member : members) {
-			if(member.getID() == ID) { return member; }
+
+	/**
+	 * Get Member from ArrayList.
+	 * 
+	 * @param
+	 * @throws MemberNotFound
+     * @version 2.0
+	 * @author cusatelli
+	 * @category Member
+	 */
+	public Member m_get(int id) throws MemberNotFound {
+		for (Member member : members) {
+			if (member.getId() == id) { return member; }
 		}
-		return null;
+		throw new MemberNotFound("Member Not Found!");
 	}
-	
+
+	/**
+	 * Get All Members from ArrayList.
+	 * 
+     * @version 2.0
+	 * @author cusatelli
+	 * @category Member
+	 */
 	public Member[] m_getAll() {
-		Member[] members = new Member[this.members.size()];
-		return this.members.toArray(members);
+		Member[] allMembers = new Member[members.size()];
+		return members.toArray(allMembers);
 	}
-	
-	public void m_delete(int ID) {
-		Member member = m_get(ID);
+
+	/**
+	 * Remove Member from ArrayList.
+	 * 
+	 * @param
+	 * @throws MemberNotFound
+     * @version 2.0
+	 * @author cusatelli
+	 * @category Member
+	 */
+	public void m_remove(int id) throws MemberNotFound {
+		Member member = m_get(id);
 		members.remove(member);
 	}
-	
-	private int m_getNext() {
-		int max_Value = members.stream().mapToInt(Member::getID).max().orElse(0);
-		return max_Value + 1;
-	}
+
 }
