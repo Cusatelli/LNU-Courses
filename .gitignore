@@ -1,4 +1,5 @@
 /.metadata/
+/bin/
 
 #Ignore 1DT301 'Plain Text Files':
 Plain Text Files/
