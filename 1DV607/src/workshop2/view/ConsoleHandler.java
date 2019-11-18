@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 abstract class ConsoleHandler {
 
-    protected Scanner scan = new Scanner(System.in);
+    private Scanner scan = new Scanner(System.in);
     
     private String format_FirstCharacter_Print = "▕▎";
     private String format_BeforeText_Print = "        ";

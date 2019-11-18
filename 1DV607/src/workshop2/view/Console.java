@@ -49,7 +49,7 @@ public class Console extends ConsoleHandler {
         printFooter();
     }
 
-    public void m_getData(String name, String socialSecurityNumber, int id) {
+    public void m_printData(String name, String socialSecurityNumber, int id) {
     	printLine(" ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ ");
     	printLine("▕▛▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▜▎");
     	
@@ -106,10 +106,10 @@ public class Console extends ConsoleHandler {
     
     public void b_printFooter(int typeOfFooter) throws InvalidInputParameter {
     	switch(typeOfFooter) {
-    	case 1:
+    	case 0:
     		printLine("\t\t▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔ ");
     		break;
-    	case 2:
+    	case 1:
     		m_printFooter();
     		break;
     	default:

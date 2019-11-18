@@ -150,7 +150,7 @@ public class Controller {
 	 */
 	void verboseList() throws InvalidInputParameter {
 		for (Member member : registry.m_getAll()) {
-			console.m_getData(member.getName(), member.getSocialSecurityNumber(), member.getId());
+			console.m_printData(member.getName(), member.getSocialSecurityNumber(), member.getId());
 			b_list(member.b_getAll());
 		}
 	}
@@ -167,8 +167,8 @@ public class Controller {
 		for (Boat boat : boats) {
 			console.b_print(boat.getType(), boat.getLength());
 		}
-		if(boats.length > 0) { console.b_printFooter(1); }
-		else { console.b_printFooter(2); }
+		if(boats.length > 0) { console.b_printFooter(0); }
+		else { console.b_printFooter(1); }
 	}
 
 	/**
@@ -219,7 +219,7 @@ public class Controller {
 	 */
 	private void m_view() throws MemberNotFound {
 		Member member = m_get();
-		console.m_getData(member.getName(), member.getSocialSecurityNumber(), member.getId());
+		console.m_printData(member.getName(), member.getSocialSecurityNumber(), member.getId());
 		console.m_printFooter();
 	}
 
@@ -244,7 +244,6 @@ public class Controller {
 		console.printHeader();
 		String socialSecurityNumber = console.m_printEditSSN(member.getSocialSecurityNumber());
 		console.printFooter();
-
 		member.setSocialSecurityNumber(socialSecurityNumber);
 	}
 

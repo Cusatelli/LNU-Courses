@@ -17,7 +17,7 @@ public class Boat implements Serializable {
 	private TYPE type;
 	private double length;
 
-	public Boat (TYPE type, double length) {
+	public Boat(TYPE type, double length) {
 		this.type = type;
 		this.length = length;
 	}

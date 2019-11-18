@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import workshop2.debug.BoatNotFound;
+import workshop2.model.Boat.TYPE;
 
 public class Member implements Serializable {
 	// Generated serialVersionUID:
@@ -23,10 +24,10 @@ public class Member implements Serializable {
     public String getName() { return name; }
     public void setName(String newName) { name = newName; }
 
-    public String getSocialSecurityNumber () { return socialSecurityNumber; }
+    public String getSocialSecurityNumber() { return socialSecurityNumber; }
     public void setSocialSecurityNumber(String socialSecurityNumber) { this.socialSecurityNumber = socialSecurityNumber; }
 
-    public int getId () { return id; }
+    public int getId() { return id; }
 
     public int b_getListSize() { return b_arrayList.size(); }
 
@@ -40,7 +41,7 @@ public class Member implements Serializable {
         return b_arrayList.toArray(b_array);
     }
 
-    public void b_register(Boat.TYPE type, double length) {
+    public void b_register(TYPE type, double length) {
         Boat boat = new Boat(type, length);
         b_arrayList.add(boat);
     }
