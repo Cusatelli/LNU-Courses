@@ -25,6 +25,7 @@ This plan is for students starting the programme the fall semester 2015 and late
 * 1DV510
 * 1DV506
 * 1DV507
+* 1DV607
 * 1DT301
 
 ### Disclaimer:
