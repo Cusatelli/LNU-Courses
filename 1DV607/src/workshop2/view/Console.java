@@ -178,7 +178,7 @@ public class Console extends ConsoleHandler {
     }
 
     public double b_getInputLength() {
-        return printTryAgainDouble(beforeMessage + "New boats length");
+        return printTryAgainDouble(beforeMessage + "Length");
     }
     
     public boolean getConfirmation() {
