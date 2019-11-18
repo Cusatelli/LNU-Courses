@@ -13,6 +13,16 @@ and Boat classes? You should encapsulate the persistence properly and not let it
 over the application. You have essentially created more or less a very complicated and 
 fragile way to edit a text file... ".
 
+### Versioning Format
+````
+Major.Minor.Date (MM.mm.YYMMDD):
+
+Major Release: 01
+Minor Release: 10
+Date: 2019 November 11th
+
+Ex: 01.10.191111
+````
 ### [01.10.191111]
 #### Moved
 - All code from InputHandler.java & DataHandler.java into Controller.java.
