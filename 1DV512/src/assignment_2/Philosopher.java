@@ -42,9 +42,11 @@ public class Philosopher implements Runnable {
 	
 	// Add New Fields here:
 	// Variables to save in field for use in run().
-	private Thread thread_01; // For example use thread_01 when determining the active thread.
+	private Thread activeThread; // For example use thread_01 when determining the active thread.
 	private long startTime;
-	public States state;
+	private States state;
+	
+	private int milliseconds_Max = 1000; // Set the max amount of milliseconds in the field for easy access.
 	
 	/**
 	 * An <i>Enumeration</i> of the possible <b>States</b> a Philosopher can have during runtime.
@@ -58,24 +60,32 @@ public class Philosopher implements Runnable {
 	}
 	
 	/**
-	 * The <b>State Manager</b> takes in a state parameter and with a switch case it determines
-	 * which description to return as a String to the program.<br><br>
-	 * <b>Example:</b> <i>State 1 returns "Current State = 1".</i>
+	 * The <b>State Manager</b> takes in a state parameter and with a switch case<br>
+	 * it determines which actions to perform.<br><br>
+	 * <b>Example:</b> <i>State THINKING: increments Turns, sleeps for random time,<br>
+	 * sets new current State to HUNGRY & breaks switch case.</i><br><br>
+	 * <b>Inspired by:</b><br>SharpAccents Unity & C# Tutorials on 
+	 * <a href="https://sharpaccent.com/?c=course&id=14">SharpAccent.com</a>
+	 * 
 	 * @param state
-	 * @return <b>String:</b> Description of the current State
-	 * @version 1.0
+	 * @version 2.0
 	 * @author cusatelli
+	 * @throws InterruptedException
 	 */
-	public String StateManager(States state) {
+	public void StateManager(States state) throws InterruptedException {
 		switch(state) {
 		case THINKING:
-			return "Thinking";
+			numberOfThinkingTurns++; // Increment Number of Turns Spent Thinking.
+			Thread.sleep(1000); // Wait for random time.
+			thinkingTime += 1000; // Increment Thinking Time by how long is spent in Thinking Time.
+			state = States.HUNGRY; // Switch State to HUNGRY.
+			break; // Break otherwise it continues to "case HUNGRY:"
 		case HUNGRY:
-			return "Hungry";
+			break;
 		case EATING:
-			return "Eating";
+			break;
 		default:
-			return "Default State";
+			break;
 		}
 	}
 	
@@ -214,8 +224,14 @@ public class Philosopher implements Runnable {
 		
 		start(); // Initialize Variables.
 		
-		while(!isInterrupted(thread_01)) {
+		while(!isInterrupted(activeThread)) {
+			// Get random integer which will be used to determine waiting time in milliseconds
+			long waitingTime = randomGenerator.nextInt(milliseconds_Max) + 1;
+			startTime = System.currentTimeMillis(); // Set the Start Time as the systems current Time. (in Milliseconds)
 			
+			// Handle States through the State Manager:
+			try { StateManager(state); }
+			catch (InterruptedException e) { e.printStackTrace(); }
 		}
 	}
 	
@@ -229,7 +245,7 @@ public class Philosopher implements Runnable {
 		// Initialize Variables:
 		state = States.THINKING; // Set Starting State to THINKING.
 		startTime = 0; // Set Starting Time to 0.
-		thread_01 = Thread.currentThread(); // Set thread_01 to the current Thread.
+		activeThread = Thread.currentThread(); // Set thread_01 to the current Thread.
 	}
 	
 	/**
@@ -251,4 +267,5 @@ public class Philosopher implements Runnable {
 			return false;
 		}
 	}
+	
 }
