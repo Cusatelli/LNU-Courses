@@ -85,6 +85,7 @@ To better manage errors when thrown.
 #### Refactored
 - Removed Registry.java & CreateObject.java classes in model/registry/.
 - Reworked the FileHandler.java to now work with objects instead of Strings & characters from a text file.
+- FileHandler.java contains an ArrayList<Member> which temporarily stores Members (containing Boats) so they can easily be edited in the application at runtime, and saves this ArrayList<Member> to the database after each input action has been completed.
 - Removed Registry.txt file.
 - Added database.dat file to take objects from new FileHandler.java
 
