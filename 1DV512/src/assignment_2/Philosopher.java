@@ -57,6 +57,15 @@ public class Philosopher implements Runnable {
 		EATING;
 	}
 	
+	/**
+	 * The <b>State Manager</b> takes in a state parameter and with a switch case it determines
+	 * which description to return as a String to the program.<br><br>
+	 * <b>Example:</b> <i>State 1 returns "Current State = 1".</i>
+	 * @param state
+	 * @return <b>String:</b> Description of the current State
+	 * @version 1.0
+	 * @author cusatelli
+	 */
 	public String StateManager(States state) {
 		switch(state) {
 		case THINKING:
@@ -73,7 +82,6 @@ public class Philosopher implements Runnable {
 	/**
 	 * <b>StateManager</b> determines which action to take whenever 
 	 * a Philosopher is in a particular state.
-	 * 
 	 * @param
 	 * @return <b>String</b> of Philosophers current <b>state</b>
 	 * @version 1.0
@@ -108,35 +116,47 @@ public class Philosopher implements Runnable {
 	public int getId() {
 		return id;
 	}
-
+	
+	/**
+	 * Divide Thinking Time with Number Of Thinking Turns = Average Thinking Time.
+	 * @return <b>double:</b> Average Thinking Time
+	 * @version 1.0
+	 * @author cusatelli
+	 */
 	public double getAverageThinkingTime() {
 		/* TODO
 		 * Return the average thinking time
 		 * Add comprehensive comments to explain your implementation
 		 */
-		
-		// Divide Thinking Time with Number Of Thinking Turns = Average Thinking Time.
 		return thinkingTime / numberOfThinkingTurns;
 	}
-
+	
+	/**
+	 * Divide Eating Time with Number Of Eating Turns = Average Eating Time.
+	 * @return <b>double:</b> Average Eating Time
+	 * @version 1.0
+	 * @author cusatelli
+	 */
 	public double getAverageEatingTime() {
 		/* TODO
 		 * Return the average eating time
 		 * Add comprehensive comments to explain your implementation
 		 */
-
-		// Divide Eating Time with Number Of Eating Turns = Average Eating Time.
 		return eatingTime / numberOfEatingTurns;
 	}
-
+	
+	/**
+	 * Divide Hungry Time with Number Of Hungry Turns = Average Hungry Time.
+	 * @return <b>double:</b> Average Hungry Time
+	 * @version 1.0
+	 * @author cusatelli
+	 */
 	public double getAverageHungryTime() {
 		/* TODO
 		 * Return the average hungry time
 		 * Add comprehensive comments to explain your implementation
 		 */
-
-		// Divide Hungry Time with Number Of Hungry Turns = Average Hungry Time.
-		return hungryTime / numberOfEatingTurns;
+		return hungryTime / numberOfHungryTurns;
 	}
 	
 	public int getNumberOfThinkingTurns() {
