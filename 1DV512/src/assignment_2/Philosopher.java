@@ -9,6 +9,12 @@ package assignment_2;
 
 import java.util.Random;
 
+/**
+ * The skeleton is created by <i>Suejb Memeti</i> & modified by <i>Kostiantyn Kucher</i>.
+ * <br>Though the Implementation is done by <i>Cusatelli</i>.
+ * @version 1.0
+ * @author cusatelli
+ */
 public class Philosopher implements Runnable {
 	
 	/*
@@ -34,6 +40,17 @@ public class Philosopher implements Runnable {
 	private double eatingTime = 0;
 	private double hungryTime = 0;
 	
+	// Add New Fields here:
+	// Variables to save in field for use in run().
+	private Thread thread_01; // For example use thread_01 when determining the active thread.
+	private long startTime;
+	public States state;
+	
+	/**
+	 * An <i>Enumeration</i> of the possible <b>States</b> a Philosopher can have during runtime.
+	 * @version 1.0
+	 * @author cusatelli
+	 */
 	public enum States {
 		THINKING,
 		HUNGRY,
@@ -53,6 +70,15 @@ public class Philosopher implements Runnable {
 		}
 	}
 	
+	/**
+	 * <b>StateManager</b> determines which action to take whenever 
+	 * a Philosopher is in a particular state.
+	 * 
+	 * @param
+	 * @return <b>String</b> of Philosophers current <b>state</b>
+	 * @version 1.0
+	 * @author cusatelli
+	 */
 	public Philosopher(int id, Chopstick leftChopstick, Chopstick rightChopstick, int seed, boolean debug) {
 		this.id = id;
 		this.leftChopstick = leftChopstick;
@@ -160,5 +186,19 @@ public class Philosopher implements Runnable {
 		 * w.r.t the order (and conditions) of the actions and the threads synchronization in order to pass the tests with the expected results!
 		 */
 		
+		start(); // Initialize Variables.
+	}
+	
+	/**
+	 * Initialize all Variables before run() in start().<br>
+	 * This is to keep run() as clean as possible.
+	 * 
+	 * @author cusatelli
+	 */
+	void start() {
+		// Initialize Variables:
+		state = States.THINKING; // Set Starting State to THINKING.
+		startTime = 0; // Set Starting Time to 0.
+		thread_01 = Thread.currentThread(); // Set thread_01 to the current Thread.
 	}
 }
