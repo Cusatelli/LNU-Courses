@@ -9,7 +9,7 @@ package assignment_2;
 
 import java.util.Random;
 
-import assist.util.Debug; // Private package for Debugging purposes. Currently only an idea.
+import assist.util.Debug;
 
 /**
  * The skeleton is created by <i>Suejb Memeti</i> & modified by <i>Kostiantyn Kucher</i>.
@@ -270,8 +270,10 @@ public class Philosopher implements Runnable {
 	 * @author cusatelli
 	 */
 	void start() {
-		if(DEBUG) { Debug.println("Start was Initiated."); }
 		// Initialize Variables:
+		if(DEBUG) { Debug.True(); }
+		else { Debug.False(); } // Set debug mode to true or false.
+		
 		state = States.THINKING; // Set Starting State to THINKING.
 		startTime = 0; // Set Starting Time to 0.
 		activeThread = Thread.currentThread(); // Set thread_01 to the current Thread.
@@ -292,7 +294,7 @@ public class Philosopher implements Runnable {
 			return true;
 		
 		} else {
-			if(DEBUG) { Debug.println(printStatus_DEBUG + "Thread: " + thread + "\n    was not interrupted"); }
+			if(DEBUG) { Debug.println("Thread: " + thread + "\n    was not interrupted"); }
 			return false;
 		}
 	}
