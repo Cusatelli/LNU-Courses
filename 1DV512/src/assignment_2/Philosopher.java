@@ -34,6 +34,25 @@ public class Philosopher implements Runnable {
 	private double eatingTime = 0;
 	private double hungryTime = 0;
 	
+	public enum States {
+		THINKING,
+		HUNGRY,
+		EATING;
+	}
+	
+	public String StateManager(States state) {
+		switch(state) {
+		case THINKING:
+			return "Thinking";
+		case HUNGRY:
+			return "Hungry";
+		case EATING:
+			return "Eating";
+		default:
+			return "Default State";
+		}
+	}
+	
 	public Philosopher(int id, Chopstick leftChopstick, Chopstick rightChopstick, int seed, boolean debug) {
 		this.id = id;
 		this.leftChopstick = leftChopstick;
