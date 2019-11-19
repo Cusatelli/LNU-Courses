@@ -114,7 +114,9 @@ public class Philosopher implements Runnable {
 		 * Return the average thinking time
 		 * Add comprehensive comments to explain your implementation
 		 */
-		return 0;
+		
+		// Divide Thinking Time with Number Of Thinking Turns = Average Thinking Time.
+		return thinkingTime / numberOfThinkingTurns;
 	}
 
 	public double getAverageEatingTime() {
@@ -122,7 +124,9 @@ public class Philosopher implements Runnable {
 		 * Return the average eating time
 		 * Add comprehensive comments to explain your implementation
 		 */
-		return 0;
+
+		// Divide Eating Time with Number Of Eating Turns = Average Eating Time.
+		return eatingTime / numberOfEatingTurns;
 	}
 
 	public double getAverageHungryTime() {
@@ -130,7 +134,9 @@ public class Philosopher implements Runnable {
 		 * Return the average hungry time
 		 * Add comprehensive comments to explain your implementation
 		 */
-		return 0;
+
+		// Divide Hungry Time with Number Of Hungry Turns = Average Hungry Time.
+		return hungryTime / numberOfEatingTurns;
 	}
 	
 	public int getNumberOfThinkingTurns() {
