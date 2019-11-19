@@ -9,6 +9,8 @@ package assignment_2;
 
 import java.util.Random;
 
+import assist.util.Debug; // Private package for Debugging purposes. Currently only an idea.
+
 /**
  * The skeleton is created by <i>Suejb Memeti</i> & modified by <i>Kostiantyn Kucher</i>.
  * <br>Though the Implementation is done by <i>Cusatelli</i>.
@@ -48,6 +50,8 @@ public class Philosopher implements Runnable {
 	
 	private int milliseconds_Max = 1000; // Set the max amount of milliseconds in the field for easy access.
 	
+	private String printStatus_DEBUG = "[DEBUG] ";
+	
 	/**
 	 * An <i>Enumeration</i> of the possible <b>States</b> a Philosopher can have during runtime.
 	 * @version 1.0
@@ -74,16 +78,40 @@ public class Philosopher implements Runnable {
 	 */
 	public void StateManager(States state) throws InterruptedException {
 		switch(state) {
+		/*
+		 * Thinking acts as a break period for the actor which it simply does nothing other than wait.
+		 */
 		case THINKING:
 			numberOfThinkingTurns++; // Increment Number of Turns Spent Thinking.
 			Thread.sleep(1000); // Wait for random time.
 			thinkingTime += 1000; // Increment Thinking Time by how long is spent in Thinking Time.
 			state = States.HUNGRY; // Switch State to HUNGRY.
 			break; // Break otherwise it continues to "case HUNGRY:"
+			
+		/*
+		 * Hungry is the state where the actor is waiting for available ChopSticks
+		 * From its previous actor.
+		 * 
+		 * TODO: Add more description of function
+		 */
 		case HUNGRY:
+			numberOfHungryTurns++; // Increment Number of Turns Spent Hungry.
+			//TODO Add Loop
 			break;
+			
+		/*
+		 * Eating is the state where the actor busy with both ChopSticks &
+		 * during this time it will simply hold these ChopSticks for a random
+		 * amount of time. After which the actor will release the ChopSticks for the 
+		 * next actor to use.
+		 */
 		case EATING:
 			break;
+			
+		/*
+		 * In case none of the States match with the States presented in the Enumeration
+		 * simply break the case and return to run().
+		 */
 		default:
 			break;
 		}
@@ -242,6 +270,7 @@ public class Philosopher implements Runnable {
 	 * @author cusatelli
 	 */
 	void start() {
+		if(DEBUG) { Debug.println("Start was Initiated."); }
 		// Initialize Variables:
 		state = States.THINKING; // Set Starting State to THINKING.
 		startTime = 0; // Set Starting Time to 0.
@@ -259,11 +288,11 @@ public class Philosopher implements Runnable {
 	 */
 	boolean isInterrupted(Thread thread) {
 		if(thread.interrupted()) {
-			if(DEBUG) { System.out.println("Thread: " + thread + "\n    was interrupted"); }
+			if(DEBUG) { Debug.println("Thread: " + thread + "\n    was interrupted"); }
 			return true;
 		
 		} else {
-			if(DEBUG) { System.out.println("Thread: " + thread + "\n    was not interrupted"); }
+			if(DEBUG) { Debug.println(printStatus_DEBUG + "Thread: " + thread + "\n    was not interrupted"); }
 			return false;
 		}
 	}
