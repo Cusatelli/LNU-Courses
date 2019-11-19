@@ -187,6 +187,10 @@ public class Philosopher implements Runnable {
 		 */
 		
 		start(); // Initialize Variables.
+		
+		while(!isInterrupted(thread_01)) {
+			
+		}
 	}
 	
 	/**
@@ -200,5 +204,25 @@ public class Philosopher implements Runnable {
 		state = States.THINKING; // Set Starting State to THINKING.
 		startTime = 0; // Set Starting Time to 0.
 		thread_01 = Thread.currentThread(); // Set thread_01 to the current Thread.
+	}
+	
+	/**
+	 * Check if Thread was ever interrupted & if so return this value.<br>
+	 * This method serves only as a purpose to confirm the<br>
+	 * Interruption of a Thread during DEBUG mode.
+	 * 
+	 * @param thread
+	 * @return true if Thread was interrupted, otherwise false
+	 * @author cusatelli
+	 */
+	boolean isInterrupted(Thread thread) {
+		if(thread.interrupted()) {
+			if(DEBUG) { System.out.println("Thread: " + thread + "\n    was interrupted"); }
+			return true;
+		
+		} else {
+			if(DEBUG) { System.out.println("Thread: " + thread + "\n    was not interrupted"); }
+			return false;
+		}
 	}
 }
