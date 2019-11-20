@@ -34,6 +34,13 @@ public class DiningPhilosopher {
 	ArrayList<Philosopher> philosophers = null;
 	ArrayList<Chopstick> chopsticks = null;
 
+	/**
+	 * As described in the TODO:<br>
+	 * Stopping all philosophers.
+	 * After for-loop it terminates immediately.
+	 * @version 1.0
+	 * @author cusatelli
+	 */
 	public void start() throws InterruptedException {
 		try {
 			/*
@@ -56,12 +63,9 @@ public class DiningPhilosopher {
 			Thread.sleep(SIMULATION_TIME);
 
 			Debug.println("\n>>> Asking all philosophers to stop\n");
-					
-			/*	TODO
-			 *  Stop all philosophers.
-			 *  Make sure all of the philosopher threads actually terminate!!!  
-			 *  
-			 *  Add comprehensive comments to explain your implementation.
+			
+			/*
+			 * Start of Implementation:
 			 */
 			long currentTime = System.currentTimeMillis();
 			Debug.println("Current Time: " + currentTime);
@@ -74,13 +78,25 @@ public class DiningPhilosopher {
 			}
 			Debug.println("Shutting Down Executor Service Now...");
 			executorService.shutdownNow();
-			
+			/*
+			 * End of Implementation!
+			 */
 		} finally {
 			executorService.shutdown();
 			executorService.awaitTermination(10, TimeUnit.MILLISECONDS);
 		}
 	}
-
+	
+	/**
+	 * As described in the TODO:<br>
+	 * Add new Chopsticks depending on the current number of Philosophers.
+	 * Then proceed to add chopsticks as left and right chopsticks. Finally
+	 * adding all to philosopher arrayList.
+	 * @param simulationTime
+	 * @param randomSeed
+	 * @version 2.0
+	 * @author cusatelli
+	 */
 	public void initialize(int simulationTime, int randomSeed) {
 		SIMULATION_TIME = simulationTime;
 		SEED = randomSeed;
@@ -91,11 +107,8 @@ public class DiningPhilosopher {
 		//create the executor service
 		executorService = Executors.newFixedThreadPool(NUMBER_OF_PHILOSOPHERS);
 
-		/* TODO
-		 * Add chopsticks,
-		 * Add philosophers, and
-		 * Assign the corresponding chopsticks.
-		 * Add comprehensive comments to explain your implementation.
+		/*
+		 * Start of Implementation:
 		 */
 		// Add new Chopsticks depending on the number of Philosophers:
 		Debug.println("[Before] Iterate over Number of Philosophers...");
@@ -131,6 +144,9 @@ public class DiningPhilosopher {
 			Debug.println("[Before] Added new Philosopher.");
 		}
 		Debug.println("[After] Iterating over Number of Philosophers.");
+		/*
+		 * End of Implementation.
+		 */
 	}
 
 	public ArrayList<Philosopher> getPhilosophers() {
