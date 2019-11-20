@@ -282,16 +282,30 @@ public class Philosopher implements Runnable {
 		 */
 		
 		start(); // Initialize Variables.
-		
+		Debug.println("[After] Start Finished.");
+
+		Debug.println("[Before] While Active Thread.");
 		while(!isInterrupted(activeThread)) {
+			Debug.println("[Before] Randomly Generated Waiting Time: " + waitingTime);
 			// Get random integer which will be used to determine waiting time in milliseconds
 			waitingTime = randomGenerator.nextInt(milliseconds_Max) + 1;
+			Debug.println("[After] Randomly Generated Waiting Time: " + waitingTime);
+			Debug.println("[Before] Systems current Time in milliseconds: " + startTime);
 			startTime = System.currentTimeMillis(); // Set the Start Time as the systems current Time. (in Milliseconds)
+			Debug.println("[After] Systems current Time in milliseconds: " + startTime);
 			
 			// Handle States through the State Manager:
-			try { StateManager(state); }
-			catch (InterruptedException e) { e.printStackTrace(); }
+			try {
+				Debug.println("[Before] Manage State: " + state);
+				StateManager(state); 
+				Debug.println("[After] Manage State: " + state);
+			}
+			catch (InterruptedException e) { 
+				Error.println("Could not check States!");
+				Error.terminate();
+			}
 		}
+		Debug.println("[After] While Active Thread.");
 	}
 	
 	/**
