@@ -65,7 +65,7 @@ public class DiningPhilosopher {
 			 *  
 			 *  Add comprehensive comments to explain your implementation.
 			 */
-
+			
 		} finally {
 			executorService.shutdown();
 			executorService.awaitTermination(10, TimeUnit.MILLISECONDS);
@@ -88,29 +88,36 @@ public class DiningPhilosopher {
 		 * Assign the corresponding chopsticks.
 		 * Add comprehensive comments to explain your implementation.
 		 */
+		// Add new Chopsticks depending on the number of Philosophers:
 		Debug.println("[Before] Iterate over Number of Philosophers...");
 		for (int i = 0; i < NUMBER_OF_PHILOSOPHERS; i++) {
 			Debug.println("[Before] Adding new Chopstick...");
-			chopsticks.add(new Chopstick(i));
+			chopsticks.add(new Chopstick(i)); // New Chopsticks to arraylist
 			Debug.println("[After] new Chopstick Added.");
 		}
 		Debug.println("[After] Iterating over Number of Philosophers.");
 		
+		// Create Left & Right chopsticks... Since you need 2 chopsticks to eat.
 		Debug.println("[Before] Iterate over Number of Philosophers...");
 		for (int i = 0; i < NUMBER_OF_PHILOSOPHERS; i++) {
 			Debug.println("[Before] Get Left Chopstick...");
+			// get chopsticks arraylist index i which was just created in the previous for-loop:
 			Chopstick leftChopstick = chopsticks.get(i);
 			Debug.println("[After] Got Left Chopstick.");
 			int index = 0;
 			Debug.println("[Before] Check Number Of Philosophers Left (Index): " + index);
 			Debug.println("[Before] Check Number Of Philosophers Left: " + (NUMBER_OF_PHILOSOPHERS - i));
+			// if not the last iteration set index = i + 1... If it's the last iteration it will case an 
+			// out of range Exception without this if statement.
 			if(i < NUMBER_OF_PHILOSOPHERS - 1) { index = i + 1; }
 			Debug.println("[After] Check Number Of Philosophers Left (Index): " + index);
 			Debug.println("[Before] Get Right Chopstick...");
+			// get chopsticks arraylist index index which was just created in the previous for-loop:
 			Chopstick rightChopstick = chopsticks.get(index);
 			Debug.println("[After] Got Right Chopstick.");
 
 			Debug.println("[Before] Add new Philosopher...");
+			// Add Philosophers to philosophers arraylist, with new chopsticks:
 			philosophers.add(new Philosopher(i, leftChopstick, rightChopstick, SEED, DEBUG));
 			Debug.println("[Before] Added new Philosopher.");
 		}
