@@ -13,6 +13,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+import assist.util.Debug;
+
 
 public class DiningPhilosopher {
 
@@ -86,17 +88,33 @@ public class DiningPhilosopher {
 		 * Assign the corresponding chopsticks.
 		 * Add comprehensive comments to explain your implementation.
 		 */
+		Debug.println("[Before] Iterate over Number of Philosophers...");
 		for (int i = 0; i < NUMBER_OF_PHILOSOPHERS; i++) {
+			Debug.println("[Before] Adding new Chopstick...");
 			chopsticks.add(new Chopstick(i));
+			Debug.println("[After] new Chopstick Added.");
 		}
+		Debug.println("[After] Iterating over Number of Philosophers.");
+		
+		Debug.println("[Before] Iterate over Number of Philosophers...");
 		for (int i = 0; i < NUMBER_OF_PHILOSOPHERS; i++) {
+			Debug.println("[Before] Get Left Chopstick...");
 			Chopstick leftChopstick = chopsticks.get(i);
+			Debug.println("[After] Got Left Chopstick.");
 			int index = 0;
+			Debug.println("[Before] Check Number Of Philosophers Left (Index): " + index);
+			Debug.println("[Before] Check Number Of Philosophers Left: " + (NUMBER_OF_PHILOSOPHERS - i));
 			if(i < NUMBER_OF_PHILOSOPHERS - 1) { index = i + 1; }
+			Debug.println("[After] Check Number Of Philosophers Left (Index): " + index);
+			Debug.println("[Before] Get Right Chopstick...");
 			Chopstick rightChopstick = chopsticks.get(index);
-			
+			Debug.println("[After] Got Right Chopstick.");
+
+			Debug.println("[Before] Add new Philosopher...");
 			philosophers.add(new Philosopher(i, leftChopstick, rightChopstick, SEED, DEBUG));
+			Debug.println("[Before] Added new Philosopher.");
 		}
+		Debug.println("[After] Iterating over Number of Philosophers.");
 	}
 
 	public ArrayList<Philosopher> getPhilosophers() {
