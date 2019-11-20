@@ -21,4 +21,11 @@ public class Debug {
 		}
 	}
 	
+	public static void printd(String output) {
+		if(isDebugMode) {
+			if(Time.showTime) { System.out.println("\n" + Time.getTime() + prefix + output + "\n"); }
+			else { System.out.println("\n" + prefix + output + "\n"); }
+		}
+	}
+	
 }
