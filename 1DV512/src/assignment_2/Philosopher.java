@@ -84,22 +84,11 @@ public class Philosopher implements Runnable {
 		 * Thinking acts as a break period for the actor which it simply does nothing other than wait.
 		 */
 		case THINKING:
-			Debug.println("[Before] Number of Thinking Turns: " + numberOfThinkingTurns);
+			Debug.println("Philosopher THINKING");
 			numberOfThinkingTurns++; // Increment Number of Turns Spent Thinking.
-			Debug.println("[After] Number of Thinking Turns: " + numberOfThinkingTurns);
-			
-			Debug.println("[Before] Sleeping...");
 			Thread.sleep(startTime); // Wait for random time.
-			Debug.println("[After] Sleep Finished.");
-			
-			Debug.println("[Before] Thinking Time: " + thinkingTime);
 			thinkingTime += startTime; // Increment Thinking Time by how long is spent in Thinking Time.
-			Debug.println("[After] Thinking Time: " + thinkingTime);
-			
-			Debug.println("[Before] Current State: " + state);
-			state = States.HUNGRY; // Switch State to HUNGRY.
-			Debug.println("[After] Current State: " + state);
-			
+			this.state = States.HUNGRY; // Switch State to HUNGRY.
 			break; // Break otherwise it continues to "case HUNGRY:"
 			
 		/*
@@ -109,26 +98,12 @@ public class Philosopher implements Runnable {
 		 * TODO: Add more description of function
 		 */
 		case HUNGRY:
-			Debug.println("[Before] Number of Hungry Turns: " + numberOfHungryTurns);
+			Debug.println("Philosopher HUNGRY");
 			numberOfHungryTurns++; // Increment Number of Turns Spent Hungry.
-			Debug.println("[After] Number of Hungry Turns: " + numberOfHungryTurns);
-			
-			Debug.println("[Before] Checking Chopsticks...");
 			checkChopSticks(leftChopstick, rightChopstick); // Check if any of the Chopsticks is available.
-			Debug.println("[After] Check Chopsticks Finished.");
-			
-			Debug.println("[Before] Wating Time: " + waitingTime);
 			waitingTime = System.currentTimeMillis() - startTime; // Register how long time has passed since start.
-			Debug.println("[After] Wating Time: " + waitingTime);
-			
-			Debug.println("[Before] Hungry Time: " + hungryTime);
 			hungryTime += waitingTime; // Add waiting time (since start) to hungry time.
-			Debug.println("[After] Hungry Time: " + hungryTime);
-			
-			Debug.println("[Before] Current State: " + state);
-			state = States.EATING; // Switch state to eating once all chopsticks are in hand.
-			Debug.println("[After] Current State: " + state);
-			
+			this.state = States.EATING; // Switch state to eating once all chopsticks are in hand.			
 			break; // Break otherwise it continues to "case EATING:"
 			
 		/*
@@ -138,30 +113,13 @@ public class Philosopher implements Runnable {
 		 * next actor to use.
 		 */
 		case EATING:
-			Debug.println("[Before] Number of Eating Turns: " + numberOfEatingTurns);
+			Debug.println("Philosopher EATING");
 			numberOfEatingTurns++; // Increment Number of Turns Spent Eating.
-			Debug.println("[After] Number of Eating Turns: " + numberOfEatingTurns);
-			
-			Debug.println("[Before] Eating...");
 			Thread.sleep(startTime);
-			Debug.println("[After] Finished Eating.");
-			
-			Debug.println("[Before] Putting Down Chopsticks...");
-			Debug.println("[Before] Putting Down Left Chopstick...");
 			leftChopstick.putDown();
-			Debug.println("[After] Put Down Left Chopstick.");
-			Debug.println("[Before] Putting Down Right Chopstick...");
 			rightChopstick.putDown();
-			Debug.println("[After] Put Down Right Chopstick.");
-			Debug.println("[After] Put Down Chopsticks.");
-			
-			Debug.println("[Before] Eating Time: " + eatingTime);
 			eatingTime += waitingTime; // Add waiting time (since start) to eating time.
-			Debug.println("[After] Eating Time: " + eatingTime);
-			
-			Debug.println("[Before] Current State: " + state);
-			state = States.THINKING; // Switch state to thinking.
-			Debug.println("[After] Current State: " + state);
+			this.state = States.THINKING; // Switch state to thinking.
 			
 			break; // Break otherwise it continues to "default:"
 			
@@ -171,7 +129,7 @@ public class Philosopher implements Runnable {
 		 */
 		default:
 			Error.println("Something went wrong! Current State did not match!");
-			Error.terminate();
+//			Error.terminate();
 			break;
 		}
 	}
@@ -310,43 +268,21 @@ public class Philosopher implements Runnable {
 		 */
 		
 		start(); // Initialize Variables.
-		Debug.println("[After] Start Finished.");
-
-		Debug.println("[Before] While Active Thread.");
 		while(!isInterrupted(activeThread)) {
-			Debug.println("[Before] Randomly Generated Waiting Time: " + waitingTime);
 			// Get random integer which will be used to determine waiting time in milliseconds
-			waitingTime = randomGenerator.nextInt(milliseconds_Max) + 1;
-			Debug.println("[After] Randomly Generated Waiting Time: " + waitingTime);
-			Debug.println("[Before] Systems current Time in milliseconds: " + startTime);
-			startTime = System.currentTimeMillis(); // Set the Start Time as the systems current Time. (in Milliseconds)
-			Debug.println("[After] Systems current Time in milliseconds: " + startTime);
+			waitingTime = randomGenerator.nextInt(milliseconds_Max) + 1;startTime = System.currentTimeMillis(); // Set the Start Time as the systems current Time. (in Milliseconds)
 			
 			// Handle States through the State Manager:
 			try {
-				Debug.println("[Before] Manage State: " + state);
-				StateManager(state); 
-				Debug.println("[After] Manage State: " + state);
+				StateManager(state);
 			}
 			catch (InterruptedException e) {
 				Error.println("Active Thread was interrupted!");
-				Debug.println("[Before]"
-						+ "\nEating Time: " + eatingTime 
-						+ "\nHungry Time: " + hungryTime
-						+ "\nThinking Time: " + thinkingTime);
 				activeTime = System.currentTimeMillis() - startTime;
-				Debug.println("Active Thread Time: " + activeTime);
-				
-				Debug.println("Current State: " + state);
 				InterruptManager(state);
-				Debug.println("[After]"
-						+ "\nEating Time: " + eatingTime 
-						+ "\nHungry Time: " + hungryTime
-						+ "\nThinking Time: " + thinkingTime);
 //				Error.terminate();
 			}
 		}
-		Debug.println("[After] While Active Thread.");
 	}
 	
 	void InterruptManager(States state) {
@@ -372,13 +308,9 @@ public class Philosopher implements Runnable {
 			Debug.True();
 			Time.Show();
 		} else { Debug.False(); } // Set debug mode to true or false.
-		Debug.println("Debugging Mode Started...");
-		
-		Debug.println("[Before] Setting Variables - State:" + state + " - startTime: " + startTime + " - Thread: " + activeThread);
 		state = States.THINKING; // Set Starting State to THINKING.
 		startTime = 0; // Set Starting Time to 0.
 		activeThread = Thread.currentThread(); // Set thread_01 to the current Thread.
-		Debug.println("[After] Setting Variables - State:" + state + " - startTime: " + startTime + " - Thread: " + activeThread);
 	}
 	
 	/**
@@ -392,38 +324,23 @@ public class Philosopher implements Runnable {
 	 */
 	boolean isInterrupted(Thread thread) {
 		if(thread.interrupted()) {
-			Debug.println("Thread: " + thread + "\n    was interrupted");
+			Error.println("Thread was interrupted");
 			return true;
-		
 		} else {
-			Debug.println("Thread: " + thread + "\n    wasn't interrupted");
 			return false;
 		}
 	}
 	
 	void checkChopSticks(Chopstick left, Chopstick right) {
-		Debug.println("Initiated Chopsticks...");
 		try {
 			while(!left.isActiveThread(activeThread) && !right.isActiveThread(activeThread)) {
-				Debug.println("Checking while Chopsticks isn't active Thread...");
-				while(!left.pickUp()) {
-					Debug.println("Left Chopstick isn't picked up! Sleeping...");
-					Thread.sleep(5);
-					Debug.println("Sleeping Finished.");
-				}
-				Debug.println("Left Chopstick is picked up!");
-				while(right.pickUp()) { 
-					Debug.println("Right Chopstick isn't picked up! Sleeping...");
-					Thread.sleep(5);
-					Debug.println("Sleeping Finished."); 
-				}
-				Debug.println("Right Chopstick is picked up!");
+				while(!left.pickUp()) { Thread.sleep(5); }
+				while(right.pickUp()) { Thread.sleep(5); }
 			}
 		} catch (InterruptedException error) { 
 			Error.println("Could not check Chopsticks!");
-			Error.terminate();
+//			Error.terminate();
 		}
-		Debug.println("Chopsticks Finished.");
 	}
 	
 	boolean isActive() {

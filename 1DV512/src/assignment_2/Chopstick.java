@@ -53,18 +53,6 @@ public class Chopstick {
 		else { return false; }
 	}
 	
-	private synchronized boolean isLocked() {
-		if(!Thread.holdsLock(activeThread)) {
-			activeThread = Thread.currentThread();
-			Thread.holdsLock(activeThread);
-			return true;
-		} else if(Thread.holdsLock(activeThread)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
 	/**
 	 * If Active Thread is set not locked, set it to the current Active Thread, set Active thread to locked & return true.
 	 * else if the active thread is already locked return true also.
