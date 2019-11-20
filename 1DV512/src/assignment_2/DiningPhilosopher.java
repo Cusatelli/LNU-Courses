@@ -86,7 +86,17 @@ public class DiningPhilosopher {
 		 * Assign the corresponding chopsticks.
 		 * Add comprehensive comments to explain your implementation.
 		 */
-
+		for (int i = 0; i < NUMBER_OF_PHILOSOPHERS; i++) {
+			chopsticks.add(new Chopstick(i));
+		}
+		for (int i = 0; i < NUMBER_OF_PHILOSOPHERS; i++) {
+			Chopstick leftChopstick = chopsticks.get(i);
+			int index = 0;
+			if(i < NUMBER_OF_PHILOSOPHERS - 1) { index = i + 1; }
+			Chopstick rightChopstick = chopsticks.get(index);
+			
+			philosophers.add(new Philosopher(i, leftChopstick, rightChopstick, SEED, DEBUG));
+		}
 	}
 
 	public ArrayList<Philosopher> getPhilosophers() {
