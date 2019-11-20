@@ -426,4 +426,9 @@ public class Philosopher implements Runnable {
 		Debug.println("Chopsticks Finished.");
 	}
 	
+	boolean isActive() {
+		if(activeThread == null) { return false; }
+		return leftChopstick.isActiveThread(activeThread) 
+					&& !rightChopstick.isActiveThread(activeThread);
+	}
 }
