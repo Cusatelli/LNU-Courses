@@ -7,7 +7,6 @@ package assignment_2;
  * Date: 	November 2019
  */
 
-import java.util.ArrayList;
 import java.io.IOException;
 
 public class Main {
@@ -24,5 +23,7 @@ public class Main {
     	dp.start(); // start the simulation process
 
     	dp.printTable();
+    	
+    	System.exit(0);
     }
 }
