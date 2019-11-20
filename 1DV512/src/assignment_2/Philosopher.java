@@ -120,7 +120,6 @@ public class Philosopher implements Runnable {
 			rightChopstick.putDown();
 			eatingTime += waitingTime; // Add waiting time (since start) to eating time.
 			this.state = States.THINKING; // Switch state to thinking.
-			
 			break; // Break otherwise it continues to "default:"
 			
 		/*
@@ -129,7 +128,7 @@ public class Philosopher implements Runnable {
 		 */
 		default:
 			Error.println("Something went wrong! Current State did not match!");
-//			Error.terminate();
+			Error.terminate();
 			break;
 		}
 	}
@@ -270,7 +269,8 @@ public class Philosopher implements Runnable {
 		start(); // Initialize Variables.
 		while(!isInterrupted(activeThread)) {
 			// Get random integer which will be used to determine waiting time in milliseconds
-			waitingTime = randomGenerator.nextInt(milliseconds_Max) + 1;startTime = System.currentTimeMillis(); // Set the Start Time as the systems current Time. (in Milliseconds)
+			waitingTime = randomGenerator.nextInt(milliseconds_Max) + 1;
+			startTime = System.currentTimeMillis(); // Set the Start Time as the systems current Time. (in Milliseconds)
 			
 			// Handle States through the State Manager:
 			try {
@@ -339,7 +339,7 @@ public class Philosopher implements Runnable {
 			}
 		} catch (InterruptedException error) { 
 			Error.println("Could not check Chopsticks!");
-//			Error.terminate();
+			Error.terminate();
 		}
 	}
 	
