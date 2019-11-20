@@ -55,16 +55,25 @@ public class DiningPhilosopher {
 			// Main thread sleeps till time of simulation
 			Thread.sleep(SIMULATION_TIME);
 
-			if (DEBUG) {
-				System.out.println("\n>>> Asking all philosophers to stop\n");
-			}
-			
+			Debug.println("\n>>> Asking all philosophers to stop\n");
+					
 			/*	TODO
 			 *  Stop all philosophers.
 			 *  Make sure all of the philosopher threads actually terminate!!!  
 			 *  
 			 *  Add comprehensive comments to explain your implementation.
 			 */
+			long currentTime = System.currentTimeMillis();
+			Debug.println("Current Time: " + currentTime);
+			for(long threadSleep = currentTime; (currentTime - threadSleep) < SIMULATION_TIME;) {
+				currentTime = System.currentTimeMillis();
+				Debug.println("Current Time: " + currentTime);
+				Debug.println("[Before] Sleeping...");
+				Thread.sleep(5);
+				Debug.println("[After] Sleeping.");
+			}
+			Debug.println("Shutting Down Executor Service Now...");
+			executorService.shutdownNow();
 			
 		} finally {
 			executorService.shutdown();
