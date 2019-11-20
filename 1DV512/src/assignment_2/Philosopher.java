@@ -86,15 +86,19 @@ public class Philosopher implements Runnable {
 			Debug.println("[Before] Number of Thinking Turns: " + numberOfThinkingTurns);
 			numberOfThinkingTurns++; // Increment Number of Turns Spent Thinking.
 			Debug.println("[After] Number of Thinking Turns: " + numberOfThinkingTurns);
+			
 			Debug.println("[Before] Sleeping...");
 			Thread.sleep(1000); // Wait for random time.
 			Debug.println("[After] Sleep Finished.");
+			
 			Debug.println("[Before] Thinking Time: " + thinkingTime);
 			thinkingTime += 1000; // Increment Thinking Time by how long is spent in Thinking Time.
 			Debug.println("[After] Thinking Time: " + thinkingTime);
+			
 			Debug.println("[Before] Current State: " + state);
 			state = States.HUNGRY; // Switch State to HUNGRY.
 			Debug.println("[After] Current State: " + state);
+			
 			break; // Break otherwise it continues to "case HUNGRY:"
 			
 		/*
@@ -104,14 +108,27 @@ public class Philosopher implements Runnable {
 		 * TODO: Add more description of function
 		 */
 		case HUNGRY:
+			Debug.println("[Before] Number of Thinking Turns: " + numberOfHungryTurns);
 			numberOfHungryTurns++; // Increment Number of Turns Spent Hungry.
+			Debug.println("[After] Number of Thinking Turns: " + numberOfHungryTurns);
 			
-			checkChopSticks(leftChopstick, rightChopstick);
+			Debug.println("[Before] Checking Chopsticks...");
+			checkChopSticks(leftChopstick, rightChopstick); // Check if any of the Chopsticks is available.
+			Debug.println("[After] Check Chopsticks Finished.");
 			
-			waitingTime = System.currentTimeMillis() - startTime;
-			hungryTime += waitingTime;
-			state = States.EATING;
-			break;
+			Debug.println("[Before] Wating Time: " + waitingTime);
+			waitingTime = System.currentTimeMillis() - startTime; // Register how long time has passed since start.
+			Debug.println("[After] Wating Time: " + waitingTime);
+			
+			Debug.println("[Before] Hungry Time: " + hungryTime);
+			hungryTime += waitingTime; // Add waiting time (since start) to hungry time. Longer = more time spent eating.
+			Debug.println("[After] Hungry Time: " + hungryTime);
+			
+			Debug.println("[Before] Current State: " + state);
+			state = States.EATING; // Switch state to eating once all chopsticks are in hand.
+			Debug.println("[After] Current State: " + state);
+			
+			break; // Break otherwise it continues to "case EATING:"
 			
 		/*
 		 * Eating is the state where the actor busy with both ChopSticks &
@@ -316,15 +333,28 @@ public class Philosopher implements Runnable {
 	}
 	
 	void checkChopSticks(Chopstick left, Chopstick right) {
+		Debug.println("Initiated Chopsticks...");
 		try {
 			while(!left.isActiveThread(activeThread) && !right.isActiveThread(activeThread)) {
-				while(!left.pickUp()) { Thread.sleep(5); }
-				while(right.pickUp()) { Thread.sleep(5); }
+				Debug.println("Checking while Chopsticks isn't active Thread...");
+				while(!left.pickUp()) {
+					Debug.println("Left Chopstick isn't picked up! Sleeping...");
+					Thread.sleep(5);
+					Debug.println("Sleeping Finished.");
+				}
+				Debug.println("Left Chopstick is picked up!");
+				while(right.pickUp()) { 
+					Debug.println("Right Chopstick isn't picked up! Sleeping...");
+					Thread.sleep(5);
+					Debug.println("Sleeping Finished."); 
+				}
+				Debug.println("Right Chopstick is picked up!");
 			}
 		} catch (InterruptedException error) { 
 			Error.println("Could not check Chopsticks!");
 			Error.terminate();
 		}
+		Debug.println("Chopsticks Finished.");
 	}
 	
 }
