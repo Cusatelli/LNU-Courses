@@ -10,6 +10,8 @@ package assignment_2;
 import java.util.Random;
 
 import assist.util.Debug;
+import assist.util.Error;
+import assist.util.Time;
 
 /**
  * The skeleton is created by <i>Suejb Memeti</i> & modified by <i>Kostiantyn Kucher</i>.
@@ -46,11 +48,10 @@ public class Philosopher implements Runnable {
 	// Variables to save in field for use in run().
 	private Thread activeThread; // For example use thread_01 when determining the active thread.
 	private long startTime;
+	private long waitingTime;
 	private States state;
 	
 	private int milliseconds_Max = 1000; // Set the max amount of milliseconds in the field for easy access.
-	
-	private String printStatus_DEBUG = "[DEBUG] ";
 	
 	/**
 	 * An <i>Enumeration</i> of the possible <b>States</b> a Philosopher can have during runtime.
@@ -82,10 +83,18 @@ public class Philosopher implements Runnable {
 		 * Thinking acts as a break period for the actor which it simply does nothing other than wait.
 		 */
 		case THINKING:
+			Debug.println("[Before] Number of Thinking Turns: " + numberOfThinkingTurns);
 			numberOfThinkingTurns++; // Increment Number of Turns Spent Thinking.
+			Debug.println("[After] Number of Thinking Turns: " + numberOfThinkingTurns);
+			Debug.println("[Before] Sleeping...");
 			Thread.sleep(1000); // Wait for random time.
+			Debug.println("[After] Sleep Finished.");
+			Debug.println("[Before] Thinking Time: " + thinkingTime);
 			thinkingTime += 1000; // Increment Thinking Time by how long is spent in Thinking Time.
+			Debug.println("[After] Thinking Time: " + thinkingTime);
+			Debug.println("[Before] Current State: " + state);
 			state = States.HUNGRY; // Switch State to HUNGRY.
+			Debug.println("[After] Current State: " + state);
 			break; // Break otherwise it continues to "case HUNGRY:"
 			
 		/*
@@ -96,7 +105,12 @@ public class Philosopher implements Runnable {
 		 */
 		case HUNGRY:
 			numberOfHungryTurns++; // Increment Number of Turns Spent Hungry.
-			//TODO Add Loop
+			
+			checkChopSticks(leftChopstick, rightChopstick);
+			
+			waitingTime = System.currentTimeMillis() - startTime;
+			hungryTime += waitingTime;
+			state = States.EATING;
 			break;
 			
 		/*
@@ -254,7 +268,7 @@ public class Philosopher implements Runnable {
 		
 		while(!isInterrupted(activeThread)) {
 			// Get random integer which will be used to determine waiting time in milliseconds
-			long waitingTime = randomGenerator.nextInt(milliseconds_Max) + 1;
+			waitingTime = randomGenerator.nextInt(milliseconds_Max) + 1;
 			startTime = System.currentTimeMillis(); // Set the Start Time as the systems current Time. (in Milliseconds)
 			
 			// Handle States through the State Manager:
@@ -271,8 +285,10 @@ public class Philosopher implements Runnable {
 	 */
 	void start() {
 		// Initialize Variables:
-		if(DEBUG) { Debug.True(); }
-		else { Debug.False(); } // Set debug mode to true or false.
+		if(DEBUG) { 
+			Debug.True();
+			Time.Show();
+		} else { Debug.False(); } // Set debug mode to true or false.
 		
 		state = States.THINKING; // Set Starting State to THINKING.
 		startTime = 0; // Set Starting Time to 0.
@@ -296,6 +312,18 @@ public class Philosopher implements Runnable {
 		} else {
 			if(DEBUG) { Debug.println("Thread: " + thread + "\n    was not interrupted"); }
 			return false;
+		}
+	}
+	
+	void checkChopSticks(Chopstick left, Chopstick right) {
+		try {
+			while(!left.isActiveThread(activeThread) && !right.isActiveThread(activeThread)) {
+				while(!left.pickUp()) { Thread.sleep(5); }
+				while(right.pickUp()) { Thread.sleep(5); }
+			}
+		} catch (InterruptedException error) { 
+			Error.println("Could not check Chopsticks!");
+			Error.terminate();
 		}
 	}
 	
