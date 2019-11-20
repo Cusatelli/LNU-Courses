@@ -12,7 +12,6 @@ import java.util.Random;
 import assist.util.Debug;
 import assist.util.Error;
 import assist.util.Time;
-import jdk.tools.jlink.internal.plugins.ReleaseInfoPlugin;
 
 /**
  * The skeleton is created by <i>Suejb Memeti</i> & modified by <i>Kostiantyn Kucher</i>.
@@ -50,6 +49,7 @@ public class Philosopher implements Runnable {
 	private Thread activeThread; // For example use thread_01 when determining the active thread.
 	private long startTime;
 	private long waitingTime;
+	private long activeTime;
 	private States state;
 	
 	private int milliseconds_Max = 1000; // Set the max amount of milliseconds in the field for easy access.
@@ -163,7 +163,7 @@ public class Philosopher implements Runnable {
 			state = States.THINKING; // Switch state to thinking.
 			Debug.println("[After] Current State: " + state);
 			
-			break; // Break otherwise it continues to "case default:"
+			break; // Break otherwise it continues to "default:"
 			
 		/*
 		 * In case none of the States match with the States presented in the Enumeration
@@ -328,12 +328,36 @@ public class Philosopher implements Runnable {
 				StateManager(state); 
 				Debug.println("[After] Manage State: " + state);
 			}
-			catch (InterruptedException e) { 
-				Error.println("Could not check States!");
-				Error.terminate();
+			catch (InterruptedException e) {
+				Error.println("Active Thread was interrupted!");
+				Debug.println("[Before]"
+						+ "\nEating Time: " + eatingTime 
+						+ "\nHungry Time: " + hungryTime
+						+ "\nThinking Time: " + thinkingTime);
+				activeTime = System.currentTimeMillis() - startTime;
+				Debug.println("Active Thread Time: " + activeTime);
+				
+				Debug.println("Current State: " + state);
+				InterruptManager(state);
+				Debug.println("[After]"
+						+ "\nEating Time: " + eatingTime 
+						+ "\nHungry Time: " + hungryTime
+						+ "\nThinking Time: " + thinkingTime);
+//				Error.terminate();
 			}
 		}
 		Debug.println("[After] While Active Thread.");
+	}
+	
+	void InterruptManager(States state) {
+		switch(state) {
+		case EATING: eatingTime += activeTime;
+			break;
+		case HUNGRY: hungryTime += activeTime;
+			break;
+		case THINKING: thinkingTime += activeTime;
+			break;
+		}
 	}
 	
 	/**
