@@ -12,6 +12,7 @@ import java.util.Random;
 import assist.util.Debug;
 import assist.util.Error;
 import assist.util.Time;
+import jdk.tools.jlink.internal.plugins.ReleaseInfoPlugin;
 
 /**
  * The skeleton is created by <i>Suejb Memeti</i> & modified by <i>Kostiantyn Kucher</i>.
@@ -108,9 +109,9 @@ public class Philosopher implements Runnable {
 		 * TODO: Add more description of function
 		 */
 		case HUNGRY:
-			Debug.println("[Before] Number of Thinking Turns: " + numberOfHungryTurns);
+			Debug.println("[Before] Number of Hungry Turns: " + numberOfHungryTurns);
 			numberOfHungryTurns++; // Increment Number of Turns Spent Hungry.
-			Debug.println("[After] Number of Thinking Turns: " + numberOfHungryTurns);
+			Debug.println("[After] Number of Hungry Turns: " + numberOfHungryTurns);
 			
 			Debug.println("[Before] Checking Chopsticks...");
 			checkChopSticks(leftChopstick, rightChopstick); // Check if any of the Chopsticks is available.
@@ -121,7 +122,7 @@ public class Philosopher implements Runnable {
 			Debug.println("[After] Wating Time: " + waitingTime);
 			
 			Debug.println("[Before] Hungry Time: " + hungryTime);
-			hungryTime += waitingTime; // Add waiting time (since start) to hungry time. Longer = more time spent eating.
+			hungryTime += waitingTime; // Add waiting time (since start) to hungry time.
 			Debug.println("[After] Hungry Time: " + hungryTime);
 			
 			Debug.println("[Before] Current State: " + state);
@@ -137,13 +138,40 @@ public class Philosopher implements Runnable {
 		 * next actor to use.
 		 */
 		case EATING:
-			break;
+			Debug.println("[Before] Number of Eating Turns: " + numberOfEatingTurns);
+			numberOfEatingTurns++; // Increment Number of Turns Spent Eating.
+			Debug.println("[After] Number of Eating Turns: " + numberOfEatingTurns);
+			
+			Debug.println("[Before] Eating...");
+			Thread.sleep(1000);
+			Debug.println("[After] Finished Eating.");
+			
+			Debug.println("[Before] Putting Down Chopsticks...");
+			Debug.println("[Before] Putting Down Left Chopstick...");
+			leftChopstick.putDown();
+			Debug.println("[After] Put Down Left Chopstick.");
+			Debug.println("[Before] Putting Down Right Chopstick...");
+			rightChopstick.putDown();
+			Debug.println("[After] Put Down Right Chopstick.");
+			Debug.println("[After] Put Down Chopsticks.");
+			
+			Debug.println("[Before] Eating Time: " + eatingTime);
+			eatingTime += waitingTime; // Add waiting time (since start) to eating time.
+			Debug.println("[After] Eating Time: " + eatingTime);
+			
+			Debug.println("[Before] Current State: " + state);
+			state = States.THINKING; // Switch state to thinking.
+			Debug.println("[After] Current State: " + state);
+			
+			break; // Break otherwise it continues to "case default:"
 			
 		/*
 		 * In case none of the States match with the States presented in the Enumeration
-		 * simply break the case and return to run().
+		 * print Error message and terminate the application...
 		 */
 		default:
+			Error.println("Something went wrong! Current State did not match!");
+			Error.terminate();
 			break;
 		}
 	}
