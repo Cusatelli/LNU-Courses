@@ -53,9 +53,21 @@ public class Chopstick {
 		else { return false; }
 	}
 	
+	private synchronized boolean isLocked() {
+		if(!Thread.holdsLock(activeThread)) {
+			activeThread = Thread.currentThread();
+			Thread.holdsLock(activeThread);
+			return true;
+		} else if(Thread.holdsLock(activeThread)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	/**
-	 * If Active Thread is set to null, set it to the current Active Thread & return true.
-	 * else if it's already the active thread return true also.
+	 * If Active Thread is set not locked, set it to the current Active Thread, set Active thread to locked & return true.
+	 * else if the active thread is already locked return true also.
 	 * If none of the above return false.<br>
 	 * The active thread represents in this case if the Chopsticks have been picked up or not.
 	 * @return True if Active Thread is activeThread.
@@ -63,21 +75,26 @@ public class Chopstick {
 	 * @author cusatelli
 	 */
 	public synchronized boolean pickUp() {
-		if(activeThread == null) {
+		if(!Thread.holdsLock(activeThread)) {
 			activeThread = Thread.currentThread();
+			((Lock) activeThread).lock();
 			return true;
-		} else if (Thread.currentThread() == activeThread) { return true; }
-		else { return false; }
+		} else if(Thread.holdsLock(activeThread)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	/**
-	 * Once this method is called return the Active Thread to null so it no longer represents the chopsticks
-	 * to be picked up.
+	 * Once this method is called unlock the activeThread & set it to null so
+	 * it no longer represents holding the chopsticks.
 	 * @version 2.0
 	 * @author cusatelli
 	 */
 	public synchronized void putDown() {
-		if(Thread.currentThread() == activeThread) {
+		if(Thread.holdsLock(activeThread)) {
+			((Lock) activeThread).unlock();
 			activeThread = null;
 		}
 	}
