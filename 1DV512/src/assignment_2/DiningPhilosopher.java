@@ -62,7 +62,7 @@ public class DiningPhilosopher {
 			// Main thread sleeps till time of simulation
 			Thread.sleep(SIMULATION_TIME);
 
-			Debug.println(">>> Asking all philosophers to stop\n");
+			Debug.printd(">>> Asking all philosophers to stop");
 			
 			/*
 			 * Start of Implementation:
