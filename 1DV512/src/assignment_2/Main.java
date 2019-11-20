@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class Main {
 
-    public static void main(String args[]) throws IOException, InterruptedException{
+    public static void main(String args[]) throws IOException, InterruptedException {
     	DiningPhilosopher dp = new DiningPhilosopher(); // create an instance of the DiningPhilosopher class
     	dp.DEBUG = true;
         int simulationTime = 10000;
