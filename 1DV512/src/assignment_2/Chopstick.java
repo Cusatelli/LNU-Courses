@@ -14,6 +14,9 @@ public class Chopstick {
 	private final int id;
 	private Lock myLock = new ReentrantLock();
 	
+	// New Fields:
+	private Thread activeThread;
+	
 	public Chopstick(int id) {
 		this.id = id;
 	}
@@ -33,5 +36,25 @@ public class Chopstick {
 	 * The myLock.tryLock() method provides a boolean value indicating whether the lock was acquired or not.
 	 * Further documentation: https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReentrantLock.html#tryLock()
 	 */
+	
+	public boolean isActiveThread(Thread activeThread) {
+		if(this.activeThread == activeThread) { return true; }
+		else { return false; }
+	}
+	
+	public synchronized boolean pickUp() {
+		if(activeThread == null) {
+			activeThread = Thread.currentThread();
+			return true;
+		} else if (Thread.currentThread() == activeThread) { return true; }
+		else { return false; }
+	}
+	
+	public synchronized void putDown() {
+		if(Thread.currentThread() == activeThread) {
+			activeThread = null;
+		}
+	}
+	
 }
 
