@@ -320,10 +320,13 @@ public class Philosopher implements Runnable {
 			Debug.True();
 			Time.Show();
 		} else { Debug.False(); } // Set debug mode to true or false.
+		Debug.println("Debugging Mode Started...");
 		
+		Debug.println("[Before] Setting Variables - State:" + state + " - startTime: " + startTime + " - Thread: " + activeThread);
 		state = States.THINKING; // Set Starting State to THINKING.
 		startTime = 0; // Set Starting Time to 0.
 		activeThread = Thread.currentThread(); // Set thread_01 to the current Thread.
+		Debug.println("[After] Setting Variables - State:" + state + " - startTime: " + startTime + " - Thread: " + activeThread);
 	}
 	
 	/**
@@ -337,11 +340,11 @@ public class Philosopher implements Runnable {
 	 */
 	boolean isInterrupted(Thread thread) {
 		if(thread.interrupted()) {
-			if(DEBUG) { Debug.println("Thread: " + thread + "\n    was interrupted"); }
+			Debug.println("Thread: " + thread + "\n    was interrupted");
 			return true;
 		
 		} else {
-			if(DEBUG) { Debug.println("Thread: " + thread + "\n    was not interrupted"); }
+			Debug.println("Thread: " + thread + "\n    wasn't interrupted");
 			return false;
 		}
 	}
