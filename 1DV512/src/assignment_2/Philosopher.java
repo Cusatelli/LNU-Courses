@@ -89,11 +89,11 @@ public class Philosopher implements Runnable {
 			Debug.println("[After] Number of Thinking Turns: " + numberOfThinkingTurns);
 			
 			Debug.println("[Before] Sleeping...");
-			Thread.sleep(1000); // Wait for random time.
+			Thread.sleep(startTime); // Wait for random time.
 			Debug.println("[After] Sleep Finished.");
 			
 			Debug.println("[Before] Thinking Time: " + thinkingTime);
-			thinkingTime += 1000; // Increment Thinking Time by how long is spent in Thinking Time.
+			thinkingTime += startTime; // Increment Thinking Time by how long is spent in Thinking Time.
 			Debug.println("[After] Thinking Time: " + thinkingTime);
 			
 			Debug.println("[Before] Current State: " + state);
@@ -143,7 +143,7 @@ public class Philosopher implements Runnable {
 			Debug.println("[After] Number of Eating Turns: " + numberOfEatingTurns);
 			
 			Debug.println("[Before] Eating...");
-			Thread.sleep(1000);
+			Thread.sleep(startTime);
 			Debug.println("[After] Finished Eating.");
 			
 			Debug.println("[Before] Putting Down Chopsticks...");
