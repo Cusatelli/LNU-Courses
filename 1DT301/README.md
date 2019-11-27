@@ -16,11 +16,22 @@ This course is focused on programming in Assembler & C on the cards SK600. The a
 #### Included files:
 * m2560def.inc
 
+#### Grades:
+| Assignment | Passed |
+|---|---|
+| Laboration 1 | :heavy_check_mark: |
+| Laboration 2 | :heavy_check_mark: |
+| Laboration 3 | :heavy_check_mark: |
+| Laboration 4 | :heavy_check_mark: |
+| Laboration 5 | :heavy_check_mark: |
+| Laboration 6 | :heavy_check_mark: |
+
 #### Updates:
 | Date |  |
 |---|---|
 | 16 October 2019 | All assignments have passed first inspection. |
 | 6 November 2019 | All assignments have been uploaded to GitHub. |
+| 20 november 2019 | All assignments have recieved a passing grade. |
 
 ### Disclaimer:
 ```
