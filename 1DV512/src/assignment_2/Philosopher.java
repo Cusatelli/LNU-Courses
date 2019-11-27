@@ -132,8 +132,10 @@ public class Philosopher implements Runnable {
 				 *  If this value is greater than 0 then we have a deadlock and the system should terminate itself.
 				 *  Otherwise we can try to pick up chopsticks.
 				 */
-				if(leftChopstick.getQueueLength() > 0) { System.exit(0); }
-				else {
+				if(leftChopstick.getQueueLength() > 0) { 
+					if(DEBUG) { System.out.println("\n[ DEADLOCK DETECTED ]"); }
+					System.exit(0); 
+				} else {
 					/*
 					 * If left chopstick is free we pick it up.
 					 */
