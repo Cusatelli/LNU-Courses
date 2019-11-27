@@ -16,6 +16,13 @@ The prerequisites of the course are that you must have passed at least 30hp in a
 | 17 November 2019 | Updated Workshop 2 |
 | 18 November 2019 | Uploaded Diagrams to Workshop 2 |
 
+#### Compatibility:
+| OS | Application | UI |
+|---|---|---|
+| Linux | :heavy_check_mark: | :heavy_check_mark: |
+| Mac | :heavy_check_mark: | :question: |
+| Windows | :heavy_check_mark: | :x: | 
+
 ### Disclaimer:
 ```
 This is a student repository and all assignments are kept in this repository only as a resource which 
