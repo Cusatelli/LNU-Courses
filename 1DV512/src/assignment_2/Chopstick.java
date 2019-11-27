@@ -7,15 +7,33 @@ package assignment_2;
  * Date: 	November 2019
  */
 
+import java.util.concurrent.TimeUnit;
+
+/*
+ * File:	Chopstick.java
+ * Course: 	Operating Systems
+ * Code: 	1DV512
+ * Author: 	Suejb Memeti (modified by Kostiantyn Kucher)
+ * Date: 	November 2019
+ */
+
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Chopstick {
+/**
+ * The skeleton is created by <i>Suejb Memeti</i> & modified by <i>Kostiantyn Kucher</i>.
+ * <br>Though the Implementation is done by <i>Cusatelli</i>.
+ * <br><br>
+ * The Chopstick.java class handles the locking and unlocking of chopsticks which Philosophers 
+ * need to eat in DiningPhilosopher.java class. Here we set if a chopstick is being used or not.
+ * @version 2.0
+ * @author cusatelli
+ */
+public class Chopstick extends ReentrantLock {
+
+	private static final long serialVersionUID = 1L;
 	private final int id;
 	private Lock myLock = new ReentrantLock();
-	
-	// New Fields:
-	private Thread activeThread;
 	
 	public Chopstick(int id) {
 		this.id = id;
@@ -29,65 +47,25 @@ public class Chopstick {
 		return myLock;
 	}
 	
-	/* TODO
-	 * Implement the pickup and put down chopstick logic in the Philosopher.run() method.
-	 * Please note that the same chopstick can not be picked up by more than one philosopher at a time.
-	 * Use the myLock to lock this chopstick. Print the logs only when the lock has been acquired. 
-	 * The myLock.tryLock() method provides a boolean value indicating whether the lock was acquired or not.
-	 * Further documentation: https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReentrantLock.html#tryLock()
-	 */
-
-	/*
-	 * Start of Implementation:
-	 */
-	
 	/**
-	 * Check if the Thread checked is the current Active Thread.
-	 * @param activeThread
-	 * @return true if the Thread checked is the current Active Thread.
+	 * The thread waits for a certain time period as defined by arguments of the 
+	 * method to acquire the lock on the resource before exiting.
+	 *   
+	 * @return If the Chopstick is not held by any thread, 
+	 * then call to <b>tryLock()</b> returns <b>true</b> and the hold count is incremented by one. 
+	 * If the Chopstick is not free then the method returns <b>false</b> 
+	 * and the thread is not blocked but it exits.
+	 * @throws InterruptedException
 	 * @version 2.0
 	 * @author cusatelli
 	 */
-	public boolean isActiveThread(Thread activeThread) {
-		if(this.activeThread == activeThread) { return true; }
-		else { return false; }
-	}
+	public boolean pickup() throws InterruptedException { return myLock.tryLock(1, TimeUnit.MILLISECONDS); } // DEBUG in Philosopher.java
 	
 	/**
-	 * If Active Thread is set not locked, set it to the current Active Thread, set Active thread to locked & return true.
-	 * else if the active thread is already locked return true also.
-	 * If none of the above return false.<br>
-	 * The active thread represents in this case if the Chopsticks have been picked up or not.
-	 * @return True if Active Thread is activeThread.
+	 * Call to the <b>unlock()</b> method decrements the hold count by 1. 
+	 * When this count reaches zero, the Chopstick is released or "put down".
 	 * @version 2.0
 	 * @author cusatelli
 	 */
-	public synchronized boolean pickUp() {
-		if(!Thread.holdsLock(activeThread)) {
-			activeThread = Thread.currentThread();
-			((Lock) activeThread).lock();
-			return true;
-		} else if(Thread.holdsLock(activeThread)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	/**
-	 * Once this method is called unlock the activeThread & set it to null so
-	 * it no longer represents holding the chopsticks.
-	 * @version 2.0
-	 * @author cusatelli
-	 */
-	public synchronized void putDown() {
-		if(Thread.holdsLock(activeThread)) {
-			((Lock) activeThread).unlock();
-			activeThread = null;
-		}
-	}
-	/*
-	 * End of Implementation.
-	 */
+	public void putdown() { myLock.unlock(); } // DEBUG in Philosopher.java
 }
-

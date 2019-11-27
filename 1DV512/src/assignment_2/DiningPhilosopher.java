@@ -13,9 +13,16 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import assist.util.Debug;
-
-
+/**
+ * The skeleton is created by <i>Suejb Memeti</i> & modified by <i>Kostiantyn Kucher</i>.
+ * <br>Though the Implementation is done by <i>Cusatelli</i>.
+ * <br><br>
+ * The DiningPhilosopher.java class Initializes the Philosophers and Chopsticks 
+ * which will be used within Philosopher.java. It also exits the System once 
+ * the Simulation time has ended.
+ * @version 2.0
+ * @author cusatelli
+ */
 public class DiningPhilosopher {
 
 	/*
@@ -35,11 +42,9 @@ public class DiningPhilosopher {
 	ArrayList<Chopstick> chopsticks = null;
 
 	/**
-	 * As described in the TODO:<br>
-	 * Stopping all philosophers.
-	 * After for-loop it terminates immediately.
-	 * @version 1.0
-	 * @author cusatelli
+	 * @throws InterruptedException
+	 * @version 2.0
+	 * @author Implementation -> cusatelli
 	 */
 	public void start() throws InterruptedException {
 		try {
@@ -62,37 +67,22 @@ public class DiningPhilosopher {
 			// Main thread sleeps till time of simulation
 			Thread.sleep(SIMULATION_TIME);
 
-			Debug.printd(">>> Asking all philosophers to stop");
+			if (DEBUG) { System.out.println("\n>>> Asking all philosophers to stop\n"); }
 			
 			/*
-			 * Start of Implementation:
+			 *  Terminate all threads whenever SIMULATION_TIME has ended.
+			 *  the .terminate() method sets the boolean field 'terminate' to false
+			 *  which in turn lets the run() methods while-loop know that it should no
+			 *  longer execute.
 			 */
-			long currentTime = System.currentTimeMillis();
-			for(long threadSleep = currentTime; (currentTime - threadSleep) < SIMULATION_TIME;) {
-				currentTime = System.currentTimeMillis();
-				Thread.sleep(5);
-			}
-			Debug.println("Shutting Down Executor Service Now...");
-			executorService.shutdownNow();
-			/*
-			 * End of Implementation!
-			 */
+			for (int i = 0; i < NUMBER_OF_PHILOSOPHERS; i++) { philosophers.get(i).terminate(); }
+
 		} finally {
 			executorService.shutdown();
 			executorService.awaitTermination(10, TimeUnit.MILLISECONDS);
 		}
 	}
-	
-	/**
-	 * As described in the TODO:<br>
-	 * Add new Chopsticks depending on the current number of Philosophers.
-	 * Then proceed to add chopsticks as left and right chopsticks. Finally
-	 * adding all to philosopher arrayList.
-	 * @param simulationTime
-	 * @param randomSeed
-	 * @version 2.0
-	 * @author cusatelli
-	 */
+
 	public void initialize(int simulationTime, int randomSeed) {
 		SIMULATION_TIME = simulationTime;
 		SEED = randomSeed;
@@ -104,34 +94,26 @@ public class DiningPhilosopher {
 		executorService = Executors.newFixedThreadPool(NUMBER_OF_PHILOSOPHERS);
 
 		/*
-		 * Start of Implementation:
+		 *  Add Chopsticks:
 		 */
-		// Add new Chopsticks depending on the number of Philosophers:
-		for (int i = 0; i < NUMBER_OF_PHILOSOPHERS; i++) {
-			chopsticks.add(new Chopstick(i)); // New Chopsticks to arraylist
-		}
+		for (int i = 0; i < NUMBER_OF_PHILOSOPHERS; i++) { chopsticks.add(new Chopstick(i)); }
 		
-		// Create Left & Right chopsticks... Since you need 2 chopsticks to eat.
-		for (int i = 0; i < NUMBER_OF_PHILOSOPHERS; i++) {
-			// get chopsticks arraylist index i which was just created in the previous for-loop:
-			Chopstick leftChopstick = chopsticks.get(i);
-			int index = 0;
-			// if not the last iteration set index = i + 1... If it's the last iteration it will case an 
-			// out of range Exception without this if statement.
-			if(i < NUMBER_OF_PHILOSOPHERS - 1) { index = i + 1; }
-			// get chopsticks arraylist index index which was just created in the previous for-loop:
-			Chopstick rightChopstick = chopsticks.get(index);
-			// Add Philosophers to philosophers arraylist, with new chopsticks:
-			philosophers.add(new Philosopher(i, leftChopstick, rightChopstick, SEED, DEBUG));
-		}
 		/*
-		 * End of Implementation.
+		 *  Add Philosopher to Philosophers:
 		 */
+		for (int i = 1; i <= NUMBER_OF_PHILOSOPHERS; i++) {
+			Philosopher philosopher; // Philosopher...
+			/*
+			 *  Assign the corresponding Philosopher to Philosophers list:
+			 */
+			if(i == NUMBER_OF_PHILOSOPHERS) { philosopher = new Philosopher(i - 1, chopsticks.get(0), chopsticks.get(i - 1), randomSeed, DEBUG); }
+			else { philosopher = new Philosopher(i - 1, chopsticks.get(i), chopsticks.get(i - 1), randomSeed, DEBUG); }
+			
+			philosophers.add(philosopher);
+		}
 	}
 
-	public ArrayList<Philosopher> getPhilosophers() {
-		return philosophers;
-	}
+	public ArrayList<Philosopher> getPhilosophers() { return philosophers; }
 
 	/*
 	 * The following code prints a table where each row corresponds to one of the Philosophers,
