@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class Main {
 
-    public static void main(String args[]) throws IOException, InterruptedException {
+    public static void main(String args[]) throws IOException, InterruptedException{
     	DiningPhilosopher dp = new DiningPhilosopher(); // create an instance of the DiningPhilosopher class
     	dp.DEBUG = true;
         int simulationTime = 10000;
@@ -24,6 +24,6 @@ public class Main {
 
     	dp.printTable();
     	
-    	System.exit(0);
+    	System.exit(0); // Terminate application at the end of main if not already done...
     }
 }
