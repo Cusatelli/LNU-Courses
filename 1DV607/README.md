@@ -11,14 +11,14 @@ The prerequisites of the course are that you must have passed at least 30hp in a
 | Assignment | Passed |
 |---|---|
 | 1 | :heavy_check_mark: |
-| 2 | :question: |
+| 2 | N/A |
 | 3 | :heavy_check_mark: |
 
 #### Compatibility:
 | OS | Application | UI |
 |---|---|---|
 | Linux | :heavy_check_mark: | :heavy_check_mark: |
-| Mac | :heavy_check_mark: | :question: |
+| Mac | :heavy_check_mark: | N/A |
 | Windows | :heavy_check_mark: | :x: | 
 
 #### Updates:
