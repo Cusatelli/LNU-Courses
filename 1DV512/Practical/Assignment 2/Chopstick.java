@@ -1,4 +1,4 @@
-package assignment_2;
+
 /*
  * File:	Chopstick.java
  * Course: 	Operating Systems

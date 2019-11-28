@@ -1,4 +1,4 @@
-package assignment_2;
+
 /*
  * File:	Philosopher.java
  * Course: 	Operating Systems

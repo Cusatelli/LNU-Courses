@@ -1,4 +1,4 @@
-package assignment_1;
+
 /*
  * File:	Process.java
  * Course: 	Operating Systems

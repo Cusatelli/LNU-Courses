@@ -1,4 +1,4 @@
-package assignment_2;
+
 /*
  * File:	Main.java
  * Course: 	Operating Systems

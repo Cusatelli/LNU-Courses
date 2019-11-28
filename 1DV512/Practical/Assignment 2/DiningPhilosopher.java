@@ -1,4 +1,4 @@
-package assignment_2;
+
 /*
  * File:	DiningPhilosopher.java
  * Course: 	Operating Systems
