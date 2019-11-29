@@ -1,5 +1,7 @@
 ##### ![](https://mymoodle.lnu.se/pluginfile.php/1/theme_essential/logo/1573077602/lnu-logo.png)
 # 19HT - 1DV512 - Operating Systems - 7,5 hp
+| [:arrow_left: Back](../../../) |
+|---|
 
 This course is focused on Operating Systems and its Concepts in Java.
 
@@ -31,3 +33,6 @@ other students can take part of. Please do not copy - paste any of these assignm
 the LNU rules which can lead to the termination of your reserved position at the university. Feel free 
 however to look and take inspiration from these assignments!
 ```
+
+| [:arrow_up: Top]() |
+|---|
