@@ -32,6 +32,9 @@ This is a student repository and all assignments are kept in this repository onl
 other students can take part of. Please do not copy - paste any of these assignments as this is violating 
 the LNU rules which can lead to the termination of your reserved position at the university. Feel free 
 however to look and take inspiration from these assignments!
+
+Additionally this is an assignment completed by multiple students and is not the work of one student 
+alone. Therefore it might contain variations in quality.
 ```
 
 | [:arrow_up: Top]() |
