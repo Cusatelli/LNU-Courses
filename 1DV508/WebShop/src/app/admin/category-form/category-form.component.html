@@ -1,0 +1,15 @@
+<form #f="ngForm" (ngSubmit)="save(f.value)">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input #title="ngModel" [(ngModel)]="category.title" name="title" 
+    id="title" type="text" class="form-control" required [rangeLength]="[3,40]">
+  </div>
+  <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+    <div *ngIf="title.errors.required">You must provide a title</div>
+    <div *ngIf="title.errors.rangeLength">The title must be between 3 and 12 characters</div>
+  </div>
+  <!--BUTTONS!-->
+  <button [disabled]="!f.valid" class="btn btn-primary">Save</button>
+  <button *ngIf="id" type="button" (click)="delete()" class="btn btn-danger">Delete</button>
+  <button type="button" class="btn btn-info" (click)="back()">Back</button>
+</form>

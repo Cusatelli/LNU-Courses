@@ -1,0 +1,59 @@
+<div class="card cursor-toggle mb-4 shadow-sm list-group-item-action" 
+*ngIf="product.title" style="width: 22.5em;">
+  <!-- mb-4 shadow-sm adds a shadow to the card. -->
+  <!-- PRODUCT IMAGE -->
+  <div class="ribbon" *ngIf="product.dealOfDay=='true'"><span>DISCOUNT</span></div>
+  <img class="card-img-top" [src]="product.imageUrl" 
+  width="100%" height="225" 
+  preserveAspectRatio="xMidYMid slice"
+    focusable="false" alt="image not found" 
+    [class.active]="!category" routerLink="/products/product" [queryParams] = "{product: product.key}"><!-- ROUTING -->
+  <div class="card-body">
+      <!-- PRODUCT TITLE -->
+    <h4 class="card-title" style="height: 2.5em;">{{ product.title }}</h4>
+    <!-- PRODUCT STAR RATING-->
+    <div class="rating-static">
+      <ngb-rating [(rate)]="product.rating" [readonly]="true">
+        <ng-template let-fill="fill" let-index="index">
+        <span class="star" [class.filled]="fill === 100" 
+          [class.bad]="index < 3">&#9733;</span>
+        </ng-template>
+      </ngb-rating> 
+    </div>
+    
+    <hr>
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="btn-group">
+        <!-- ADD TO CART FUNCTINALITY -->
+        <div *ngIf="showActions && shoppingCart" >
+          <button
+            *ngIf="shoppingCart.getQuantity(product) === 0 ; else updateQuantity"
+            (click)="addToCart()" class="btn btn-primary">Add to Cart
+          </button>
+
+          <ng-template #updateQuantity>
+            <product-quantity [product]="product" [shopping-cart]="shoppingCart">
+
+            </product-quantity>
+          </ng-template>
+        </div>
+      </div>
+      <!-- PRICE -->
+      <div class="product-price-group" *ngIf="product.dealOfDay=='false'">
+          <small class="text-muted" >{{ product.price | currency:'SEK ': 'symbol' }}</small>
+      </div>
+      <div class="product-price-group" *ngIf="product.dealOfDay=='true'">
+          <small class="text-muted" >{{ product.reducedPrice | currency:'SEK ': 'symbol' }} </small>
+          <small class="text-muted" ><s>{{ product.price | currency:'SEK ': 'symbol' }}</s></small>
+      </div>
+     
+      
+      
+    </div>
+  </div>
+  <!-- HOW MANY ITEMS IN STOCK -->
+  <div class="product-stock-group">
+    <div class="card-footer">
+      {{ product.stock | currency:'IN STOCK: ' }}
+    </div>
+  </div>

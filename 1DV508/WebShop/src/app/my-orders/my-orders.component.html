@@ -1,0 +1,51 @@
+<h1>My Orders</h1>
+
+<div class="wrapper"*ngIf="cart$ | async as cart">
+  
+  <div class="orders" *ngFor="let order of orders$ | async;let i = index">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Orders</th>
+          <th>Order Date</th>
+          <th>Order Status</th>
+          <th>Total Price</th>
+        </tr>
+      </thead> 
+      <tbody>
+        <tr>
+          <td>
+            order {{i+1}}  
+          </td>
+          <td>
+            {{ order.datePlaced | date }}
+          </td>
+          <td>
+            {{order.status}}
+        </td>
+        <td>
+          {{order.totalCost}} SEK
+        </td>
+        </tr>
+      </tbody>
+  </table>
+
+  <div >
+  <div class="row" >
+      <div class="col-sm-6">
+        <div class="card" *ngFor="let item of order.items;" >
+          <div class="card-body">
+            <h5 class="card-title">{{ item.product.title }}</h5>
+            <p class="card-text"></p>
+            <a href="{{getLink(item.product.key)}}" *ngIf="item.product.key && order.status === 'Completed'">Download cloud material</a> 
+          </div>
+        </div>
+      </div>  
+    </div>
+   
+  </div>
+  </div> <!--orders-->
+</div><!--wrapper-->
+
+
+

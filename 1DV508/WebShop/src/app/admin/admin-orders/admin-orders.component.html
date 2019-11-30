@@ -1,0 +1,59 @@
+<h1>Orders</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Course Name</th>
+      <th>Order Status</th>
+      <th>Total Price</th>
+      <th></th>
+    </tr>
+  </thead> 
+  <tbody>
+    <tr *ngFor="let c of orders$ | async">
+      <td>{{ c.shipping.name }}</td>
+      <td>
+       {{c.shipping.addressLine1}}
+      </td>
+      <td>
+          {{c.shipping.city}}
+      </td>
+
+      
+
+      <p *ngFor="let item of c.items;">
+        <td>
+        {{ item.product.title }}
+        </td>
+        
+        <td>
+          x{{ item.quantity }}
+       </td>
+      </p>
+      <td>
+      <div class="list-group mb-6 shadow-sm">          
+        <select class="custom-select"
+        [ngModel]="selectStatus(c.status)"
+        (ngModelChange)="statusChanged($event, c.key)">   
+        <option value ="-1" selected disabled >Pick</option>
+          <option value="0">In Progress</option>
+          <option value="1">Processing</option>
+          <option value="2">Completed</option>
+        </select>
+    </div>
+      </td>
+      <td>
+        {{ c.totalCost }}
+      </td>
+
+   
+      
+    
+
+  </tr>
+  
+
+  </tbody> 
+</table>

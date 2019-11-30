@@ -1,0 +1,112 @@
+<div class="row">
+  <div class="col-md-6">
+    <!-- This column is the left half of the screen-->
+    <form #f="ngForm" (ngSubmit)="save(f.value)">
+      <!--TITLE-->
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input #title="ngModel" [(ngModel)]="course.title" name="title" id="title" 
+        type="text" class="form-control" required [rangeLength]="[5,40]">
+
+        <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+          <div *ngIf="title.errors.required">You must provide a title</div>
+          <div *ngIf="title.errors.rangeLength">
+            The title must be between 5 and 40 characters
+          </div>
+        </div>
+
+      </div>
+      <!--PRICE-->
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input #price="ngModel" [(ngModel)]="course.price" name="price" id="price" 
+        type="number" class="form-control" required [min]="0">
+
+        <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
+          <div *ngIf="price.errors.required">You must provide a price.</div>
+          <div *ngIf="price.errors.min">The price cannot be negative.</div>
+        </div>
+      </div>
+      <!--CATEGORY-->
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select #category="ngModel" [(ngModel)]="course.category" name="category" 
+        id="category" class="form-control" required>
+          <option value="">Pick One Category</option>
+          <option *ngFor="let c of categories$ | async" [value]="c.title">
+            {{c.title}}
+          </option>
+        </select>
+        <div class="alert alert-danger" *ngIf="category.touched && category.invalid">
+          You must select a category.
+        </div>
+      </div>
+      <div class="form-group">
+        <!--STOCK-->
+        <div class="form-group">
+          <label for="stock">Stock</label>
+          <input #stock="ngModel" [(ngModel)]="course.stock" name="stock" 
+          id="stock" type="number" class="form-control" required [min]="0">
+
+          <div class="alert alert-danger" *ngIf="stock.touched && stock.invalid">
+            <div *ngIf="stock.errors.required">You must provide a stock amount.</div>
+            <div *ngIf="stock.errors.min">The stock amount cannot be negative.</div>
+          </div>
+        </div>
+        <!--IMG-->
+        <label for="imageUrl">Image URL</label>
+        <input #imgUrl="ngModel" [(ngModel)]="course.imageUrl" name="imageUrl" 
+        id="imageUrl" type="text" class="form-control" required url>
+        <div class="alert alert-danger" *ngIf="imgUrl.touched && imgUrl.invalid">
+          <div *ngIf="imgUrl.errors.required">You must provide a valid image URL.
+          </div>
+        </div>
+        <!--Description-->
+        <label for="description">Description</label>
+        <textarea #description="ngModel" [(ngModel)]="course.description" name="description" 
+          id="description" type="textfield" rows="5" class="form-control"></textarea>
+        </div>
+
+			 <!--DISCOUNTED PRICE-->
+       <div class="form-group" *ngIf="course.dealOfDay=='true'">
+         <label for="Reduced Price">Reduced price</label>
+         <input #title="ngModel" [(ngModel)]="course.reducedPrice" name="reducedPrice" id="reducedPrice" 
+         type="number" class="form-control" required [min]="0" [max]="course.price">
+       </div>
+      
+       <!--DEALL OF THE DAY BOOLEAN-->
+        <div class="form-group">
+              <label for="dealOfDay">Deal Of The Day</label>
+               <select #dealOfDay="ngModel" [(ngModel)]="course.dealOfDay" name="dealOfDay"
+                id="dealOfDay" type="boolean" class="form-control" required >
+                   <option value="true">True</option>
+                   <option value="false">False</option>
+               </select>   
+         </div>
+			
+      <!--BUTTONS!-->
+      <button class="btn btn-primary" type="submit">Save</button>
+      <button *ngIf="id" type="button" (click)="delete()" 
+      class="btn btn-danger">Delete</button>
+      <button type="button" class="btn btn-info" (click)="back()">Back</button>
+      <input type="file" (change)="startUpload($event)">
+      <div>{{ uploadPercent | async }}</div>
+      <button type="button" class="btn btn-info" (click)="pushLink()">Upload Link</button>
+      <br>
+      <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
+
+    </form>
+  </div> 
+
+
+  <div class="col-md-6">
+    <!-- This column is the right half of the screen-->
+    <div class="card" style="width: 18rem;">
+      <img [src]="imgUrl.value" class="card-img-top" *ngIf="course.imageUrl">
+      <div class="card-body">
+        <h5 class="card-title">{{title.value}}</h5>
+        <p class="card-text">{{price.value | currency:'SEK':true}}</p>
+      </div>
+    </div>
+  </div>
+</div>

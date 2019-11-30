@@ -1,0 +1,43 @@
+<h1 style="margin: 0em 0em 1em 0em">Shopping Cart</h1>
+<div class="row col-10" *ngIf="cart$ | async as cart">
+  <p>
+  </p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Product</th>
+        <th class="text-center" style="width: 230px">Quantity</th>
+        <th class="text-right" style="width: 200px">Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cart.items">
+        <td>
+          <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail"></div>
+        </td>
+        <td>
+          <span class="btn btn-danger btn-sm" (click)="removeItem(item)">X</span> {{ item.title}}
+        </td>
+        <td>
+          <product-quantity [product]="item" [shopping-cart]="cart"></product-quantity>
+        </td>
+        <td class="text-right">
+          {{ item.totalPrice | currency:'SEK ':'symbol' }}
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th class="text-right">{{ cart.totalPrice | currency:'SEK ':'symbol' }}</th>
+      </tr>
+    </tfoot>
+  </table>
+  <a style="margin: 0em 4em 0em 0em" routerLink="/check-out" *ngIf="cart.items.length" class="btn btn-primary">Check Out</a>
+  <button *ngIf="cart.items.length" (click)="clearCart()" class="btn btn-danger">Clear Shopping Cart</button>
+
+</div>
+

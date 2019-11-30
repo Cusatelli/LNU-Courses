@@ -1,0 +1,16 @@
+<p>
+  <a routerLink="/admin/courses/newCategory" class="btn btn-primary">New Category</a>
+</p>
+<table class="table">
+  
+  <tbody>
+    <tr *ngFor="let c of categories$ | async">
+      <td>{{c.title}}</td>
+      <td>
+        <button type="button" 
+        class="btn btn-primary" 
+        (click)="OnEdit(c.key)">Edit</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

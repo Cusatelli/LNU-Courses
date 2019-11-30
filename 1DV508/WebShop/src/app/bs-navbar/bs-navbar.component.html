@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top mb-4 shadow-sm">
+  <a class="navbar-brand" routerLink="/">iTutr</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" 
+  data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault" aria-expanded="false" 
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/shopping-cart">
+          Shopping Cart
+          <!-- BADGE /W CART COUNT -->
+          <span class="badge badge-success" *ngIf="cart$ | async as cart" 
+          style="margin-left: 0.5em;">
+            {{ cart.totalItemsCount }}
+          </span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/about" class="nav-link">About</a>
+      </li>
+      <ng-template #anonymousUser>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+      </ng-template>
+      <li ngbDropdown *ngIf="auth.user$ | async as user; else anonymousUser" 
+      class="nav-item dropdown">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" 
+        id="dropdown01" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          {{ user.displayName }}
+        </a>
+        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" routerLink="/my/profile">My Profile</a>
+          <a class="dropdown-item" routerLink="/my/orders">My Orders</a>
+          <!-- Protects the Admin routes from non-admin users -->
+          <ng-container *ngIf="appUser.isAdmin">
+            <a class="dropdown-item" routerLink="/admin/orders">Manage Orders</a>
+            <a class="dropdown-item" routerLink="/admin/courses">Manage Courses</a>
+            <a class="dropdown-item" routerLink="/admin/categories">Manage Categories</a>
+          </ng-container>
+          <!-- End of admin protection -->
+          <a class="dropdown-item" (click)="logout()"> Log Out </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

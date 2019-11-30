@@ -1,0 +1,72 @@
+<div class="row mb-4 shadow-sm">
+
+  <!-- CATEGORY COLUMN -->
+  <div class="col-3">
+    <!-- SEARCH ICON UTF-8 -->
+    <div class="input-group mb-4 shadow-sm">
+      <div class="input-group-prepend">
+          <span class="input-group-text">Ϙ</span>
+      </div>
+      
+      <!-- SEARCH FIELD -->
+      <input
+      #query
+      (keyup)="searchQuery(query.value)"
+      type="text"
+      class="form-control"
+      placeholder="Search by product..."
+      />
+    </div>
+    <hr>
+    
+
+    <!-- DISPLAY CATEGORIES -->
+    <div class="list-group mb-4 shadow-sm">
+      <a class="list-group-item list-group-item-action" 
+      [class.active]="!category" 
+      routerLink="/">
+        All categories
+      </a>
+      <a *ngFor="let c of categories$ | async" 
+      routerLink="/" 
+      [queryParams]="{ category: c.key }"
+        class="list-group-item list-group-item-action" 
+        [class.active]="category === c.key">
+        {{c.title}}
+      </a>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="input-group shadow-sm mb-3">
+        
+        <select class="custom-select" 
+          id="inputGroupSelect01"
+          [ngModel] = "selectedOrdering"
+          (ngModelChange)="selectChanges($event)">
+          <option value="0" selected disabled >Filter by</option>
+          <option value="1">Name (A-Z)</option>
+          <option value="2">Name (Z-A)</option>
+          <option value="3">Price &dArr;</option>
+          <option value="4">Price &uArr;</option>
+          <option value="5">Rating &dArr;</option>
+          <option value = "6">Rating &uArr;</option>
+          <option value = "7">Deal</option>
+          <option value = "">No Filter </option>
+        </select>
+      </div>
+
+  </div>
+
+  <!-- PRODUCTS COLUMN -->
+  <div class="col">
+    
+    <!--Right colum card -->
+    <div class="row">
+        <ng-container *ngFor="let p of filterProducts">
+          <div class="col">
+            <product-card [product] = "p" [shopping-cart]="cart" ></product-card>
+          </div>
+        </ng-container>
+      </div>
+  </div>
+</div>

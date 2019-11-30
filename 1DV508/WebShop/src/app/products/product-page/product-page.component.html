@@ -1,0 +1,47 @@
+<div class="card mb-3"> 
+  <img class="card-img-top" 
+  [src]="myProduct.imageUrl" 
+  alt="Card image cap"
+  width="100" height="400" 
+  preserveAspectRatio="xMidYMid slice">
+
+  <div class="card-body">
+
+    <h3 class="card-title">{{ myProduct.title }}</h3>
+    <p>{{ myProduct.description }}</p>
+  
+    <div class="rating-static">
+      <ngb-rating [(rate)]="myProduct.rating" [readonly]="true">
+        <ng-template let-fill="fill" let-index="index">
+        <span class="star" [class.filled]="fill === 100" 
+          [class.bad]="index < 3">&#9733;</span>
+        </ng-template>
+      </ngb-rating> 
+    </div>
+
+    <!-- PRICE -->
+    <div class="product-price-group" *ngIf="myProduct.dealOfDay=='false'">
+      <small class="text-muted" >{{ myProduct.price | currency:'SEK ': 'symbol' }}</small>
+  </div>
+  <div class="product-price-group" *ngIf="myProduct.dealOfDay=='true'">
+      <small class="text-muted" >{{ myProduct.reducedPrice | currency:'SEK ': 'symbol' }} </small>
+      <small class="text-muted" ><s>{{ myProduct.price | currency:'SEK ': 'symbol' }}</s></small>
+  </div>
+       <!-- this is how you display the download link for the cloud material add later in new HTML template but don't change the TS file--> 
+       <!-- <a href="{{downloadLink}}" *ngIf="downloadLink!=null">Download cloud material</a> <p></p>      -->
+    <div class="rating-in-card">
+      <hr>
+        <h5 class="card-title">Rate this course</h5>          
+          <ngb-rating [(rate)]="selected" [readonly]="readOnly">
+              <ng-template let-fill="fill" let-index="index">
+                <span class="star" [class.filled]="fill === 100" 
+                [class.bad]="index < 3">&#9733;</span>
+              </ng-template>
+          </ngb-rating>
+          <button class="btn btn-sm btn-outline-{{readOnly ? 'danger' : 'success'}}" 
+          (click)=onClic(selected)>{{ readOnly ? "Voted" : "Vote"}}</button>
+      </div>
+     
+     
+   
+  </div>

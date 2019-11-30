@@ -1,0 +1,64 @@
+<div class="card" style="padding: 2em;">
+  <!-- FIRST NAME -->
+  <div *ngIf="!addressIsSaved && items$ | async; let users; else loading">
+    <!-- FIRST NAME -->
+    <form *ngFor="let user of users" #f="ngForm">
+      <!-- These two ng-containers is the magic that makes the user profile billing work... -->
+      <ng-container *ngIf="authService.user$ | async as id; else anonymousUser">
+        <ng-container *ngIf="user.address && user.name==id.displayName">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input type="text" name="firstname" #firstname
+              value='{{user.address.firstname}}'
+               class="form-control" disabled>
+            </div>
+            <!-- [(ngModel)]="shipping['firstname']"  #name="ngModel" -->
+            <!-- SURNAME -->
+            <div class="form-group col-md-6">
+              <input name="surname" #surname disabled
+              value='{{user.address.surname}}' type="text" class="form-control">
+            </div>
+          </div>
+          <!-- ADDRESS 1 -->
+          <div class="form-group">
+            <label for="inputAddress">Adress</label>
+            <input name="address1" #address1 disabled
+            value='{{user.address.address1}}' type="text" class="form-control">
+          </div>
+          <!-- ADDRESS 2 -->
+          <div class="form-group">
+            <label for="inputAddress2">Address 2</label>
+            <input name="address2" #address2  disabled
+            value='{{user.address.address2}}' type="text" class="form-control">
+          </div>
+          <!-- CITY -->
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCity">City</label>
+              <input  name="city" #city disabled
+              value='{{user.address.city}}'
+              type="text" class="form-control">
+            </div>
+            <!-- STATE -->
+            <div class="form-group col-md-4">
+              <label for="inputState">State</label>
+              <input name="state" #state disabled
+              value='{{user.address.state}}' 
+               type="text" class="form-control" >
+            </div>
+            <!-- ZIP -->
+            <div class="form-group col-md-2">
+              <label for="inputZip">Zip</label>
+              <input name="zip" #zip disabled
+              value='{{user.address.zip}}'
+              
+              type="text" class="form-control">
+            </div>
+          </div>
+          <button class="btn btn-primary" (click)="placeOrderWithSavedAddress(firstname.value,address1.value,address2.value,city.value)">Place Order</button>
+        </ng-container>
+      </ng-container>
+    </form>
+  </div>
+  <button class="btn btn-secondary" routerLink="/my/profile" style="margin-top: 1em;">Edit Address</button>      
+</div>
