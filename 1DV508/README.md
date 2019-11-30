@@ -23,7 +23,7 @@ Instructions for installation and serving:
 
 #### Compatibility:
 | OS |  | Browser |  |
-|---|---|
+|---|---|---|---|
 | Linux | :heavy_check_mark: | Chrome | :heavy_check_mark: |
 | Mac | :heavy_check_mark: | Mozilla Firefox | :heavy_check_mark: |
 | Windows | :heavy_check_mark: | Safari | :heavy_check_mark: |
@@ -48,7 +48,8 @@ other students can take part of. Please do not copy - paste any of these assignm
 the LNU rules which can lead to the termination of your reserved position at the university. Feel free 
 however to look and take inspiration from these assignments!
 
-Additionally this is an assignment completed by multiple students and is not the work of one student alone. Therefore it might contain variations in code readablity, performance & overall quality.
+Additionally this is an assignment completed by multiple students and is not the work of one student 
+alone. Therefore it might contain variations in code readablity, performance & overall quality.
 ```
 
 | [:arrow_up: Top]() |
