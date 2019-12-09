@@ -35,7 +35,7 @@ public class DiningPhilosopher {
 	
 	private final int NUMBER_OF_PHILOSOPHERS = 5;
 	private int SIMULATION_TIME = 10000;
-	private int SEED = 0;
+	private int SEED = 100;
 
 	ExecutorService executorService = null;
 	ArrayList<Philosopher> philosophers = null;
@@ -51,7 +51,7 @@ public class DiningPhilosopher {
 			/*
 			 * First we start two non-adjacent threads, which are T1 and T3
 			 */
-			for (int i = 1; i < NUMBER_OF_PHILOSOPHERS; i+=2) {
+			for (int i = 1; i < NUMBER_OF_PHILOSOPHERS; i += 2) {
 				executorService.execute(philosophers.get(i));
 				Thread.sleep(50); //makes sure that this thread kicks in before the next one
 			}
@@ -59,7 +59,7 @@ public class DiningPhilosopher {
 			/*
 			 * Now we start the rest of the threads, which are T0, T2, and T4
 			 */
-			for (int i = 0; i < NUMBER_OF_PHILOSOPHERS; i+=2) {
+			for (int i = 0; i < NUMBER_OF_PHILOSOPHERS; i += 2) {
 				executorService.execute(philosophers.get(i));
 				Thread.sleep(50); //makes sure that this thread kicks in before the next one
 			}
@@ -101,13 +101,16 @@ public class DiningPhilosopher {
 		/*
 		 *  Add Philosopher to Philosophers:
 		 */
-		for (int i = 1; i <= NUMBER_OF_PHILOSOPHERS; i++) {
+		for (int i = 0; i < NUMBER_OF_PHILOSOPHERS; i++) {
 			Philosopher philosopher; // Philosopher...
 			/*
 			 *  Assign the corresponding Philosopher to Philosophers list:
 			 */
-			if(i == NUMBER_OF_PHILOSOPHERS) { philosopher = new Philosopher(i - 1, chopsticks.get(0), chopsticks.get(i - 1), randomSeed, DEBUG); }
-			else { philosopher = new Philosopher(i - 1, chopsticks.get(i), chopsticks.get(i - 1), randomSeed, DEBUG); }
+			if(i == NUMBER_OF_PHILOSOPHERS - 1) { philosopher = new Philosopher(i, chopsticks.get(0), chopsticks.get(i), SEED, DEBUG); }
+			else { philosopher = new Philosopher(i, chopsticks.get(i), chopsticks.get(i + 1), SEED, DEBUG); }
+			
+//			if(i == NUMBER_OF_PHILOSOPHERS) { philosopher = new Philosopher(i - 1, chopsticks.get(0), chopsticks.get(i - 1), SEED, DEBUG); }
+//			else { philosopher = new Philosopher(i - 1, chopsticks.get(i), chopsticks.get(i - 1), SEED, DEBUG); }
 			
 			philosophers.add(philosopher);
 		}

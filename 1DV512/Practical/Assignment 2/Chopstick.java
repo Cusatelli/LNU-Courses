@@ -7,16 +7,6 @@
  * Date: 	November 2019
  */
 
-import java.util.concurrent.TimeUnit;
-
-/*
- * File:	Chopstick.java
- * Course: 	Operating Systems
- * Code: 	1DV512
- * Author: 	Suejb Memeti (modified by Kostiantyn Kucher)
- * Date: 	November 2019
- */
-
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -59,7 +49,7 @@ public class Chopstick extends ReentrantLock {
 	 * @version 2.0
 	 * @author cusatelli
 	 */
-	public boolean pickup() throws InterruptedException { return myLock.tryLock(1, TimeUnit.MILLISECONDS); } // DEBUG in Philosopher.java
+	public boolean pickup() throws InterruptedException { return myLock.tryLock(); } // DEBUG in Philosopher.java
 	
 	/**
 	 * Call to the <b>unlock()</b> method decrements the hold count by 1. 
