@@ -94,23 +94,9 @@ public class Philosopher implements Runnable {
 	public int getNumberOfThinkingTurns() 	{ return numberOfThinkingTurns; }
 	public int getNumberOfEatingTurns() 	{ return numberOfEatingTurns; 	}
 	public int getNumberOfHungryTurns() 	{ return numberOfHungryTurns; 	}
-	public double getTotalThinkingTime() 	{ return thinkingTime; 			}
-	public double getTotalEatingTime() 		{ return eatingTime; 			}
-	public double getTotalHungryTime() 		{ return hungryTime; 			}
-
-	/**
-	 * The start() method is initiated before the run() method to set any
-	 * variables that needs initializing.
-	 * @version 2.0
-	 * @author cusatelli
-	 */
-//	private void start() {
-		/*
-		 *  Set the current system time to keep track of how long has 
-		 *  passed since the start of the current state:
-		 */
-//		startTime = System.currentTimeMillis();
-//	}
+	public double getTotalThinkingTime() 	{ return thinkingTime; 		}
+	public double getTotalEatingTime() 	{ return eatingTime; 		}
+	public double getTotalHungryTime() 	{ return hungryTime; 		}
 	
 	/**
 	 * @version 2.0
@@ -123,7 +109,6 @@ public class Philosopher implements Runnable {
 		 * While the application is running:
 		 */
 		while(!Thread.currentThread().isInterrupted()) {
-//			start(); // Run start() first...
 			try {
 				while (!Thread.currentThread().isInterrupted()) {
 					StateManager(State.THINK); // Set Philosopher state to THINK!
@@ -159,10 +144,10 @@ public class Philosopher implements Runnable {
 		 * Thinking acts as a break period for the actor which it simply does nothing other than wait.
 		 */
 		case THINK:
-            numberOfThinkingTurns++; // Increment Turns.
-            randomTime = getRandom(); // Calculate Random Time...
-            Thread.sleep(randomTime); // Sleep for Random Time (Which is the same as spending time Thinking).
-            thinkingTime += randomTime; // Add the new Random Time to Thinking Time.
+            		numberOfThinkingTurns++; // Increment Turns.
+            		randomTime = getRandom(); // Calculate Random Time...
+            		Thread.sleep(randomTime); // Sleep for Random Time (Which is the same as spending time Thinking).
+           	 	thinkingTime += randomTime; // Add the new Random Time to Thinking Time.
 			if(DEBUG) { System.out.println("[ Philosopher: " + getId() + " ] is Thinking..."); }
 			break;
 			
@@ -172,7 +157,7 @@ public class Philosopher implements Runnable {
 		 */
 		case HUNGRY:
 			numberOfHungryTurns++; // Increment Turns.
-            startTime = System.currentTimeMillis(); // Save start Time of Hunger for later calculations.
+            		startTime = System.currentTimeMillis(); // Save start Time of Hunger for later calculations.
 			if(DEBUG) { System.out.println("[ Philosopher: " + getId() + " ] is Hungry!"); }
 			break;
 			
@@ -213,31 +198,30 @@ public class Philosopher implements Runnable {
 			chopsticksAvailable = true;
             while (!Thread.currentThread().isInterrupted() && chopsticksAvailable) {
 
-				/*
-				 * If left chopstick is free we pick it up.
-				 */
+		/*
+		 * If left chopstick is free we pick it up.
+		 */
             	if (leftChopstick.pickup()) {
             		if(DEBUG) { System.out.println("[ Philosopher: " + getId() + " ] picked up [ Left  Chopstick: " + leftChopstick.getId() + " ]"); }
             		
             		/*
             		 * If right chopstick is free we pick it up.
             		 */
-                    if (rightChopstick.pickup()) {
-						if(DEBUG) { System.out.println("[ Philosopher: " + getId() + " ] picked up [ Right Chopstick: " + rightChopstick.getId() + " ]"); }                        chopsticksAvailable = false;
+                    	if (rightChopstick.pickup()) {
+				if(DEBUG) { System.out.println("[ Philosopher: " + getId() + " ] picked up [ Right Chopstick: " + rightChopstick.getId() + " ]"); }                        chopsticksAvailable = false;
                         
-						/*
-						 * Set Philosopher State to EAT & then return here so it can be properly 
-						 * contained within these if statements. This state could've been within
-						 * the while-loop of run() also, however that would leave the DEADLOCK state
-						 * useless & all the if-statements would be contained within run() as well.
-						 */
+			/*
+			 * Set Philosopher State to EAT & then return here so it can be properly 
+			 * contained within these if statements. This state could've been within
+			 * the while-loop of run() also, however that would leave the DEADLOCK state
+			 * useless & all the if-statements would be contained within run() as well.
+			 */
                         StateManager(State.EAT); // Set Philosopher state to EAT!
                         
                     } else {
                     	leftChopstick.putdown();
                     	if(DEBUG) { System.out.println("[ DEADLOCK ][ Philosopher: " + getId() + " ] put down  [ Left  Chopstick: " + leftChopstick.getId() + " ]"); }
-                    }
-                    
+                    }        
                 }
             }
             break;
