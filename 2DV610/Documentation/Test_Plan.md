@@ -262,6 +262,13 @@ The Manager is responsible for Coordination, Communication with the Project Mana
 The Tester is responsible for designing and executing manual & automated tests as well as documenting results.
 
 ## Schedule
+| Iteration | Objective |
+|:---|---|
+| 1 | Test HTTP 1.1 Server Implementation<ul><li>Start & Stop Server Check Expected Results</li><li><b>Responsibility:</b> Student 1 & Student 2</li></ul> |
+| 2 | Test HTTP 1.1 Server Implementation<ul><li>Server Running Check Expected Results</li><li><b>Responsibility:</b> Student 1</li></ul> 
+| 3 | Test HTTP 1.1 Server Implementation<ul><li>Server Error Handling Check Expected Results</li><li><b>Responsibility:</b> Student 1</li></ul>Test Access Log Check Expected Results<ul><li><b>Responsibility:</b> Student 2</li></ul>Test Web-Server during High Loads<ul><li><b>Responsibility:</b> Student 2</li></ul>
+| 4 | Check GPL-2.0 Licence<ul><li><b>Responsibility:</b> Student 1</li></ul>Ad-Hoc & Regression Testing<ul><li><b>Responsibility:</b> Student 2</li></ul> |
+
 ## Version Control
 | Version | Implementation | Revision Date | Comments |
 |:---|:---|---:|---:|
