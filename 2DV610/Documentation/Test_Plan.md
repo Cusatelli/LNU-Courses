@@ -209,3 +209,32 @@ N/A
 | Test Vulnerability 1 | Vulnerability Check | Low |
 | Test Browser 1 | Test Browser | Low |
 | Test Licence 1 | Test GPL-2.0 License | Low |
+
+## Traceability Matrix
+### Requirements
+| Identifiers | Tested | 1 | 2 UC1 | 2 UC2 | 2 UC3 | 3 | 4 | 5 |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| <b>Test Case</b> | <b>23</b> | <b>5</b> | <b>9</b> | <b>6</b> | <b>9</b> | <b>8</b> | <b>3</b> | <b></b> |
+| Test JUnit 1 | 1 | :black_medium_square: |   |   |   |   |   |   |
+| Test JUnit 2 | 1 |   | :black_medium_square: | :black_medium_square: | :black_medium_square: |   |   |   |
+| Test JUnit 3 | - |   |   |   |   |   |   |   |
+| Test JUnit 4 | 1 |   | :black_medium_square: | :black_medium_square: | :black_medium_square: |   |   |   |
+| Test Server 1.1 | 2 |   | :black_medium_square: |   |   | :black_medium_square: |   |   |
+| Test Server 1.2 | 2 |   | :black_medium_square: |   |   | :black_medium_square: |   |   |
+| Test Server 1.3 | 2 |   | :black_medium_square: |   |   | :black_medium_square: |   |   |
+| Test Server 1.4 | 2 |   | :black_medium_square: |   |   |   |   | :black_medium_square: |
+| Test Server 2.1 |   |   |   |   |   |   |   |   |
+| Test Server 2.2 |   |   |   |   |   |   |   |   |
+| Test Responsive 1 | 1 | :black_medium_square: |   |   |   |   |   |   |
+| Test Responsive 2 | 1 | :black_medium_square: |   |   |   |   |   |   |
+| Test Resource 1 | 1 |   |   |   | :black_medium_square: |   |   |   |
+| Test Resource 2 | 1 |   |   |   | :black_medium_square: |   |   |   |
+| Test Resource 3 | 1 |   |   |   | :black_medium_square: |   |   |   |
+| Test Resource 4 | 1 |   |   |   | :black_medium_square: |   |   |   |
+| Test Resource 5 | 1 |   |   |   | :black_medium_square: |   |   |   |
+| Test Operating System 1 | 1 |   |   |   |   | :black_medium_square: |   |   |
+| Test Performance 1 | 5 | :black_medium_square: | :black_medium_square: | :black_medium_square: | :black_medium_square: | :black_medium_square: | :black_medium_square: | :black_medium_square: | :black_medium_square: |
+| Test Acceptance 1 | 5 | :black_medium_square: | :black_medium_square: | :black_medium_square: | :black_medium_square: | :black_medium_square: | :black_medium_square: | :black_medium_square: | :black_medium_square: |
+| Test Vulnerability 1 | 1 |   | :black_medium_square: |   |   |   |   |   |   |
+| Test Licence 1 | 1 |   | :black_medium_square: |   |   |   |   |   |   |   |
+| Test Browser 1 |   |   |   |   |   |   |   |   |   |   |
