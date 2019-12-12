@@ -54,3 +54,17 @@ Testers are responsible for test implementation and test execution. Both manual 
 
 ### Constraints
 The major constraints of this project is the current Time Budget of 40 hours per week, per participant. This amounts to approximately 320 total hours between all participants during the upcoming 4 weeks of development.
+
+## Strategy
+### Testing
+#### Manual
+- Test Objective: Execute Test Cases without utilizing any computerization devices.
+- Approach: Iterates through all Test Cases.
+- Criteria: Detect flaws and document them.
+#### Automated
+- Test Objective: Detect bugs, fails & errors through automation.
+- Approach: Execute Tests with automated tools.
+- Criteria: Detect flaws and document them.
+
+## Risks
+
