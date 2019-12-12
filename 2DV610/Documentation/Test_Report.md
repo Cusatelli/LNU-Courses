@@ -200,3 +200,54 @@
 | Expected Result | Server is Responsive | 
 | Result | Server is Responsive |
 | Status | :heavy_check_mark: Passed |
+
+### Other Tests
+#### Operating System
+| No. | Description |
+|:---|:---|
+| Operating System Test 1 | Test Operating Systems |
+| Requirement | Req 3. The web server must work on Linux, Mac, Windows*. |
+| Use Case | - |
+| Expected Result | The Server should work on all Operating Systems (Linux, Mac OS X & Windows) |
+| Result | Majority of tests were carried out by Windows users therefore this result is not sufficient to grant a Status of Pass.<br>However with some more hours of work we could probably give a Status of Pass. |
+| Status | :x: Not Applicable |
+
+#### GPL-2.0 License
+| No. | Description |
+|:---|:---|
+| License Test 1 | Test GPL-2.0 License |
+| Requirement | Req 4: The source code should be released under GPL-2.0. |
+| Use Case | - |
+| Expected Result | The Server is licensed under GPL-2.0 License. |
+| Result | The Server is licensed under the MIT license.<br>A GPL-2.0 License requires you to make your source-code Open Source. However a MIT License does not. |
+| Status | :x: Failed |
+
+#### Web-Browser
+| No. | Description |
+|:---|:---|
+| Browser Test 1 | Test Browser |
+| Requirement | - |
+| Use Case | - |
+| Expected Result | ‘It works’ is displayed on all Web-Browsers. |
+| Result | ‘It works’ is displayed on all Web-Browsers. |
+| Status | :heavy_check_mark: Passed |
+
+#### Performance
+| No. | Description |
+|:---|:---|
+| Performance Test 1 | Test Performance |
+| Requirement | - |
+| Use Case | - |
+| Expected Result | All Tests Pass. |
+| Result | Zero Tests Passed. |
+| Status | :x: Failed |
+
+#### Acceptance
+| No. | Description |
+|:---|:---|
+| Acceptance Test 1 | Test Acceptance |
+| Requirement | - |
+| Use Case | - |
+| Expected Result | All Tests Pass. |
+| Result | Majority of Tests Pass. |
+| Status | :heavy_check_mark: Passed |
