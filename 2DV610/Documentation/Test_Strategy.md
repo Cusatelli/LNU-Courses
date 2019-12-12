@@ -23,4 +23,34 @@ web-server. [...]”
 |   | 4 | Mac OS X High Sierra | - |
 | 2 | 5 | - | - |
 
+## Software
+| Name | Version |
+|---|---|
+| JMeter | - |
+| SmartMeter.io | - |
+| Postman | - |
+| CURL | - |
 
+### Integrated Drive Electronics (IDE)
+| Name | Version |
+|---|---|
+| Eclipse | 2019.2 |
+
+### Testing
+| Name | Version |
+|---|---|
+| JUnit | 5 |
+| Mockito | 1.9.5 |
+| Vega | - |
+
+## Roles
+In this section it is described which participants of the testing team performed which roles & what these roles might involve.
+
+### Manager
+The Managers responsibility is Test Planning & Development Test Cases. They are also responsible for prioritizing Test Cases and writing the documentation.
+
+### Testers
+Testers are responsible for test implementation and test execution. Both manual and automated testing falls within this responsibility. Though the Manager is responsible for the documentation the Testers are also required to participate in the creation of the Test Plan and communication with all team members.
+
+### Constraints
+The major constraints of this project is the current Time Budget of 40 hours per week, per participant. This amounts to approximately 320 total hours between all participants during the upcoming 4 weeks of development.
