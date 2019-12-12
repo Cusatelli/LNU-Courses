@@ -250,4 +250,49 @@
 | Expected Results | The Web-Server is GPL-2.0 Licensed. |
 | Comments |  |
 
+## Additional Tests
+### Vulnerability
+| Vulnerability Test 1 | Vulnerability Check |
+|---|---|
+| Requirement | - |
+| Use Case | UC1: Start Server |
+| Scenario | The Web-Server Should pass a minimum Vulnerability Check during Server Startup. |
+| Precondition | Server is online. |
+| Test Steps | <ol><li>Start Server.</li><li>Select a URL with the 1091 Port.</li><li>Execute Test.</li></ol> |
+| Expected Results | No Vulnerabilities are found. |
+| Comments | Tested with Vega. |
 
+### Browser
+| Browser Test 1 | Test Browser |
+|---|---|
+| Requirement | - |
+| Use Case | - |
+| Scenario | The Web-Server Should be accessible through multiple web-browsers. |
+| Precondition | Server is online. |
+| Test Steps | <ol><li>Go to: ‘localhost:9091’ using:<ul><li>Microsoft Edge v.44.18362.449.0 (64-bit).</li><li>Google Chrome v.79.0.3945.79 (64-bit).</li><li>Mozilla Firefox v.71 (64-bit).</li><li>Safari v.12 (64-bit).</li></ul></li></ol> |
+| Expected Results | ‘It works’ is displayed in each web-browser when run. |
+| Comments |
+
+
+### Performance
+| Performance Test 1 | Test Performance |
+|---|---|
+| Requirement | - |
+| Use Case | - |
+| Scenario | The Web-Server Should respond during a performance test. |
+| Precondition | Server is online. |
+| Test Steps | <ol><li>Start Server.</li><li>Select a URL with the 1091 Port.</li><li>Run SmartMeter.io test.</li><li>Wait for Results...</li></ol> |
+| Expected Results | The Server is Responsive. |
+| Alternate Scenario | <ol><li>The server is not responsive.<ol><li>Error Messages is displayed.</li></ol></li></ol> |
+| Comments | Tested with SmartMeter.io. |
+
+### Acceptance
+| Acceptance Test 1 | Test Acceptance |
+|---|---|
+| Requirement | - |
+| Use Case | - |
+| Scenario | The Web-Server is tested & ready for release. |
+| Precondition | - |
+| Test Steps | <ol><li>Run JUnit Tests.</li><li>Run Manual Tests.</li></ol> |
+| Expected Results | All Tests Pass. |
+| Comments |  |
