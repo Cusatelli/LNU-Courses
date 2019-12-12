@@ -181,3 +181,22 @@
 | Expected Result | ‘Response Code 405’ |
 | Result | ‘Response Code 405’ |
 | Status | :heavy_check_mark: Passed |
+
+#### High Load
+| No. | Description |
+|:---|:---|
+| Responsive Test 1 | High Load (1 000 users) |
+| Requirement | Req 1: The web server should be responsive under high load. |
+| Use Case | - |
+| Expected Result | Server is Responsive | 
+| Result | Server is Responsive |
+| Status | :heavy_check_mark: Passed |
+
+| No. | Description |
+|:---|:---|
+| Responsive Test 2 | High Load (50 000 users) |
+| Requirement | Req 1: The web server should be responsive under high load. |
+| Use Case | - |
+| Expected Result | Server is Responsive | 
+| Result | Server is Responsive |
+| Status | :heavy_check_mark: Passed |
