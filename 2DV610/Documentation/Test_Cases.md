@@ -201,3 +201,27 @@
 | Expected Results | Web Server responds with status code 405. |
 | Alternate Scenario | <ol><li>The web Server responds with a different status code.<ol><li>Exit Test Case.</li></ol></li></ol> |
 | Comments | Tested with JMeter:<br>:x: Response Result: 405 - Method Not Supported |
+
+## Requirement 1: Responsive Server under High Load (JMeter)
+### High Loads
+| Response Test 1 | High Load |
+|---|---|
+| Requirement | Req 1: The web server should be responsive under high load. |
+| Use Case | - |
+| Scenario | The Web Server should be able to respond under High Loads. |
+| Precondition | Server is running on port 1091. |
+| Test Steps | <ol><li>Create 1000 Thread Group Users.</li><li>Set Loop Count to 1.</li><li>Execute Test.</li></ol> |
+| Expected Results | The Web-Server is still Responsive. |
+| Alternate Scenario | <ol><li>The Server is not responsive under high loads.<ol><li>Long Response Time</li><li>Error Messages are displayed.</li></ol></li></ol> |
+| Comments | Tested with JMeter. |
+
+| Response Test 2 | High Load |
+|---|---|
+| Requirement | Req 1: The web server should be responsive under high load. |
+| Use Case | - |
+| Scenario | The Web Server should be able to respond under High Loads. |
+| Precondition | Server is running on port 1091. |
+| Test Steps | <ol><li>Create 100 Thread Group Users.</li><li>Set Loop Count to 500.</li><li>Execute Test.</li></ol> |
+| Expected Results | The Web-Server is still Responsive. |
+| Alternate Scenario | <ol><li>The Server is not responsive under high loads.<ol><li>Long Response Time</li><li>Error Messages are displayed.</li></ol></li></ol> |
+| Comments | Tested with JMeter. |
