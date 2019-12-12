@@ -9,5 +9,16 @@ Internet Of Things (IOT) to present information from sensors etc. SDC wants an e
 deployed on many different devices and therefore that can attract attention of a wide range of IOT developers. 
 IOT-developers want minimal configuration as well as easy integration and adaptation of the web-server. [...]” 
 
-
 - [Software Testing Assignment 2: Scenario](https://coursepress.lnu.se/kurs/mjukvarutestning/labs/a2/)
+
+## Goals
+### Software Development Company:
+- Easy to deploy Java-Web-Server which is compatible with many different devices.
+- Attract a wide range of IoT developers.
+### Internet of Things:
+- Minimal Required Configuration.
+- Easy Integration and Adaptation of the Web-Server.
+### End-Customers:
+- Easy Access.
+- Absolute Security.
+
