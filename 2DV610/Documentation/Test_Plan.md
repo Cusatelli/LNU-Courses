@@ -271,7 +271,7 @@ The Tester is responsible for designing and executing manual & automated tests a
 
 ## Version Control
 | Version | Implementation | Revision Date | Comments |
-|:---|:---|---:|---:|
+|:---|:---|---:|---|
 | 1.0 | Student 1 | 2019-11-20 | First Draft |
 | 1.1 | Student 1 | 2019-11-24 | Updated Test Plan Heading |
 | 1.2 | Student 1 | 2019-11-29 | Updated Prioritization & Traceability Matrix |
