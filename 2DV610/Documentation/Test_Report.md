@@ -135,3 +135,49 @@
 | Expected Result | Access Log is written & is viewable in a Text-Editor (i.e Notepad). |
 | Result | Access Log is not Created & No notification message (like ‘HTTP Server Stopped’  is displayed in the Console Window. |
 | Status | :x: Failed |
+
+#### Status Tests (JMeter)
+| No. | Description |
+|:---|:---|
+| Resource Test 1 | HTTP 1.1 Status 200 |
+| Requirement | Req 2: The web server must follow minimum requirements for HTTP 1.1 |
+| Use Case | UC3 Request Shared Resource |
+| Expected Result | ‘Response Code 200’ |
+| Result | ‘Response Code 200’ |
+| Status | :heavy_check_mark: Passed |
+
+| No. | Description |
+|:---|:---|
+| Resource Test 2 | HTTP 1.1 Status 400 |
+| Requirement | Req 2: The web server must follow minimum requirements for HTTP 1.1 |
+| Use Case | UC3 Request Shared Resource |
+| Expected Result | ‘Response Code 400’ |
+| Result | ‘Response Code 400’ |
+| Status | :heavy_check_mark: Passed |
+
+| No. | Description |
+|:---|:---|
+| Resource Test 3 | HTTP 1.1 Status 403 |
+| Requirement | Req 2: The web server must follow minimum requirements for HTTP 1.1 |
+| Use Case | UC3 Request Shared Resource |
+| Expected Result | ‘Response Code 403’ |
+| Result | ‘Response Code 403’ |
+| Status | :heavy_check_mark: Passed |
+
+| No. | Description |
+|:---|:---|
+| Resource Test 4 | HTTP 1.1 Status 404 |
+| Requirement | Req 2: The web server must follow minimum requirements for HTTP 1.1 |
+| Use Case | UC3 Request Shared Resource |
+| Expected Result | ‘Response Code 404’ |
+| Result | ‘Response Code 404’ |
+| Status | :heavy_check_mark: Passed |
+
+| No. | Description |
+|:---|:---|
+| Resource Test 5 | HTTP 1.1 Status 405 |
+| Requirement | Req 2: The web server must follow minimum requirements for HTTP 1.1 |
+| Use Case | UC3 Request Shared Resource |
+| Expected Result | ‘Response Code 405’ |
+| Result | ‘Response Code 405’ |
+| Status | :heavy_check_mark: Passed |
