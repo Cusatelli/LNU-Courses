@@ -112,3 +112,23 @@ heavy workload and analyze overall performance under different load types.
 | Consideration |  |
 | Testers | Student 1 & Student 2 |
 | Elements | Requirement 1: The Web-Server should be responsive under high loads. |
+
+### Load Testing
+|  |  |
+|:---|---|
+| Objective | Identify the Systems Responsiveness & Stability under different workloads. |
+| Technique | Use Cases will be executed while using the jMeter tool for automated testing. |
+| Criteria | All Planned Tests have been executed & all issues have been found & exposed. |
+| Consideration |  |
+| Testers | Student 1 & Student 2 |
+| Elements | See Test Cases Documentation. |
+
+### Stress Testing
+|  |  |
+|:---|---|
+| Objective | Identify the Systems Responsiveness & Stability under abnormal workloads. |
+| Technique | Use Cases will be executed while using the jMeter tool for automated testing. |
+| Criteria | All Planned Tests have been executed & all issues have been found & exposed. |
+| Consideration |  |
+| Testers | Student 1 & Student 2 |
+| Elements | See Test Cases Documentation. |
