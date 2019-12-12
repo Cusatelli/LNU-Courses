@@ -66,3 +66,12 @@ heavy workload and analyze overall performance under different load types.
 | Testers | Student 1 & Student 2 |
 | Elements | See Test Cases Documentation |
 
+### Regression Testing
+|  |  |
+|:---|---|
+| Objective | Ensure that Changes does not result in another issues such as faults being uncovered within the application. |
+| Technique | Execute Relevant Test Cases multiple times. |
+| Criteria | All Planned Tests have been executed & all issues have been found & exposed. |
+| Consideration |  |
+| Testers | Student 1 & Student 2 |
+
