@@ -253,3 +253,11 @@ N/A
 |                          | Google Chrome   | 79.0.3945.79   | x64 |
 
 #### Java Version: 1.8 & Java SE 13.0.1
+
+## Responsibilities
+### Manager
+The Manager is responsible for Coordination, Communication with the Project Manager, Final Responsible for Documentation, Design & Evaluation of Tests.
+
+### Tester
+The Tester is responsible for designing and executing manual & automated tests as well as documenting results.
+
