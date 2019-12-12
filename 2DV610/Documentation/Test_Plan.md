@@ -102,3 +102,13 @@ heavy workload and analyze overall performance under different load types.
 | Criteria | All Planned Tests have been executed & all issues have been found & exposed. |
 | Consideration |  |
 | Testers | Student 1 & Student 2 |
+
+### Performance Testing
+|  |  |
+|:---|---|
+| Objective | Identify Possible Bottlenecks & Performance Issues |
+| Technique | Stress & Load Test will be executed using the SmartMeter.io tool for automated testing. |
+| Criteria | The system has on-par Response Times consistently. |
+| Consideration |  |
+| Testers | Student 1 & Student 2 |
+| Elements | Requirement 1: The Web-Server should be responsive under high loads. |
