@@ -132,3 +132,23 @@ heavy workload and analyze overall performance under different load types.
 | Consideration |  |
 | Testers | Student 1 & Student 2 |
 | Elements | See Test Cases Documentation. |
+
+### Usability Testing
+|  |  |
+|:---|---|
+| Objective | Evaluating the Accessibility & Convenience of the System. |
+| Technique | Black Box Testing |
+| Criteria | The Application is easy to use & all errors are diagnosed correctly. |
+| Consideration |  |
+| Testers | Student 1 & Student 2 |
+| Elements | See Test Cases Documentation. |
+
+### Security Testing
+|  |  |
+|:---|---|
+| Objective | Evaluating the Vulnerability of the System. |
+| Technique | Use Cases will be executed while using the Vega tool for automated testing. |
+| Criteria | All Possible Tests have been executed & all issues have been found & exposed. |
+| Consideration |  |
+| Testers | Student 1 & Student 2 |
+| Elements | See Test Cases Documentation. |
