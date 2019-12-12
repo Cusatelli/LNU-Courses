@@ -56,4 +56,13 @@ heavy workload and analyze overall performance under different load types.
 | Consideration |  |
 | Testers | Student 1 & Student 2 |
 
+### System Testing
+|  |  |
+|:---|---|
+| Objective | Ensure that Functional & Technical Specifications of the System & detect bugs & defects within the Software. |
+| Technique | Execute all Test Cases. |
+| Criteria | All Planned Tests have been executed & all issues have been found & exposed. |
+| Consideration | Unit & Integration Testing must be completed before System Testing can begin. |
+| Testers | Student 1 & Student 2 |
+| Elements | See Test Cases Documentation |
 
