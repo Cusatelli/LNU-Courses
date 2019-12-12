@@ -278,3 +278,19 @@ The Tester is responsible for designing and executing manual & automated tests a
 | 1.3 | Student 1 | 2019-12-04 | Updated Documentation |
 | 1.4 | Student 1 | 2019-11-10 | Updated Documentation |
 | 1.5 | Student 1 | 2019-11-12 | Final Draft Before Peer-Review |
+
+## Glossary
+#### Ad-Hoc Testing:
+“Ad hoc testing is a commonly used term for software testing performed without planning and documentation, but can be applied to early scientific experimental studies. The tests are intended to be run only once, unless a defect is discovered.”
+
+<i>Source:</i> [https://en.wikipedia.org/wiki/Ad_hoc_testing](https://en.wikipedia.org/wiki/Ad_hoc_testing)
+
+#### Portability Testing:
+“Portability testing is the process of determining the degree of ease or difficulty to which a software component or application can be effectively and efficiently transferred from one hardware, software or other operational or usage environment to another.”
+
+<i>Source:</i> [https://en.wikipedia.org/wiki/Portability_testing](https://en.wikipedia.org/wiki/Portability_testing)
+
+#### Traceability Matrix:
+“Traceability matrix is a document, usually in the form of a table, used to assist in determining the completeness of a relationship by correlating any two baselined documents using a many-to-many relationship comparison. It is often used with high-level requirements (these often consist of marketing requirements) and detailed requirements of the product to the matching parts of high-level design, detailed design, test plan, and test cases.“
+
+<i>Source:</i> [https://en.wikipedia.org/wiki/Traceability_matrix](https://en.wikipedia.org/wiki/Traceability_matrix)
