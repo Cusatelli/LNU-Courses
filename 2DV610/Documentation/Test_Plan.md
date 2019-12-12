@@ -84,3 +84,12 @@ heavy workload and analyze overall performance under different load types.
 | Consideration |  |
 | Testers | Student 1 & Student 2 |
 | Elements | Ad-Hoc. |
+
+### Alpha Testing
+|  |  |
+|:---|---|
+| Objective | Ensure the quality of the product is up to par with the requirements. |
+| Technique | White Box and Black Box Testing performed. |
+| Criteria | All Test Cases have been Executed & Passed.<br>All Severity Issues are Fixed & Closed.<br>Delivery of Test Summary Report.|
+| Consideration |  |
+| Testers | Student 1 & Student 2 |
