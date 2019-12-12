@@ -25,3 +25,48 @@
 | 21 | - | - | Test Browser 1 | Browser | M |
 | 22 | - | - | Test Performance 1 | Performance | M |
 | 23 | - | - | Test Acceptance 1 | Acceptance | A/M |
+
+## JUnit Tests
+### Integration
+| JUnit Test 1 | Integration |
+|---|---|
+| Requirement | Req 1: The Web-Server should be responsive under High Load. |
+| Use Case | - |
+| Scenario | Confirm that pre-existing JUnit Tests are functioning. |
+| Precondition | Server is running. |
+| Test Steps | Run the Integration package as JUnit Test. |
+| Expected Results | All tests pass with a print out in console which says how many times the server has been created successfully, failed or throws an Exception. |
+| Comments | Automated Test Package Location: ‘<i>tests/se/lnu/http/integration</i>’. |
+
+### Response
+| JUnit Test 2 | Response |
+|---|---|
+| Requirement | Req 2: The Web-Server must follow minimum requirements for HTTP 1.1. |
+| Use Case | - |
+| Scenario | Confirm that pre-existing JUnit Tests are functioning. |
+| Precondition | Server is running. |
+| Test Steps | Run the Response package as JUnit Test. |
+| Expected Results | All tests pass. Response status should work as intended. |
+| Comments | Automated Test Package Location: ‘<i>tests/se/lnu/http/response</i>’. |
+
+### View
+| JUnit Test 3 | View |
+|---|---|
+| Requirement | - |
+| Use Case | - |
+| Scenario | Confirm that pre-existing JUnit Tests are functioning & test if console logs expected values from the Server. |
+| Precondition | Server is running. |
+| Test Steps | Run the view package as JUnit Test. |
+| Expected Results | All tests pass. Console displays expected values from server. |
+| Comments | Automated Test Package Location: ‘<i>tests/se/lnu/http/view</i>’. |
+
+### Grouped
+| JUnit Test 4 | Grouped |
+|---|---|
+| Requirement | - |
+| Use Case | - |
+| Scenario | A Group of Automated Tests confirming the functionality of pre-existing JUnit Tests. |
+| Precondition | Server is running. |
+| Test Steps | Run the ‘<i>se.lnu.http</i>’ package as JUnit Test. |
+| Expected Results | All tests pass. |
+| Comments | Automated Test Package Location: ‘<i>tests/se/lnu/http</i>’. |
