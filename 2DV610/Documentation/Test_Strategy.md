@@ -67,4 +67,12 @@ The major constraints of this project is the current Time Budget of 40 hours per
 - Criteria: Detect flaws and document them.
 
 ## Risks
+| No. | Risk | Mitigation | Impact |
+|---|---|---|---|
+| 1 | Connection Loss | Stable Internet Connection | High |
+| 2 | Security Breach | Data Encryption | High |
+| 3 | Data Leakage | Non-disclosure Agreements | Medium |
+| 4 | Incompetence | Education | Medium |
+| 5 | Personal Hindrance | Team Communication | Medium |
+| 6 | Natural Disasters | Back-up Data | Low |
 
