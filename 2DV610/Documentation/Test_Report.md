@@ -79,3 +79,59 @@
 | Expected Result | No vulnerabilities. |
 | Result | No specified charset(UTF-8) within the response header/body was found. |
 | Status | :x: Failed |
+
+### Manual Tests
+#### Start Server
+| No. | Description |
+|:---|:---|
+| Server Test 1.1 | Start Server |
+| Requirement | Req 3: The web server must work on Linux, Mac, Windows*. |
+| Use Case | UC1 Start Server |
+| Expected Result | ‘HTTP Server Started’ is displayed in Terminal Window.<br>‘It works’ is shown in Web-Page (localhost:1091) |
+| Result | ‘HTTP Server Started’ is displayed in Terminal Window.<br>‘It works’ is shown in Web-Page (localhost:1091) |
+| Status | :heavy_check_mark: Passed |
+
+| No. | Description |
+|:---|:---|
+| Server Test 1.2 | Wrong Socket |
+| Requirement | Req 3: The web server must work on Linux, Mac, Windows*. |
+| Use Case | UC1 Start Server |
+| Expected Result | 'Enter a valid port 1-65535 and an optional URL’ is displayed in Terminal Window. |
+| Result | 'Enter a valid port 1-65535 and an optional URL’ is displayed in Terminal Window. |
+| Status | :heavy_check_mark: Passed |
+
+| No. | Description |
+|:---|:---|
+| Server Test 1.3 | Taken Socket |
+| Requirement | Req 3: The web server must work on Linux, Mac, Windows*. |
+| Use Case | UC1 Start Server |
+| Expected Result | 'Port is taken’ is displayed in Console Window. |
+| Result | 'Port is taken’ is displayed in Console Window. |
+| Status | :heavy_check_mark: Passed |
+
+| No. | Description |
+|:---|:---|
+| Server Test 1.4 | Access Log Written |
+| Requirement | Req 5: The access log should be viewable from a text editor. |
+| Use Case | UC1 Start Server |
+| Expected Result | Access Log is Created & is viewable in a Text-Editor (i.e Notepad). |
+| Result | Access Log is not Created & No error message is displayed in the Console Window. |
+| Status | :x: Failed |
+
+| No. | Description |
+|:---|:---|
+| Server Test 2.1 | Stop Server |
+| Requirement | Req 3: The web server must work on Linux, Mac, Windows*. |
+| Use Case | UC2 Stop Server |
+| Expected Result | ‘HTTP Server Stopped’ is displayed in Terminal Window.<br>Web-Page no longer loads  (localhost:1091). |
+| Result | ‘HTTP Server Stopped’ is displayed in Terminal Window.<br>Web-Page no longer loads  (localhost:1091) |
+| Status | :heavy_check_mark: Passed |
+
+| No. | Description |
+|:---|:---|
+| Server Test 2.2 | Access Log Written on Server Stop |
+| Requirement | Req 5: The access log should be viewable from a text editor. |
+| Use Case | UC2 Stop Server |
+| Expected Result | Access Log is written & is viewable in a Text-Editor (i.e Notepad). |
+| Result | Access Log is not Created & No notification message (like ‘HTTP Server Stopped’  is displayed in the Console Window. |
+| Status | :x: Failed |
