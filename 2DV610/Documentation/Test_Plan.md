@@ -22,3 +22,8 @@ IOT-developers want minimal configuration as well as easy integration and adapta
 - Easy Access.
 - Absolute Security.
 
+## Scope
+Manual & Automated Testing will be performed to ensure maximum coverage. Manual Testing will ensure that functionality
+is on-par with the requirements through different Test Cases. Automated Testing will ensure that the system can handle
+heavy workload and analyze overall performance under different load types.
+
