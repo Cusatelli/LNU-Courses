@@ -182,3 +182,30 @@ heavy workload and analyze overall performance under different load types.
 
 ## Features not to be Tested
 N/A
+
+## Prioritization
+| Test Case | Name | Priority |
+|:---|:---|---:|
+| Test JUnit 1 | Integration | High |
+| Test JUnit 2 | Response | High |
+| Test JUnit 3 | View | High |
+| Test JUnit 4 | Grouped | High |
+| Test Server 1.1 | Start Server | High |
+| Test Server 2.1 | Stop Server | High |
+| Test Server 2.2 | Access Log is Written on Server Stop | High |
+| Test Responsive 1 | High Load | High |
+| Test Responsive 2 | High Load | High |
+| Test Server 1.4 | Access Log Written | High |
+| Test Resource 1 | HTTP 1.1 Status 200 | High |
+| Test Resource 2 | HTTP 1.1 Status 400 | High |
+| Test Resource 3 | HTTP 1.1 Status 403 | High |
+| Test Resource 4 | HTTP 1.1 Status 404 | High |
+| Test Resource 5 | HTTP 1.1 Status 405 | High |
+| Test Operating System 1 | Test Operating System | High |
+| Test Performance 1 | Test Performance | Medium |
+| Test Acceptance 1 | Test Acceptance | Medium |
+| Test Server 1.2 | Wrong Socket | Medium |
+| Test Server 1.3 | Taken Socket | Medium |
+| Test Vulnerability 1 | Vulnerability Check | Low |
+| Test Browser 1 | Test Browser | Low |
+| Test Licence 1 | Test GPL-2.0 License | Low |
