@@ -238,3 +238,18 @@ N/A
 | Test Vulnerability 1 | 1 |   | :black_medium_square: |   |   |   |   |   |   |
 | Test Licence 1 | 1 |   | :black_medium_square: |   |   |   |   |   |   |   |
 | Test Browser 1 |   |   |   |   |   |   |   |   |   |   |
+
+## Test Environment
+#### Web Server: 'MyWebServer'
+| Operating System | Browser | Version | Bits |
+|:---|:---|---:|---:|
+| Windows 10               | Microsoft Edge  | 44.18362.449.0 | x64 |
+|                          | Mozilla Firefox | 71             | x64 |
+|                          | Google Chrome   | 79.0.3945.79   | x64 |
+| Linux Ubuntu 18.04.3 LTS | Mozilla Firefox | 71             | x64 |
+|                          | Google Chrome   | 79.0.3945.79   | x64 |
+| Mac OS X High Sierra     | Safari          | 12             | x64 |
+|                          | Mozilla Firefox | 71             | x64 |
+|                          | Google Chrome   | 79.0.3945.79   | x64 |
+
+#### Java Version: 1.8 & Java SE 13.0.1
