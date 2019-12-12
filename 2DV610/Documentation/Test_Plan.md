@@ -38,4 +38,12 @@ heavy workload and analyze overall performance under different load types.
 | Testers | Student 1 & Student 2 |
 | Elements | <ul><li>Requirement 2: The Web-Server must follow Minimum Requirements for HTTP 1.1.</li><li>Requirement 3: The Web-Server must work of Linux, Mac OSX & Windows (XP, Vista, 7, 8, 10, Server 2008).</li><li>Requirement 5: The Access Log should be viewable from a text editor.</li><li>Use Case 1: Start Server.</li><li>Use Case 2: Stop Server.</li></ul> |
 
+### Unit Testing
+|  |  |
+|:---|---|
+| Objective | Ensure Functionality & Code Coverage of JUnit Test Suites. |
+| Technique | Execute each JUnit Test Suite. |
+| Criteria | All Planned Tests have been executed & all issues have been found & exposed. |
+| Consideration | The JUnit tests must have been executed while the server is running to simulate a real-life scenario. |
+| Testers | Student 1 & Student 2 |
 
