@@ -144,3 +144,60 @@
 | Expected Results | ‘HTTP Server Stopped’ is displayed in the Terminal Window. |
 | Alternate Scenario | <ol><li>The Server does not stop.<ol><li>System is still running.</li><li>Exit Test Case.</li></ol><li>Access Log is created but no notifications are displayed.</li></ol>
 | Comments | PortSocket: 1091<br>SharedResource: ~/Github/LNU-Courses/2DV610/MyWebServer/tests/se/lnu/http/resources/inner<br><br>No Log File was created... |
+
+## UC3: Request Shared Resource (Req. 2)
+### HTTP 1.1 Status
+| Resource Test 1 | HTTP 1.1 Status 200 |
+|---|---|
+| Requirement | Req 2: The web server must follow minimum requirements for HTTP 1.1 |
+| Use Case | UC3: Request Shared Resource |
+| Scenario | The Web Server should be able to respond to HTML & Status Code 200. |
+| Precondition | Server is running on port 1091. |
+| Test Steps | <ol><li>HTTP Request Get: /index.html</li><li>Execute Test.</li></ol> |
+| Expected Results | Web Server responds with status code 200. |
+| Alternate Scenario | <ol><li>The web Server responds with a different status code.<ol><li>Exit Test Case.</li></ol></li></ol> |
+| Comments | Tested with JMeter:<br>:heavy_check_mark: Response Result: 200 |
+
+| Resource Test 2 | HTTP 1.1 Status 400 |
+|---|---|
+| Requirement | Req 2: The web server must follow minimum requirements for HTTP 1.1 |
+| Use Case | UC3: Request Shared Resource |
+| Scenario | The Web Server should be able to respond to HTML & Status Code 400. |
+| Precondition | Server is running on port 1091. |
+| Test Steps | <ol><li>HTTP Request Get: /index.html</li><li>Enter: ‘fml’ in body of html.</li><li>Execute Test.</li></ol> |
+| Expected Results | Web Server responds with status code 400. |
+| Alternate Scenario | <ol><li>The web Server responds with a different status code.<ol><li>Exit Test Case.</li></ol></li></ol> |
+| Comments | Tested with JMeter:<br>:x: Response Result: 400 - Bad Request |
+
+| Resource Test 3 | HTTP 1.1 Status 403 |
+|---|---|
+| Requirement | Req 2: The web server must follow minimum requirements for HTTP 1.1 |
+| Use Case | UC3: Request Shared Resource |
+| Scenario | The Web Server should be able to respond to HTML & Status Code 403. |
+| Precondition | Server is running on port 1091. |
+| Test Steps | <ol><li>HTTP Request Get: /../secret.html</li><li>Execute Test.</li></ol> |
+| Expected Results | Web Server responds with status code 403. |
+| Alternate Scenario | <ol><li>The web Server responds with a different status code.<ol><li>Exit Test Case.</li></ol></li></ol> |
+| Comments | Tested with JMeter:<br>:x: Response Result: 403 - Forbidden |
+
+| Resource Test 4 | HTTP 1.1 Status 404 |
+|---|---|
+| Requirement | Req 2: The web server must follow minimum requirements for HTTP 1.1 |
+| Use Case | UC3: Request Shared Resource |
+| Scenario | The Web Server should be able to respond to HTML & Status Code 404. |
+| Precondition | Server is running on port 1091. |
+| Test Steps | <ol><li>HTTP Request Get: /imaginary.fml</li><li>Execute Test.</li></ol> |
+| Expected Results | Web Server responds with status code 404. |
+| Alternate Scenario | <ol><li>The web Server responds with a different status code.<ol><li>Exit Test Case.</li></ol></li></ol> |
+| Comments | Tested with JMeter:<br>:x: Response Result: 404 - Not Found |
+
+| Resource Test 5 | HTTP 1.1 Status 405 |
+|---|---|
+| Requirement | Req 2: The web server must follow minimum requirements for HTTP 1.1 |
+| Use Case | UC3: Request Shared Resource |
+| Scenario | The Web Server should be able to respond to HTML & Status Code 405. |
+| Precondition | Server is running on port 1091. |
+| Test Steps | <ol><li>HTTP Request IMAGINARY: /index.html</li><li>Execute Test.</li></ol> |
+| Expected Results | Web Server responds with status code 405. |
+| Alternate Scenario | <ol><li>The web Server responds with a different status code.<ol><li>Exit Test Case.</li></ol></li></ol> |
+| Comments | Tested with JMeter:<br>:x: Response Result: 405 - Method Not Supported |
