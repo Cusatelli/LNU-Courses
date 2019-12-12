@@ -27,3 +27,15 @@ Manual & Automated Testing will be performed to ensure maximum coverage. Manual 
 is on-par with the requirements through different Test Cases. Automated Testing will ensure that the system can handle
 heavy workload and analyze overall performance under different load types.
 
+## Testing Levels
+### Functional Testing
+|  |  |
+|:---|---|
+| Objective | Functionality & Data Retrieval |
+| Technique | Execute Use Cases using valid and invalid input data:<ul><li>Expected Results Occur when Valid Data is used.</li><li>Expected Error or Warning messages are displayed whenever Invalid Data is used.</li><li>Business Rules Applies.</li></ul> |
+| Criteria | All Planned Tests have been executed & all issues have been found & exposed. |
+| Consideration | Due to all workload being pushed on two developers the test may not reach the desired coverage before the deadline. |
+| Testers | Student 1 & Student 2 |
+| Elements | <ul><li>Requirement 2: The Web-Server must follow Minimum Requirements for HTTP 1.1.</li><li>Requirement 3: The Web-Server must work of Linux, Mac OSX & Windows (XP, Vista, 7, 8, 10, Server 2008).</li><li>Requirement 5: The Access Log should be viewable from a text editor.</li><li>Use Case 1: Start Server.</li><li>Use Case 2: Stop Server.</li></ul> |
+
+
