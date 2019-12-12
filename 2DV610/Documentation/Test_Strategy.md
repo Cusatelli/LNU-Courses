@@ -76,3 +76,16 @@ The major constraints of this project is the current Time Budget of 40 hours per
 | 5 | Personal Hindrance | Team Communication | Medium |
 | 6 | Natural Disasters | Back-up Data | Low |
 
+## Milestones
+| Milestone | Start Date | End Date | Time Spent<br>(hours) |
+|---|---|---|---|
+| Test Plan | 2019-11-19 | 2019-12 | 20 |
+| Test Design | 2019-11-22 | 2019-12 | 25 |
+| Test Implementation | 2019-11-28 | 2019-12 | 35 |
+| Test Execution | 2019-12-08 | 2019-12 | 25 |
+| Test Evaluation | 2019-12-13 | 2019-12 | 40 |
+
+## Package
+- Test Plan
+- Test Cases
+- Test Report
