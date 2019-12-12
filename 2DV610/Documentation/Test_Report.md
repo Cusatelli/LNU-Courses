@@ -1,4 +1,24 @@
 # Test Report
+## Table of Contents
+- [Overview](#overview)
+  * [Automated Tests](#automated-tests)
+  * [Manual Tests](#manual-tests)
+- [Assessment](#assessment)
+  * [Automated Tests](#automated-tests-1)
+    + [JUnit Tests](#junit-tests)
+    + [Security Tests](#security-tests)
+  * [Manual Tests](#manual-tests-1)
+    + [Start Server](#start-server)
+    + [Status Tests (JMeter)](#status-tests-jmeter)
+    + [High Load](#high-load)
+  * [Other Tests](#other-tests)
+    + [Operating System](#operating-system)
+    + [GPL-2.0 License](#gpl-20-license)
+    + [Web-Browser](#web-browser)
+    + [Performance](#performance)
+    + [Acceptance](#acceptance)
+- [Evaluation](#evaluation)
+
 ## Overview
 ### Automated Tests
 | No. | Description | Operating System | Date | Status |
