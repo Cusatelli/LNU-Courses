@@ -152,3 +152,23 @@ heavy workload and analyze overall performance under different load types.
 | Consideration |  |
 | Testers | Student 1 & Student 2 |
 | Elements | See Test Cases Documentation. |
+
+### Portability Testing
+|  |  |
+|:---|---|
+| Objective | Evaluating the Reusability of the System between different Operating Systems. |
+| Technique | Installing & Running the system on different Operating Systems such as Mac OSX, Windows & Linux. |
+| Criteria | The Software runs as expected on all Required Operating Systems. |
+| Consideration |  |
+| Testers | Student 1 & Student 2 |
+| Elements | Requirement 3: The Web-Server must work on Linux, Mac OSX & Windows (XP, Vista, 7, 8, 10, Server 2008). |
+
+### Ad-Hoc Testing
+|  |  |
+|:---|---|
+| Objective | Evaluating different aspects of the System. |
+| Technique | Testing aspects that do not have Random Use Cases. |
+| Criteria | The Software runs as expected on all Required Operating Systems. |
+| Consideration | The success rates of these tests relies on the testers capabilities and the institution of the tester performing the tests. |
+| Testers | Student 1 & Student 2 |
+| Elements | Ad-Hoc (See Glossary). |
