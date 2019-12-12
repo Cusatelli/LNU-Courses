@@ -172,3 +172,13 @@ heavy workload and analyze overall performance under different load types.
 | Consideration | The success rates of these tests relies on the testers capabilities and the institution of the tester performing the tests. |
 | Testers | Student 1 & Student 2 |
 | Elements | Ad-Hoc (See Glossary). |
+
+## Features to be Tested
+- Minimum Requirements during High Load.
+- Minimum Requirements for HTTP 1.1.
+- Access to the Log.
+- Server Multi-Platform Support.
+- Open Source Code following the Licence GPL 2.0
+
+## Features not to be Tested
+N/A
