@@ -1,7 +1,7 @@
 # Test Plan
 ## Objective
 The objective of the Test Plan documentation is to describe how the Testing of the System will be implemented & executed
-as well as document which requirements will be tested and which will not from the provided Requirements List.
+as well as document which requirements will be tested and which will not from the provided [Requirements List](https://docs.google.com/document/d/1fgQngHIZ4_aGIeB2S9YOBCghcBN9EEKBiaN-71MbGac/edit#).
 
 ## Background
 A small Software Development Company (SDC). “[...] SDC aims to redistribute this server on a wide range of 
