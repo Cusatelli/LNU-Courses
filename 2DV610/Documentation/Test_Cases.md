@@ -237,3 +237,17 @@
 | Test Steps | <ol><li>Install & Run the Web-Server on Windows.</li><li>Install & Run the Web-Server on Linux.</li><li>Install & Run the Web-Server on Mac OS X.</li><li>Exit Test Case.</li></ol> |
 | Expected Results | The Web-Server works on all Operating Systems. |
 | Comments | <b>Work in Progress…</b> |
+
+## Requirement 4: GPL-2.0 License
+### GPL-2.0 License
+| License Test 1 | Test GPL-2.0 License |
+|---|---|
+| Requirement | Req 4: The source code should be released under GPL-2.0. |
+| Use Case | - |
+| Scenario | The Web-Server should be under a GPL-2.0 Open Source License. |
+| Precondition | - |
+| Test Steps | <ol><li>Check ReadMe file documentation.</li><li>Check the GPL-2.0 License of the Web-Server.</li><li>Exit Test Case.</li></ol> |
+| Expected Results | The Web-Server is GPL-2.0 Licensed. |
+| Comments |  |
+
+
