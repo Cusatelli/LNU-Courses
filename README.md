@@ -13,7 +13,7 @@ This plan is for students starting the programme the fall semester 2015 and late
 |  | SP 3 |  | 1DV600 Software Technology | :heavy_check_mark: | [1DV507 Programming and Data Structures](1DV507/) |
 |  | SP 4 | :heavy_check_mark: | [1DV508 Project course in Computer Science](1DV508/) |  | 1MA462 Discrete Mathematics |
 | 2 | SP 1 | :heavy_check_mark: | [1DV607 Object Oriented Analysis and Design](1DV607/) | :heavy_check_mark: | [1DT301  Computer Technology 1](1DT301/) |
-|  | SP 2 |  | 2DV610 Software Testing |  | 1DV512 Operating Systems |
+|  | SP 2 |  | [2DV610 Software Testing](2DV610/) |  | [1DV512 Operating Systems](1DV512/) |
 |  | SP 3 |  | 2DV603 Software Engineering - Design |  | 1DV701 Computer Networks - an introduction |
 |  | SP 4 |  |  |  | 1DV517 Language and Logic |
 | 3 | SP 1 |  | 1DV525 Introduction to Web Programming |  | 1DV516 Algorithms and Advanced Data Structures |
