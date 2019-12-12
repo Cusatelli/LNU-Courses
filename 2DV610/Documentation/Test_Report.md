@@ -69,3 +69,13 @@
 | Expected Result | All tests pass. |
 | Result | All tests pass. |
 | Status | :heavy_check_mark: Passed |
+
+#### Security Tests
+| No. | Description |
+|:---|:---|
+| Vulnerability Test 1 | Vulnerability Check |
+| Requirement | - |
+| Use Case | UC1 Start Server |
+| Expected Result | No vulnerabilities. |
+| Result | No specified charset(UTF-8) within the response header/body was found. |
+| Status | :x: Failed |
