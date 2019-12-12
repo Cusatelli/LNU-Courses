@@ -93,3 +93,12 @@ heavy workload and analyze overall performance under different load types.
 | Criteria | All Test Cases have been Executed & Passed.<br>All Severity Issues are Fixed & Closed.<br>Delivery of Test Summary Report.|
 | Consideration |  |
 | Testers | Student 1 & Student 2 |
+
+### Non-Functional Testing
+|  |  |
+|:---|---|
+| Objective | Evaluate the Non-Functional Attributes of the System. |
+| Technique | Security, Performance, Stress & Load Testing the System. |
+| Criteria | All Planned Tests have been executed & all issues have been found & exposed. |
+| Consideration |  |
+| Testers | Student 1 & Student 2 |
