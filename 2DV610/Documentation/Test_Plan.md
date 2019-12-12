@@ -261,3 +261,13 @@ The Manager is responsible for Coordination, Communication with the Project Mana
 ### Tester
 The Tester is responsible for designing and executing manual & automated tests as well as documenting results.
 
+## Schedule
+## Version Control
+| Version | Implementation | Revision Date | Comments |
+|:---|:---|---:|---:|
+| 1.0 | Student 1 | 2019-11-20 | First Draft |
+| 1.1 | Student 1 | 2019-11-24 | Updated Test Plan Heading |
+| 1.2 | Student 1 | 2019-11-29 | Updated Prioritization & Traceability Matrix |
+| 1.3 | Student 1 | 2019-12-04 | Updated Documentation |
+| 1.4 | Student 1 | 2019-11-10 | Updated Documentation |
+| 1.5 | Student 1 | 2019-11-12 | Final Draft Before Peer-Review |
