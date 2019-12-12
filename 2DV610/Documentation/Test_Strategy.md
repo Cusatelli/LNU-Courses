@@ -1,4 +1,24 @@
 # Test Strategy
+## Table of Contents
+- [Objective](#objective)
+- [Stakeholders](#stakeholders)
+- [Resources](#resources)
+  * [Hardware](#hardware)
+  * [Software](#software)
+    + [Integrated Drive Electronics (IDE)](#integrated-drive-electronics-ide)
+    + [Testing](#testing)
+- [Roles](#roles)
+  * [Manager](#manager)
+  * [Testers](#testers)
+  * [Constraints](#constraints)
+- [Strategy](#strategy)
+  * [Testing](#testing-1)
+    + [Manual](#manual)
+    + [Automated](#automated)
+- [Risks](#risks)
+- [Milestones](#milestones)
+- [Package](#package)
+  
 ## Objective
 The objective of the Test Strategy documentation is to define a strategy for evaluating the current state of a Web-Server
 (“MyWebServer”) Application. The aim is to provide an estimation of how well suited this deprecated software is to use,
