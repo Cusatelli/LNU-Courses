@@ -75,3 +75,12 @@ heavy workload and analyze overall performance under different load types.
 | Consideration |  |
 | Testers | Student 1 & Student 2 |
 
+### Acceptance Testing
+|  |  |
+|:---|---|
+| Objective | Evaluate the Systems Compliance with the Business Requirements and Assess whether it is within acceptable levels. |
+| Technique | Ad-Hoc black box testing (See Glossary). |
+| Criteria | All issues have been found & addressed. |
+| Consideration |  |
+| Testers | Student 1 & Student 2 |
+| Elements | Ad-Hoc. |
