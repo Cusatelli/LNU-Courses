@@ -119,3 +119,28 @@
 | Expected Results | Log is created. The Access Log is viewable within a Text Editor (i.e NotePad). |
 | Alternate Scenario | <ol><li>Access Log is not created.</li><li>Access Log is created but no notifications are displayed.</li></ol> |
 | Comments | PortSocket: 1091<br>SharedResource: ~/Github/LNU-Courses/2DV610/MyWebServer/tests/se/lnu/http/resources/inner |
+
+## UC2: Stop Server
+### Stop Server
+| Server Test 2.1 | Stop Server |
+|---|---|
+| Requirement | Req 3: The Web-Server must work on Linux, Mac, Windows*. |
+| Use Case | UC2: Stop Server |
+| Scenario | The System stops the Web-Server & Displays that the webserver has been stopped. |
+| Precondition | Server is offline. |
+| Test Steps | <ol><li>Administrator launches Terminal.</li><li>Navigate to the directory where the .jar file is located.</li><li>Input: ‘java -jar MyWebServer.jar PortSocket SharedResource’<br>Press: ‘Enter’</li><li>Open prefered web-browser.</li><li>Enter: ‘localhost:9000’<br>Press: ‘Enter’</li><li>Input: ‘stop’ in the Terminal<br>Press: ‘Enter’</li></ol> |
+| Expected Results | ‘HTTP Server Stopped’ is displayed in the Terminal Window.<br>Web-Page no longer loads. |
+| Alternate Scenario | <ol><li>The web server does not Stop.<ol><li>System is still running.</li><li>Exit Test Case.</li></ol></li></ol> |
+| Comments | PortSocket: 1091<br>SharedResource: ~/Github/LNU-Courses/2DV610/MyWebServer/tests/se/lnu/http/resources/inner |
+
+### Access Log Written on Stop
+| Server Test 2.2 | Access Log Written on Stop |
+|---|---|
+| Requirement | Req 5: The access log should be viewable from a text editor. |
+| Use Case | UC2: Stop Server |
+| Scenario | When the server has stopped notification is displayed in the access log. |
+| Precondition | Server is running. |
+| Test Steps | <ol><li>Input: ‘stop’ in the Terminal Window.<br>Press: ‘Enter’.</li><li>Notification is displayed in the Access Log.</li><li>Access Log is accessible within a Text Editor (i.e NotePad).</li></ol> |
+| Expected Results | ‘HTTP Server Stopped’ is displayed in the Terminal Window. |
+| Alternate Scenario | <ol><li>The Server does not stop.<ol><li>System is still running.</li><li>Exit Test Case.</li></ol><li>Access Log is created but no notifications are displayed.</li></ol>
+| Comments | PortSocket: 1091<br>SharedResource: ~/Github/LNU-Courses/2DV610/MyWebServer/tests/se/lnu/http/resources/inner<br><br>No Log File was created... |
