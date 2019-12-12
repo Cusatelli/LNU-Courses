@@ -1,6 +1,7 @@
 # Test Cases
 ## Overview
 | No. | Requirements | Use Case | Test Case | Name | Type |
+|:---:|:---:|:---:|:---|:---|:---:|
 | 1 | 1 | - | JUnit Test 1 | Integration | A |
 | 2 | 2 | - | JUnit Test 2 | Response | A |
 | 3 | - | - | JUnit Test 3 | View | A |
