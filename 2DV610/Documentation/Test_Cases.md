@@ -225,3 +225,15 @@
 | Expected Results | The Web-Server is still Responsive. |
 | Alternate Scenario | <ol><li>The Server is not responsive under high loads.<ol><li>Long Response Time</li><li>Error Messages are displayed.</li></ol></li></ol> |
 | Comments | Tested with JMeter. |
+
+## Requirement 3: Operating System
+### Operating System
+| Operating System Test 1 | Test Operating System |
+|---|---|
+| Requirement | Req 3: The web server must work on Linux, Mac, Windows*. |
+| Use Case | - |
+| Scenario | Test the Web-Server on three different environments, using Linux, Mac OS X & Windows Operating Systems. |
+| Precondition | Access to all three Operating Systems. |
+| Test Steps | <ol><li>Install & Run the Web-Server on Windows.</li><li>Install & Run the Web-Server on Linux.</li><li>Install & Run the Web-Server on Mac OS X.</li><li>Exit Test Case.</li></ol> |
+| Expected Results | The Web-Server works on all Operating Systems. |
+| Comments | <b>Work in Progress…</b> |
