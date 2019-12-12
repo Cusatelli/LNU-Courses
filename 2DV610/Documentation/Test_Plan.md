@@ -47,3 +47,13 @@ heavy workload and analyze overall performance under different load types.
 | Consideration | The JUnit tests must have been executed while the server is running to simulate a real-life scenario. |
 | Testers | Student 1 & Student 2 |
 
+### Integration Testing
+|  |  |
+|:---|---|
+| Objective | Ensure Integration of the Software Modules. |
+| Technique | Execute the individual Software Modules as a group to verify the aggregation of the System. |
+| Criteria | All Planned Tests have been executed & all issues have been found & exposed. |
+| Consideration |  |
+| Testers | Student 1 & Student 2 |
+
+
