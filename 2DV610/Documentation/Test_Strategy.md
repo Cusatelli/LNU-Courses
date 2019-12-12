@@ -1,5 +1,4 @@
 ##### ![](https://mymoodle.lnu.se/pluginfile.php/1/theme_essential/logo/1573077602/lnu-logo.png)
----
 
 # Test Strategy
 ## Table of Contents
