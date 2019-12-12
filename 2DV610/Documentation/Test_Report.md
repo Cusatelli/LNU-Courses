@@ -251,3 +251,12 @@
 | Expected Result | All Tests Pass. |
 | Result | Majority of Tests Pass. |
 | Status | :heavy_check_mark: Passed |
+
+## Evaluation
+In the current state of the Software the Web-Server (‘MyWebServer’) would not be fit for redistribution according to SDCs desires. The majority of Tests concluded passed, however, the ones that failed are too important to the Software as a whole & therefore it would be too costly for SDC or the Client to repair the software before using. This is why we can not recommend further development on this software, with exception to a side-project between larger contracts (Assuming your company is Contract Based).
+
+Since the software does not use the GPL-2.0 License & rather the MIT License it would require all of the source code to be distributed or available for all clients & they would also be free to do whatever they desire with the software. I.E redistribute your work as their own under the ‘MyWebServer’ MIT license agreement.
+
+Furthermore, the ‘MyWebServer’ does not provide all of the required Access Log debugging notifications for a stable release of the software as it is critical to include at minimum a ‘HTTP Server Started’ & ‘HTTP Server Stopped’ in the Logs. Since Server Stopped notifications are not displayed it is very probable that there are many more notifications missing in the current build of the Source Code.
+
+Finally, we had access to all three listed Operating Systems for Testing this Software, however, we were unable to do the testing on these machines due to time-constraints from Personal Issues. This also influences our evaluation to discourage the use of this Software.
