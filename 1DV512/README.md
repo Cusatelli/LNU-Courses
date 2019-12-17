@@ -9,7 +9,7 @@ This course is focused on Operating Systems and its Concepts in Java.
 | Assignment | Passed |
 |---|---|
 | 1 | :heavy_check_mark: |
-| 2 | :x: |
+| 2 | :heavy_check_mark: |
 
 #### Grades Theoretical:
 | Assignment | Passed |
@@ -23,8 +23,9 @@ This course is focused on Operating Systems and its Concepts in Java.
 | 11 November 2019 | Uploaded Practical Assignment 1 |
 | 12 November 2019 | Practical Assignment 1 Submitted for grading |
 | 19 November 2019 | Uploaded Practical Assignment 2 |
-| 20 November 2019 | Practical Assignment 1 recieved a passing grade |
+| 20 November 2019 | Practical Assignment 1 received a passing grade |
 | 28 November 2019 | Theoretical Report & Presentation Handed-in & uploaded to GitHub |
+| 17 December 2019 | Practical Assignment 2 received a passing grade |
 
 ### Disclaimer:
 ```
