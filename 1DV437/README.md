@@ -6,7 +6,7 @@
 This course is focused on learning Unity Game programming in Unity 2D or 3D.
 
 #### The game:
-* Download a playable version of "V1 No 1C - 4T04" [here](https://drive.google.com/file/d/1Zxk5NmDqQy_A2IIRCP7VfIjhwsi4zeEs/view?usp=sharing)!
+* Download the Unity game files and/or a playable version of "V1 No 1C - 4T04" [here](https://drive.google.com/drive/folders/14ZitKgXZ6Zfut8XmQ_Cwq8U2_1hip1Hh?usp=sharing)!
 
 #### Software:
 * Unity2D
