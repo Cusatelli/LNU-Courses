@@ -5,6 +5,9 @@
 
 This course is focused on learning Unity Game programming in Unity 2D or 3D.
 
+#### The game:
+* Download a playable version of "V1 No 1C - 4T04" [here](https://drive.google.com/file/d/1Zxk5NmDqQy_A2IIRCP7VfIjhwsi4zeEs/view?usp=sharing)!
+
 #### Software:
 * Unity2D
 
@@ -13,6 +16,7 @@ This course is focused on learning Unity Game programming in Unity 2D or 3D.
 |---|---|
 | 6 September 2019 | All assignments have been given a passing grade or higher. |
 | 11 June 2020 | All assignments have been uploaded to GitHub. |
+| 11 June 2020 | Latest version of the game files have been uploaded to Google Drive. |
 
 ### Disclaimer:
 ```
